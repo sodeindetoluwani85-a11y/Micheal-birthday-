@@ -1,1 +1,204 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Poppins:wght@300;400;600;700&display=swap');
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(180deg,#fff5f7,#ffe8ef,#fff8fb);
+min-height:100vh;
+overflow-x:hidden;
+padding:40px;
+}
+/* Floating Hearts */
+.backgroundHearts{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+background-image:
+radial-gradient(#ffb3c7 2px, transparent 2px);
+background-size:45px 45px;
+opacity:.25;
+z-index:-5;
+}
+/* Main Scrapbook */
+.scrapbook{
+max-width:1000px;
+margin:auto;
+background:#fffdfd;
+border-radius:35px;
+padding:45px;
+box-shadow:
+0 20px 45px rgba(0,0,0,.12);
+position:relative;
+}
+/* Cute Title */
+.title{
+font-size:55px;
+color:#ff5d8f;
+text-align:center;
+font-family:'Patrick Hand',cursive;
+margin-bottom:8px;
+}
+.subtitle{
+text-align:center;
+margin-bottom:35px;
+font-size:30px;
+color:#444;
+font-family:'Patrick Hand',cursive;
+}
+/* Sticky Notes */
+.sticky{
+position:absolute;
+padding:18px;
+background:#fff8ae;
+width:160px;
+border-radius:10px;
+font-family:'Patrick Hand',cursive;
+font-size:20px;
+box-shadow:0 8px 18px rgba(0,0,0,.15);
+}
+.choose{
+top:-20px;
+left:-40px;
+transform:rotate(-8deg);
+}
+.luck{
+right:-45px;
+top:120px;
+background:#ffd6ec;
+transform:rotate(8deg);
+}
+/* Music Card */
+.musicCard{
+background:white;
+border-radius:25px;
+padding:25px;
+margin-bottom:40px;
+border:3px dashed pink;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+text-align:center;
+}
+.musicCard h3{
+color:#ff5d8f;
+font-size:28px;
+margin-bottom:10px;
+}
+.musicCard p{
+font-size:18px;
+margin-bottom:20px;
+}
+/* Music Button */
+.musicButton{
+background:#ff5d8f;
+color:white;
+padding:16px 30px;
+border:none;
+border-radius:50px;
+font-size:18px;
+cursor:pointer;
+transition:.3s;
+}
+.musicButton:hover{
+transform:scale(1.08);
+}
+/* Progress */
+.progress{
+display:flex;
+justify-content:center;
+align-items:center;
+margin:35px 0;
+}
+.heart{
+width:24px;
+height:24px;
+border-radius:50%;
+background:#ffd1dc;
+}
+.heart.active{
+background:#ff5d8f;
+}
+.line{
+height:4px;
+width:100px;
+background:#ffd1dc;
+}
+/* Question Card */
+.questionCard{
+background:white;
+padding:40px;
+border-radius:25px;
+box-shadow:0 12px 22px rgba(0,0,0,.08);
+border:3px solid #ffe0ea;
+}
+.questionCard h2{
+text-align:center;
+font-size:34px;
+margin-bottom:30px;
+font-family:'Patrick Hand',cursive;
+}
+/* Answer Buttons */
+.answers{
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+.answer{
+padding:18px;
+font-size:22px;
+background:#fff5fa;
+border:2px solid pink;
+border-radius:20px;
+cursor:pointer;
+transition:.3s;
+}
+.answer:hover{
+background:#ffd6e8;
+transform:scale(1.03);
+}
+/* Message */
+#message{
+margin-top:25px;
+font-size:24px;
+font-family:'Patrick Hand',cursive;
+text-align:center;
+min-height:45px;
+}
+/* Navigation */
+.navigation{
+display:flex;
+justify-content:space-between;
+margin-top:35px;
+}
+.navigation button{
+padding:16px 32px;
+border:none;
+border-radius:40px;
+background:#ff5d8f;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+.navigation button:disabled{
+background:#d8d8d8;
+cursor:not-allowed;
+}
+/* Decorative flowers */
+.scrapbook::before{
+content:"🌸 🌷 🌼";
+position:absolute;
+top:20px;
+right:30px;
+font-size:32px;
+}
+.scrapbook::after{
+content:"💌 🎀 ✨";
+position:absolute;
+bottom:25px;
+left:35px;
+font-size:30px;
+}
