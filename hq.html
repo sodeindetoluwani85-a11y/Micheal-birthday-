@@ -1,148 +1,239 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>MICHAEL’S BIRTHDAY HQ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michael's Birthday HQ</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial;
-    background: #f7f3ee;
-    background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
-    overflow-x: hidden;
-    text-align: center;
+
+body{
+    margin:0;
+    font-family:'Trebuchet MS', sans-serif;
+    background:linear-gradient(to bottom,#fff4f8,#fffdf8);
+    overflow-x:hidden;
 }
 
-/* scrapbook container */
-.page {
-    padding: 30px;
+/* Floating balloons */
+.balloon{
+    position:fixed;
+    bottom:-100px;
+    font-size:50px;
+    animation:floatUp linear infinite;
+    pointer-events:none;
 }
 
-/* cards */
-.card {
-    background: white;
-    width: 80%;
-    max-width: 700px;
-    margin: 20px auto;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    transform: rotate(-1deg);
-}
-
-.card:nth-child(even) {
-    transform: rotate(1deg);
-}
-
-/* title */
-h1 {
-    font-size: 42px;
-    color: #ff4d6d;
-}
-
-h2 {
-    font-size: 24px;
-}
-
-/* floating balloons */
-.balloon {
-    position: absolute;
-    width: 30px;
-    height: 40px;
-    border-radius: 50%;
-    background: red;
-    animation: floatUp 10s linear infinite;
-    opacity: 0.7;
-}
-
-@keyframes floatUp {
-    from {
-        transform: translateY(100vh);
+@keyframes floatUp{
+    from{
+        transform:translateY(0);
     }
-    to {
-        transform: translateY(-120vh);
+    to{
+        transform:translateY(-120vh);
     }
 }
 
-/* music button */
-.music-btn {
-    padding: 12px 18px;
-    border: none;
-    border-radius: 20px;
-    background: #ff4d6d;
-    color: white;
-    cursor: pointer;
-    margin-top: 10px;
+/* Header */
+
+.hero{
+    text-align:center;
+    padding:60px 20px;
 }
+
+.hero h1{
+    color:#ff5c8d;
+    font-size:50px;
+}
+
+.hero p{
+    font-size:20px;
+}
+
+/* scrapbook board */
+
+.board{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+    padding:20px;
+}
+
+/* polaroids */
+
+.polaroid{
+    background:white;
+    padding:15px;
+    width:280px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    transform:rotate(-3deg);
+    border-radius:8px;
+}
+
+.polaroid:nth-child(even){
+    transform:rotate(3deg);
+}
+
+.polaroid img{
+    width:100%;
+    border-radius:5px;
+}
+
+.caption{
+    margin-top:10px;
+    font-size:16px;
+}
+
+/* diary card */
+
+.diary{
+    background:white;
+    width:80%;
+    max-width:700px;
+    margin:40px auto;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+.diary h2{
+    color:#ff5c8d;
+}
+
+/* game mission */
+
+.mission{
+    background:#fff0f5;
+    border:3px dashed #ff8fb1;
+    width:80%;
+    max-width:700px;
+    margin:30px auto;
+    padding:25px;
+    border-radius:20px;
+}
+
+.mission h2{
+    color:#ff4f84;
+}
+
+/* button */
+
+.next{
+    display:block;
+    margin:40px auto;
+    padding:15px 30px;
+    font-size:18px;
+    background:#ff5c8d;
+    color:white;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+}
+
+.next:hover{
+    transform:scale(1.05);
+}
+
 </style>
 </head>
-
 <body>
 
-<!-- 🎵 MUSIC (replace link if needed) -->
-<audio id="bgMusic" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d0b7c7a2a2.mp3?filename=romantic-110397.mp3" type="audio/mp3">
-</audio>
+<!-- BALLOONS -->
+<div class="balloon" style="left:5%; animation-duration:10s;">🎈</div>
+<div class="balloon" style="left:20%; animation-duration:12s;">🎈</div>
+<div class="balloon" style="left:35%; animation-duration:9s;">🎈</div>
+<div class="balloon" style="left:50%; animation-duration:11s;">🎈</div>
+<div class="balloon" style="left:65%; animation-duration:13s;">🎈</div>
+<div class="balloon" style="left:80%; animation-duration:10s;">🎈</div>
 
-<div class="page">
+<!-- HEADER -->
 
-<h1>Welcomeee!!!!🥹❤️</h1>
+<div class="hero">
 
-<div class="card">
-<h2>MICHAEL’S BIRTHDAY HQ (DO NOT PANIC)</h2>
+<h1>Welcomeee!!!! 🥹❤️</h1>
+
+<h2>MICHAEL'S BIRTHDAY HQ (DO NOT PANIC)</h2>
+
+<p>
+Level 1 Unlocked 🎮✨
+</p>
+
 </div>
 
-<div class="card">
+<!-- WHAT YOU ARE ABOUT TO SEE -->
+
+<div class="diary">
+
 <h2>WHAT YOU ARE ABOUT TO SEE</h2>
+
 <p>
 • Carefully curated information<br>
 • Inside jokes you may or may not remember<br>
 • Quizzes with questionable scoring systems<br>
 • Emotional evidence from unknown archives<br>
-• basically just completely “normal” stuff
+• Basically just completely “normal” stuff
 </p>
-<p><i>Everything here is intentional. Mostly.</i></p>
+
+<p><b>Everything here is intentional. Mostly.</b></p>
+
 </div>
 
-<div class="card">
+<!-- POLAROID SECTION -->
+
+<div class="board">
+
+<div class="polaroid">
+<img src="https://picsum.photos/300/250?1">
+<div class="caption">📸 Evidence #1</div>
+</div>
+
+<div class="polaroid">
+<img src="https://picsum.photos/300/250?2">
+<div class="caption">📸 Suspicious Activity</div>
+</div>
+
+<div class="polaroid">
+<img src="https://picsum.photos/300/250?3">
+<div class="caption">📸 Archived Moments</div>
+</div>
+
+</div>
+
+<!-- REMINDERS -->
+
+<div class="mission">
+
 <h2>BEFORE YOU CONTINUE</h2>
+
 <p>
 • You are still responsible for your reactions<br>
-• Confusion is completely valid cause I’ll be confused too🤣<br>
+• Confusion is completely valid cause I'll be confused too🤣<br>
 • Complaints will be documented and respectfully ignored<br>
 • Refreshing the page will achieve absolutely nothing<br>
 • Yes, this could have been a normal message
 </p>
+
 </div>
 
-<div class="card">
-<h2>NOTE</h2>
+<!-- FINAL NOTE -->
+
+<div class="diary">
+
+<h2>💌 IMPORTANT NOTE</h2>
+
 <p>
-You must complete all tasks before you can reach the final level. Goodluck❤️
+You must complete all tasks before you can reach the final level.
 </p>
 
-<button class="music-btn" onclick="document.getElementById('bgMusic').play()">
-▶ Play Background Music
+<p>
+Goodluck❤️
+</p>
+
+</div>
+
+<button class="next"
+onclick="alert('Level 2 coming soon 😌')">
+Proceed to Level 2 🎮
 </button>
-</div>
-
-</div>
-
-<script>
-// 🎈 BALLOONS
-for (let i = 0; i < 15; i++) {
-    let balloon = document.createElement("div");
-    balloon.classList.add("balloon");
-
-    balloon.style.left = Math.random() * window.innerWidth + "px";
-    balloon.style.background = ["#ff4d6d","#ffd166","#06d6a0","#4dabf7","#b197fc"][Math.floor(Math.random()*5)];
-    balloon.style.animationDuration = (5 + Math.random()*5) + "s";
-
-    document.body.appendChild(balloon);
-}
-</script>
 
 </body>
 </html>
