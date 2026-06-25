@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Birthday Warning ❤️</title>
+<title>Warning Page</title>
 
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     background: #f7f3ee;
     background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
     text-align: center;
@@ -17,24 +17,22 @@ body {
 /* scrapbook card */
 .card {
     background: white;
-    display: inline-block;
-    padding: 30px;
-    margin-top: 50px;
-    width: 80%;
-    max-width: 600px;
+    max-width: 700px;
+    margin: auto;
+    padding: 40px;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     transform: rotate(-1deg);
 }
 
-/* text styling */
+/* big Pinterest-style text */
 h1 {
-    font-size: 42px;
+    font-size: 48px;
     color: #ff4d6d;
 }
 
 p {
-    font-size: 22px;
+    font-size: 24px;
     line-height: 1.6;
 }
 
@@ -60,16 +58,6 @@ button {
     border: 2px dashed #ff4d6d;
     position: absolute;
 }
-
-/* subtle cute decoration */
-.tag {
-    display: inline-block;
-    background: #ffe6ea;
-    padding: 5px 10px;
-    border-radius: 10px;
-    font-size: 14px;
-    margin-bottom: 10px;
-}
 </style>
 </head>
 
@@ -77,41 +65,40 @@ button {
 
 <div class="card">
 
-    <div class="tag">📌 scrapbook entry</div>
+<h1>WARNING ⚠️</h1>
 
-    <h1>WARNING ⚠️</h1>
+<p>
+This website contains dangerous levels cringe, nostalgia, slightly chaotic and poorly hidden affection
+</p>
 
-    <p>
-    This website contains dangerous levels cringe, nostalgia, slightly chaotic and poorly hidden affection
-    </p>
+<p>
+Side effects may include: smiling and questioning how long this took to make😭
+</p>
 
-    <p>
-    Side effects may include: smiling and questioning how long this took to make😭
-    </p>
+<p><b>Proceed at your own risk</b></p>
 
-    <p><b>Proceed at your own risk</b></p>
+<h2>Button:</h2>
 
-    <h2>Button:</h2>
+<!-- ACCEPT BUTTON (goes to main.html) -->
+<a href="main.html">
+<button class="accept">I accept the risk</button>
+</a>
 
-  <a href="./main.html">
-  <button class="accept">Accept Terms</button>
-</a>  
-
-    <button id="runaway" class="no">
-    No
-    </button>
+<!-- NO BUTTON -->
+<button class="no" id="noBtn">No</button>
 
 </div>
 
 <script>
-const button = document.getElementById("runaway");
+// ONLY moves when clicked
+const btn = document.getElementById("noBtn");
 
-document.addEventListener("mousemove", function () {
+btn.addEventListener("click", function () {
     const x = Math.random() * (window.innerWidth - 120);
     const y = Math.random() * (window.innerHeight - 80);
 
-    button.style.left = x + "px";
-    button.style.top = y + "px";
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
 });
 </script>
 
