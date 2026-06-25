@@ -1,89 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-<title>Level 1 | Michael's Birthday</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Level 1 • Michael's Birthday</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-<div class="backgroundHearts"></div>
+
+<!-- Floating Hearts -->
+<div class="hearts"></div>
+
+<!-- Scrapbook -->
+
 <div class="scrapbook">
-<!-- Sticky Note -->
+
+<!-- Polaroids -->
+
+<img src="images/tolu.jpg" class="photo photo1">
+
+<img src="images/IMG_4160.jpeg" class="photo photo2">
+
+<!-- Tape -->
+
+<div class="tape tape1"></div>
+
+<div class="tape tape2"></div>
+
+<!-- Sticky Notes -->
+
 <div class="sticky choose">
+
 Choose carefully 😌
+
 </div>
+
 <div class="sticky luck">
+
 Good-luck love ❤️
+
+You'll need it.
+
 </div>
-<!-- TITLE -->
-<h1 class="title">
+
+<!-- Title -->
+
+<h1>
+
 🎮 LEVEL ONE
+
 </h1>
-<h2 class="subtitle">
+
+<h2>
+
 How Well Do You Know Your Girlfriend?
+
 </h2>
-<!-- MUSIC -->
+
+<!-- Music Card -->
+
 <div class="musicCard">
-<h3>🎵 Official Level One Soundtrack</h3>
+
+<h3>
+
+🎵 Official Level One Soundtrack
+
+</h3>
+
 <p>
-It's highly recommended that you play this while answering the questions.
-❤️ It makes the experience better.
+
+You're advised to play the soundtrack before answering.
+
+It makes the experience better. 🤍
+
 </p>
-<a
-href="https://www.youtube.com/results?search_query=Lover+Girl+Laufey"
-target="_blank">
-<button class="musicButton">
-🎵 Play "Lover Girl"
+
+<audio id="bgMusic">
+
+<source src="music/Laufey-lover-Girl(voxhiphop).mp3" type="audio/mpeg">
+
+</audio>
+
+<button id="playMusic">
+
+▶ Play Lover Girl
+
 </button>
-</a>
+
 </div>
-<!-- PROGRESS -->
+
+<!-- Progress -->
+
 <div class="progress">
+
 <div class="heart active"></div>
-<div class="line"></div>
+
 <div class="heart"></div>
-<div class="line"></div>
+
 <div class="heart"></div>
+
 </div>
-<!-- QUESTION CARD -->
-<div class="questionCard">
-<h2 id="question">
-What's her favourite snack?
-</h2>
-<div class="answers">
-<button class="answer"
-onclick="checkAnswer(0)">
-🍗 Chickwizz
-</button>
-<button class="answer"
-onclick="checkAnswer(1)">
-🍦 Ice Cream
-</button>
-<button class="answer"
-onclick="checkAnswer(2)">
-🥐 Cinnamon Rolls
-</button>
+
+<!-- Question Card -->
+
+<div class="card">
+
+<h3 id="question">
+
+Question loads here
+
+</h3>
+
+<div id="answers">
+
 </div>
-<!-- MESSAGE -->
-<div id="message"></div>
-<!-- NAVIGATION -->
-<div class="navigation">
-<button
-id="backButton"
-onclick="goBack()">
+
+<!-- Sticky popup -->
+
+<div id="popup">
+
+</div>
+
+<div class="buttons">
+
+<button id="back">
+
 ⬅ Back
+
 </button>
-<button
-id="nextButton"
-onclick="goNext()"
-disabled>
-Next ➡
+
+<button id="next" disabled>
+
+Next ➜
+
 </button>
+
 </div>
+
 </div>
+
 </div>
+
+<!-- Congratulations Screen -->
+
+<div id="finishScreen">
+
+<h1>
+
+🎉 Congratulations!!
+
+</h1>
+
+<h2>
+
+You made it to Level 2 ❤️
+
+</h2>
+
+<p>
+
+Not bad...
+
+Maybe you really do know me after all. 🤍
+
+</p>
+
+<button id="level2">
+
+Proceed to Level 2 🎮
+
+</button>
+
+</div>
+
 <script src="script.js"></script>
+
 </body>
+
 </html>
