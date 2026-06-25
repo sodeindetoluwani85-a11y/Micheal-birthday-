@@ -1,119 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Micheal's Birthday ❤️</title>
+<meta charset="UTF-8">
+<title>Birthday Warning ❤️</title>
 
 <style>
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     background: #f7f3ee;
     background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
     text-align: center;
-}
-
-/* scrapbook container */
-.page {
     padding: 40px;
 }
 
-/* torn paper cards */
+/* scrapbook card */
 .card {
     background: white;
     display: inline-block;
-    padding: 20px;
-    margin: 20px;
-    width: 300px;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    transform: rotate(-2deg);
+    padding: 30px;
+    margin-top: 50px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transform: rotate(-1deg);
 }
 
-/* random tilt effect */
-.card:nth-child(even) {
-    transform: rotate(2deg);
-}
-
-/* title */
+/* text styling */
 h1 {
-    font-size: 40px;
-    margin-bottom: 10px;
+    font-size: 42px;
+    color: #ff4d6d;
+}
+
+p {
+    font-size: 22px;
+    line-height: 1.6;
 }
 
 /* buttons */
 button {
     padding: 15px 25px;
-    font-size: 16px;
-    border-radius: 20px;
+    font-size: 18px;
+    border-radius: 25px;
     border: none;
     cursor: pointer;
-    margin-top: 10px;
+    margin: 10px;
 }
 
+/* accept button */
 .accept {
-    background: #ff6b81;
+    background: #ff4d6d;
     color: white;
 }
 
+/* runaway button */
 .no {
-    background: #fff;
-    border: 2px dashed #ff6b81;
+    background: white;
+    border: 2px dashed #ff4d6d;
     position: absolute;
 }
 
-/* hidden message */
-#message {
-    display: none;
-    font-size: 22px;
-    margin-top: 30px;
+/* subtle cute decoration */
+.tag {
+    display: inline-block;
+    background: #ffe6ea;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="page">
+<div class="card">
 
-    <div class="card">
-        <h1>⚠️ WARNING ⚠️</h1>
-        <p>
-        This page contains excessive Pinterest energy,
-        chaotic love notes, and scrapbook-level emotional damage.
-        </p>
-    </div>
+    <div class="tag">📌 scrapbook entry</div>
 
-    <div class="card">
-        <p>
-        Side effects may include:
-        smiling, nostalgia, confusion, and mild emotional confusion 😭
-        </p>
-    </div>
+    <h1>WARNING ⚠️</h1>
 
-    <div class="card">
-        <h2>Proceed at your own risk ❤️</h2>
+    <p>
+    This website contains dangerous levels cringe, nostalgia, slightly chaotic and poorly hidden affection
+    </p>
 
-        <button class="accept"
-        onclick="document.getElementById('message').style.display='block'">
-        I Accept The Risk
-        </button>
+    <p>
+    Side effects may include: smiling and questioning how long this took to make😭
+    </p>
 
-        <div id="message">
-            🎉 Welcome Micheal 🎉 <br><br>
-            You’ve officially entered your birthday scrapbook era 💌
-        </div>
-    </div>
+    <p><b>Proceed at your own risk</b></p>
 
-    <div class="card">
-        <h3>Try pressing “No” 👀</h3>
-        <button id="runaway" class="no">No</button>
-    </div>
+    <h2>Button:</h2>
+
+    <button class="accept"
+    onclick="alert('I knew you’d accept the risk ❤️ welcome')">
+    I accept the risk
+    </button>
+
+    <button id="runaway" class="no">
+    No
+    </button>
 
 </div>
 
 <script>
 const button = document.getElementById("runaway");
 
-document.addEventListener("mousemove", function() {
+document.addEventListener("mousemove", function () {
     const x = Math.random() * (window.innerWidth - 120);
     const y = Math.random() * (window.innerHeight - 80);
 
