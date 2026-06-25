@@ -1,1 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Micheal's Birthday ❤️</title>
 
+<style>
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #f7f3ee;
+    background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+    text-align: center;
+}
+
+/* scrapbook container */
+.page {
+    padding: 40px;
+}
+
+/* torn paper cards */
+.card {
+    background: white;
+    display: inline-block;
+    padding: 20px;
+    margin: 20px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transform: rotate(-2deg);
+}
+
+/* random tilt effect */
+.card:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+/* title */
+h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* buttons */
+button {
+    padding: 15px 25px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.accept {
+    background: #ff6b81;
+    color: white;
+}
+
+.no {
+    background: #fff;
+    border: 2px dashed #ff6b81;
+    position: absolute;
+}
+
+/* hidden message */
+#message {
+    display: none;
+    font-size: 22px;
+    margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="card">
+        <h1>⚠️ WARNING ⚠️</h1>
+        <p>
+        This page contains excessive Pinterest energy,
+        chaotic love notes, and scrapbook-level emotional damage.
+        </p>
+    </div>
+
+    <div class="card">
+        <p>
+        Side effects may include:
+        smiling, nostalgia, confusion, and mild emotional confusion 😭
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Proceed at your own risk ❤️</h2>
+
+        <button class="accept"
+        onclick="document.getElementById('message').style.display='block'">
+        I Accept The Risk
+        </button>
+
+        <div id="message">
+            🎉 Welcome Micheal 🎉 <br><br>
+            You’ve officially entered your birthday scrapbook era 💌
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Try pressing “No” 👀</h3>
+        <button id="runaway" class="no">No</button>
+    </div>
+
+</div>
+
+<script>
+const button = document.getElementById("runaway");
+
+document.addEventListener("mousemove", function() {
+    const x = Math.random() * (window.innerWidth - 120);
+    const y = Math.random() * (window.innerHeight - 80);
+
+    button.style.left = x + "px";
+    button.style.top = y + "px";
+});
+</script>
+
+</body>
+</html>
