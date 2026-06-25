@@ -4,16 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Michael's Birthday HQ</title>
-
 <style>
-
 body{
     margin:0;
     font-family:'Trebuchet MS', sans-serif;
     background:linear-gradient(to bottom,#fff4f8,#fffdf8);
     overflow-x:hidden;
 }
-
 /* Floating balloons */
 .balloon{
     position:fixed;
@@ -22,7 +19,6 @@ body{
     animation:floatUp linear infinite;
     pointer-events:none;
 }
-
 @keyframes floatUp{
     from{
         transform:translateY(0);
@@ -31,112 +27,53 @@ body{
         transform:translateY(-120vh);
     }
 }
-
 /* Header */
-
 .hero{
     text-align:center;
-    padding:60px 20px;
+    padding:60px 20px 30px;
 }
-
 .hero h1{
     color:#ff5c8d;
-    font-size:50px;
+    font-size:52px;
 }
-
-.hero p{
-    font-size:20px;
+.hero h2{
+    font-size:38px;
 }
-
-/* scrapbook board */
-
-.board{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:30px;
-    padding:20px;
-}
-
-/* polaroids */
-
-.polaroid{
+/* scrapbook cards */
+.card{
     background:white;
-    padding:15px;
-    width:280px;
-    box-shadow:0 10px 25px rgba(0,0,0,.15);
-    transform:rotate(-3deg);
-    border-radius:8px;
-}
-
-.polaroid:nth-child(even){
-    transform:rotate(3deg);
-}
-
-.polaroid img{
-    width:100%;
-    border-radius:5px;
-}
-
-.caption{
-    margin-top:10px;
-    font-size:16px;
-}
-
-/* diary card */
-
-.diary{
-    background:white;
-    width:80%;
-    max-width:700px;
-    margin:40px auto;
+    width:85%;
+    max-width:750px;
+    margin:25px auto;
     padding:30px;
     border-radius:15px;
-    box-shadow:0 10px 25px rgba(0,0,0,.12);
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    transform:rotate(-1deg);
 }
-
-.diary h2{
+.card:nth-child(even){
+    transform:rotate(1deg);
+}
+.card h2{
     color:#ff5c8d;
 }
-
-/* game mission */
-
-.mission{
-    background:#fff0f5;
-    border:3px dashed #ff8fb1;
-    width:80%;
-    max-width:700px;
-    margin:30px auto;
-    padding:25px;
-    border-radius:20px;
-}
-
-.mission h2{
-    color:#ff4f84;
-}
-
 /* button */
-
 .next{
     display:block;
-    margin:40px auto;
-    padding:15px 30px;
-    font-size:18px;
+    margin:50px auto;
+    padding:18px 35px;
+    font-size:20px;
     background:#ff5c8d;
     color:white;
     border:none;
     border-radius:30px;
     cursor:pointer;
 }
-
 .next:hover{
     transform:scale(1.05);
 }
-
 </style>
 </head>
 <body>
-
 <!-- BALLOONS -->
 <div class="balloon" style="left:5%; animation-duration:10s;">🎈</div>
 <div class="balloon" style="left:20%; animation-duration:12s;">🎈</div>
@@ -144,96 +81,55 @@ body{
 <div class="balloon" style="left:50%; animation-duration:11s;">🎈</div>
 <div class="balloon" style="left:65%; animation-duration:13s;">🎈</div>
 <div class="balloon" style="left:80%; animation-duration:10s;">🎈</div>
-
 <!-- HEADER -->
-
 <div class="hero">
-
-<h1>Welcomeee!!!! 🥹❤️</h1>
-
+<h1>Welcomeee!!!!🥹❤️</h1>
 <h2>MICHAEL'S BIRTHDAY HQ (DO NOT PANIC)</h2>
-
-<p>
-Level 1 Unlocked 🎮✨
-</p>
-
 </div>
-
 <!-- WHAT YOU ARE ABOUT TO SEE -->
-
-<div class="diary">
-
+<div class="card">
 <h2>WHAT YOU ARE ABOUT TO SEE</h2>
-
 <p>
-• Carefully curated information<br>
-• Inside jokes you may or may not remember<br>
-• Quizzes with questionable scoring systems<br>
-• Emotional evidence from unknown archives<br>
-• Basically just completely “normal” stuff
+• Carefully curated information<br><br>
+
+• Inside jokes you may or may not remember
+
+• Quizzes with questionable scoring systems
+
+• Emotional evidence from unknown archives
+
+• basically just completely “normal” stuff
+
 </p>
-
-<p><b>Everything here is intentional. Mostly.</b></p>
-
+<p><strong>Everything here is intentional. Mostly.</strong></p>
 </div>
-
-<!-- POLAROID SECTION -->
-
-<div class="board">
-
-<div class="polaroid">
-<img src="https://picsum.photos/300/250?1">
-<div class="caption">📸 Evidence #1</div>
-</div>
-
-<div class="polaroid">
-<img src="https://picsum.photos/300/250?2">
-<div class="caption">📸 Suspicious Activity</div>
-</div>
-
-<div class="polaroid">
-<img src="https://picsum.photos/300/250?3">
-<div class="caption">📸 Archived Moments</div>
-</div>
-
-</div>
-
 <!-- REMINDERS -->
-
-<div class="mission">
-
+<div class="card">
 <h2>BEFORE YOU CONTINUE</h2>
-
 <p>
-• You are still responsible for your reactions<br>
-• Confusion is completely valid cause I'll be confused too🤣<br>
-• Complaints will be documented and respectfully ignored<br>
-• Refreshing the page will achieve absolutely nothing<br>
+• You are still responsible for your reactions<br><br>
+
+• Confusion is completely valid cause I’ll be confused too🤣
+
+• Complaints will be documented and respectfully ignored
+
+• Refreshing the page will achieve absolutely nothing
+
 • Yes, this could have been a normal message
+
 </p>
-
 </div>
-
-<!-- FINAL NOTE -->
-
-<div class="diary">
-
-<h2>💌 IMPORTANT NOTE</h2>
-
+<!-- NOTE -->
+<div class="card">
+<h2>💌 NOTE</h2>
 <p>
 You must complete all tasks before you can reach the final level.
 </p>
-
 <p>
 Goodluck❤️
 </p>
-
 </div>
 
-<button class="next"
-onclick="alert('Level 2 coming soon 😌')">
-Proceed to Level 2 🎮
-</button>
-
+Proceed to Level 1 🎮
 </body>
 </html>
