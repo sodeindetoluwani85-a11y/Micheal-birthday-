@@ -1,1 +1,89 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+<title>Level 1 | Michael's Birthday</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="backgroundHearts"></div>
+<div class="scrapbook">
+<!-- Sticky Note -->
+<div class="sticky choose">
+Choose carefully 😌
+</div>
+<div class="sticky luck">
+Good-luck love ❤️
+</div>
+<!-- TITLE -->
+<h1 class="title">
+🎮 LEVEL ONE
+</h1>
+<h2 class="subtitle">
+How Well Do You Know Your Girlfriend?
+</h2>
+<!-- MUSIC -->
+<div class="musicCard">
+<h3>🎵 Official Level One Soundtrack</h3>
+<p>
+It's highly recommended that you play this while answering the questions.
+❤️ It makes the experience better.
+</p>
+<a
+href="https://www.youtube.com/results?search_query=Lover+Girl+Laufey"
+target="_blank">
+<button class="musicButton">
+🎵 Play "Lover Girl"
+</button>
+</a>
+</div>
+<!-- PROGRESS -->
+<div class="progress">
+<div class="heart active"></div>
+<div class="line"></div>
+<div class="heart"></div>
+<div class="line"></div>
+<div class="heart"></div>
+</div>
+<!-- QUESTION CARD -->
+<div class="questionCard">
+<h2 id="question">
+What's her favourite snack?
+</h2>
+<div class="answers">
+<button class="answer"
+onclick="checkAnswer(0)">
+🍗 Chickwizz
+</button>
+<button class="answer"
+onclick="checkAnswer(1)">
+🍦 Ice Cream
+</button>
+<button class="answer"
+onclick="checkAnswer(2)">
+🥐 Cinnamon Rolls
+</button>
+</div>
+<!-- MESSAGE -->
+<div id="message"></div>
+<!-- NAVIGATION -->
+<div class="navigation">
+<button
+id="backButton"
+onclick="goBack()">
+⬅ Back
+</button>
+<button
+id="nextButton"
+onclick="goNext()"
+disabled>
+Next ➡
+</button>
+</div>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
