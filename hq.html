@@ -1,1 +1,148 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MICHAEL’S BIRTHDAY HQ</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f7f3ee;
+    background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+    overflow-x: hidden;
+    text-align: center;
+}
+
+/* scrapbook container */
+.page {
+    padding: 30px;
+}
+
+/* cards */
+.card {
+    background: white;
+    width: 80%;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transform: rotate(-1deg);
+}
+
+.card:nth-child(even) {
+    transform: rotate(1deg);
+}
+
+/* title */
+h1 {
+    font-size: 42px;
+    color: #ff4d6d;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+/* floating balloons */
+.balloon {
+    position: absolute;
+    width: 30px;
+    height: 40px;
+    border-radius: 50%;
+    background: red;
+    animation: floatUp 10s linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(100vh);
+    }
+    to {
+        transform: translateY(-120vh);
+    }
+}
+
+/* music button */
+.music-btn {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 20px;
+    background: #ff4d6d;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 MUSIC (replace link if needed) -->
+<audio id="bgMusic" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d0b7c7a2a2.mp3?filename=romantic-110397.mp3" type="audio/mp3">
+</audio>
+
+<div class="page">
+
+<h1>Welcomeee!!!!🥹❤️</h1>
+
+<div class="card">
+<h2>MICHAEL’S BIRTHDAY HQ (DO NOT PANIC)</h2>
+</div>
+
+<div class="card">
+<h2>WHAT YOU ARE ABOUT TO SEE</h2>
+<p>
+• Carefully curated information<br>
+• Inside jokes you may or may not remember<br>
+• Quizzes with questionable scoring systems<br>
+• Emotional evidence from unknown archives<br>
+• basically just completely “normal” stuff
+</p>
+<p><i>Everything here is intentional. Mostly.</i></p>
+</div>
+
+<div class="card">
+<h2>BEFORE YOU CONTINUE</h2>
+<p>
+• You are still responsible for your reactions<br>
+• Confusion is completely valid cause I’ll be confused too🤣<br>
+• Complaints will be documented and respectfully ignored<br>
+• Refreshing the page will achieve absolutely nothing<br>
+• Yes, this could have been a normal message
+</p>
+</div>
+
+<div class="card">
+<h2>NOTE</h2>
+<p>
+You must complete all tasks before you can reach the final level. Goodluck❤️
+</p>
+
+<button class="music-btn" onclick="document.getElementById('bgMusic').play()">
+▶ Play Background Music
+</button>
+</div>
+
+</div>
+
+<script>
+// 🎈 BALLOONS
+for (let i = 0; i < 15; i++) {
+    let balloon = document.createElement("div");
+    balloon.classList.add("balloon");
+
+    balloon.style.left = Math.random() * window.innerWidth + "px";
+    balloon.style.background = ["#ff4d6d","#ffd166","#06d6a0","#4dabf7","#b197fc"][Math.floor(Math.random()*5)];
+    balloon.style.animationDuration = (5 + Math.random()*5) + "s";
+
+    document.body.appendChild(balloon);
+}
+</script>
+
+</body>
+</html>
