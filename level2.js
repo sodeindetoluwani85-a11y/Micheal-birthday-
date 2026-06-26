@@ -244,5 +244,26 @@ document.getElementById("backQuestion").onclick = () => {
   hide(questionPage);
   show(memoryHome);
 };
+const continueBtn = document.getElementById("continueLevel3");
+const responseText = document.getElementById("jokeResponse");
 
+document.querySelectorAll(".jokeOption").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const answer = btn.dataset.answer;
+
+    if (answer === "yes") {
+      responseText.textContent = "Correct 😌";
+      continueBtn.style.display = "block";
+    }
+
+    if (answer === "no") {
+      responseText.textContent = "think again🙄";
+      continueBtn.style.display = "none";
+    }
+  });
+});
+
+continueBtn.onclick = () => {
+  window.location.href = "level3.html";
+};
 });
