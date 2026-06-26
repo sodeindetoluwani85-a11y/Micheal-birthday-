@@ -1,5 +1,7 @@
+document.addEventListener("DOMContentLoaded", () => {
+
 const reasons = [
-`Your dad jokes😭, sometimes they actually make me laugh but I’ll never say this again😭`,
+`Your dad jokes😭, sometimes they actually make me laugh but I'll never say this again😭`,
 
 `I love how goofy you are and how you always try to make me do things that'll get rid of my anxiety🥹, even if it involves shouting "I'm a goat" before entering amphi😭`,
 
@@ -8,25 +10,36 @@ const reasons = [
 `I love how you always try to find a "fix" for every problem I have, even though you know you can't do much sometimes🥹`
 ];
 
+// Elements
 const envelopes = document.querySelectorAll(".envelope");
 const overlay = document.getElementById("letterOverlay");
 const letterText = document.getElementById("letterText");
 const closeBtn = document.getElementById("closeLetter");
 const finishedMessage = document.getElementById("finishedMessage");
+const goLevel4 = document.getElementById("goLevel4");
+
+// Make sure popup starts hidden
+overlay.style.display = "none";
 
 let opened = 0;
 
-envelopes.forEach((envelope,index)=>{
+envelopes.forEach((envelope, index) => {
 
-    envelope.addEventListener("click",()=>{
+    envelope.addEventListener("click", () => {
 
-        if(envelope.classList.contains("open")) return;
+        // Prevent opening the same envelope twice
+        if (envelope.classList.contains("opened")) {
 
-        envelope.classList.add("open");
+            overlay.style.display = "flex";
+            letterText.textContent = reasons[index];
+            return;
+        }
 
-        overlay.classList.remove("hidden");
+        envelope.classList.add("opened");
 
         letterText.textContent = reasons[index];
+
+        overlay.style.display = "flex";
 
         opened++;
 
@@ -34,11 +47,12 @@ envelopes.forEach((envelope,index)=>{
 
 });
 
-closeBtn.addEventListener("click",()=>{
+// Close popup
+closeBtn.addEventListener("click", () => {
 
-    overlay.classList.add("hidden");
+    overlay.style.display = "none";
 
-    if(opened===reasons.length){
+    if (opened === reasons.length) {
 
         finishedMessage.classList.remove("hidden");
 
@@ -46,8 +60,11 @@ closeBtn.addEventListener("click",()=>{
 
 });
 
-document.getElementById("goLevel4").addEventListener("click",()=>{
+// Go to Level 4
+goLevel4.addEventListener("click", () => {
 
-    window.location.href="level4.html";
+    window.location.href = "level4.html";
+
+});
 
 });
