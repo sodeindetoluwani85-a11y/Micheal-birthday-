@@ -244,18 +244,19 @@ document.getElementById("backQuestion").onclick = () => {
   hide(questionPage);
   show(memoryHome);
 };
-  const jokePage = document.getElementById("jokePage");
-const level3Page = document.getElementById("level3Page");
-const continueBtn = document.getElementById("continueLevel3");
+  const continueBtn = document.getElementById("continueLevel3");
 
-continueBtn.addEventListener("click", () => {
+if (continueBtn) {
+  continueBtn.addEventListener("click", () => {
 
-  if (!jokePage || !level3Page) return;
+    const jokePage = document.getElementById("jokePage");
+    const level3Page = document.getElementById("level3Page");
 
-  jokePage.classList.add("hidden");
-  level3Page.classList.remove("hidden");
+    if (jokePage) jokePage.classList.add("hidden");
+    if (level3Page) level3Page.classList.remove("hidden");
 
-});
+  });
+}
 
 const continueBtn = document.getElementById("continueLevel3");
 const responseText = document.getElementById("jokeResponse");
