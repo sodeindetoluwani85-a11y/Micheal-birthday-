@@ -197,25 +197,33 @@ function initJoke() {
   continueBtn.style.display = "none";
 
   document.querySelectorAll(".jokeOption").forEach(btn => {
+
     btn.onclick = () => {
+
       const answer = btn.dataset.answer;
 
       response.style.display = "block";
 
       if (answer === "yes") {
-        response.textContent = "Correct 😌";
-        continueBtn.style.display = "block";
+
+        response.innerHTML = "Because you're the only <strong>TEN I SEE</strong> 🤭❤️";
+
+        continueBtn.style.display = "inline-block";
+
       } else {
+
         response.textContent = "think again🙄";
+
         continueBtn.style.display = "none";
+
       }
+
     };
+
   });
 
   continueBtn.onclick = () => {
-    hide(jokePage);
-    show(level3Page);
+    window.location.href = "level3.html";
   };
 }
-
 });
