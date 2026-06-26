@@ -1,7 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
 
 /* =========================
-MEMORIES DATA
+SCREENS
+========================= */
+const loadingScreen = document.getElementById("loadingScreen");
+const memoryHome = document.getElementById("memoryHome");
+const questionPage = document.getElementById("questionPage");
+const memoryReveal = document.getElementById("memoryReveal");
+const finishPage = document.getElementById("finishPage");
+
+const jokePage = document.getElementById("jokePage");
+const level3Page = document.getElementById("level3Page");
+const continueBtn = document.getElementById("continueLevel3");
+const responseText = document.getElementById("jokeResponse");
+
+/* =========================
+STATE
+========================= */
+let currentIndex = 0;
+let progress = 0;
+
+/* =========================
+MEMORIES
 ========================= */
 const memories = [
   {
@@ -36,62 +56,34 @@ const memories = [
     message:
       "We both know Indomie is better. 🙄😂❤️"
   }
-
 ];
 
 /* =========================
-SCREENS
-========================= */
-const loadingScreen = document.getElementById("loadingScreen");
-const memoryHome = document.getElementById("memoryHome");
-const questionPage = document.getElementById("questionPage");
-const memoryReveal = document.getElementById("memoryReveal");
-const finishPage = document.getElementById("finishPage");
-
-/* =========================
-QUESTION ELEMENTS
-========================= */
-const questionTitle = document.getElementById("questionTitle");
-const optionContainer = document.getElementById("optionContainer");
-const memoryImage = document.getElementById("memoryImage");
-const memoryMessage = document.getElementById("memoryMessage");
-const nextBtn = document.getElementById("nextMemory");
-
-/* =========================
-STATE
-========================= */
-let currentIndex = 0;
-
-/* =========================
-FORCE SHOW/HIDE (NO CSS RELIANCE)
+HELPERS
 ========================= */
 function show(el) {
-  el.style.display = "block";
+  if (el) el.style.display = "block";
 }
 
 function hide(el) {
-  el.style.display = "none";
+  if (el) el.style.display = "none";
 }
 
 /* =========================
-LOADING SCREEN (ROBUST)
+LOADING
 ========================= */
-let progress = 0;
-
 const bar = document.getElementById("loadingProgress");
 const percent = document.getElementById("loadingPercent");
 
 function startLoading() {
   const interval = setInterval(() => {
-    progress += 2;
+    progress++;
 
     if (bar) bar.style.width = progress + "%";
     if (percent) percent.textContent = progress + "%";
 
     if (progress >= 100) {
       clearInterval(interval);
-
-      console.log("Loading finished");
 
       hide(loadingScreen);
       show(memoryHome);
@@ -102,7 +94,7 @@ function startLoading() {
 startLoading();
 
 /* =========================
-OPEN MEMORY QUESTION
+MEMORY SELECT
 ========================= */
 document.querySelectorAll(".memorySelect").forEach(btn => {
   btn.addEventListener("click", () => {
@@ -117,6 +109,9 @@ function openQuestion(index) {
   show(questionPage);
 
   const memory = memories[index];
+
+  const questionTitle = document.getElementById("questionTitle");
+  const optionContainer = document.getElementById("optionContainer");
 
   questionTitle.textContent = memory.question;
   optionContainer.innerHTML = "";
@@ -142,17 +137,13 @@ SUBMIT ANSWER
 document.getElementById("submitAnswer").addEventListener("click", () => {
   const selected = document.querySelector(".option.selected");
 
-  if (!selected) {
-    shake(document.getElementById("submitAnswer"));
-    return;
-  }
+  if (!selected) return;
 
   const answer = Number(selected.dataset.index);
   const memory = memories[currentIndex];
 
   if (answer === memory.correct) {
     showReveal(memory);
-    spawnHearts();
   } else {
     selected.classList.add("wrong");
     setTimeout(() => selected.classList.remove("wrong"), 500);
@@ -160,17 +151,21 @@ document.getElementById("submitAnswer").addEventListener("click", () => {
 });
 
 /* =========================
-REVEAL SCREEN
+REVEAL
 ========================= */
 function showReveal(memory) {
   hide(questionPage);
   show(memoryReveal);
 
+  const memoryImage = document.getElementById("memoryImage");
+  const memoryMessage = document.getElementById("memoryMessage");
+  const nextBtn = document.getElementById("nextMemory");
+
   memoryImage.style.display = "block";
   memoryMessage.style.display = "block";
 
   memoryImage.src = memory.image;
-  typeText(memoryMessage, memory.message);
+  memoryMessage.textContent = memory.message;
 
   nextBtn.onclick = nextMemory;
 }
@@ -186,105 +181,40 @@ function nextMemory() {
   if (currentIndex < memories.length) {
     openQuestion(currentIndex);
   } else {
-    document.getElementById("jokePage").classList.remove("hidden");
+    show(jokePage);
   }
 }
 
 /* =========================
-TYPEWRITER
+LEVEL 3 CONNECT
 ========================= */
-function typeText(el, text) {
-  el.textContent = "";
-  let i = 0;
-
-  const typing = setInterval(() => {
-    el.textContent += text[i];
-    i++;
-
-    if (i >= text.length) clearInterval(typing);
-  }, 20);
-}
-/* =========================
-HEARTS
-========================= */
-function spawnHearts() {
-  for (let i = 0; i < 15; i++) {
-    const heart = document.createElement("div");
-    heart.textContent = "💖";
-    heart.style.position = "fixed";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.top = "80vh";
-    heart.style.fontSize = "18px";
-    heart.style.animation = "floatUp 2s linear forwards";
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 2000);
-  }
-}
-
-/* =========================
-SHAKE
-========================= */
-function shake(el) {
-  el.style.transform = "translateX(-5px)";
-  setTimeout(() => (el.style.transform = "translateX(5px)"), 100);
-  setTimeout(() => (el.style.transform = "translateX(0)"), 200);
-}
-
-/* =========================
-BACK BUTTONS
-========================= */
-document.getElementById("backHome").onclick = () => {
-  hide(questionPage);
-  show(memoryHome);
-};
-
-document.getElementById("backQuestion").onclick = () => {
-  hide(questionPage);
-  show(memoryHome);
-};
-  const continueBtn = document.getElementById("continueLevel3");
-
 if (continueBtn) {
   continueBtn.addEventListener("click", () => {
-
-    const jokePage = document.getElementById("jokePage");
-    const level3Page = document.getElementById("level3Page");
-
-    if (jokePage) jokePage.classList.add("hidden");
-    if (level3Page) level3Page.classList.remove("hidden");
-
+    hide(jokePage);
+    show(level3Page);
   });
 }
 
-const continueBtn = document.getElementById("continueLevel3");
-const responseText = document.getElementById("jokeResponse");
-
-// ensure hidden at start
-responseText.style.display = "none";
+/* =========================
+JOKE SYSTEM (SAFE)
+========================= */
+if (responseText) {
+  responseText.style.display = "none";
+}
 
 document.querySelectorAll(".jokeOption").forEach(btn => {
   btn.addEventListener("click", () => {
     const answer = btn.dataset.answer;
 
-    // show response ONLY after click
+    if (!responseText) return;
+
     responseText.style.display = "block";
 
-    if (answer === "yes") {
-      responseText.textContent = "Correct 😌";
-      continueBtn.style.display = "block";
-    }
-
-    if (answer === "no") {
-      responseText.textContent = "think again🙄";
-      continueBtn.style.display = "none";
-    }
+    responseText.textContent =
+      answer === "yes"
+        ? "Correct 😌"
+        : "think again🙄";
   });
 });
 
-continueBtn.onclick = () => {
-  window.location.href = "level3.html";
-};
-      
 });
