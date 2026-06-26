@@ -244,6 +244,19 @@ document.getElementById("backQuestion").onclick = () => {
   hide(questionPage);
   show(memoryHome);
 };
+  const jokePage = document.getElementById("jokePage");
+const level3Page = document.getElementById("level3Page");
+const continueBtn = document.getElementById("continueLevel3");
+
+continueBtn.addEventListener("click", () => {
+
+  // hide joke page (Level 2 end)
+  jokePage.classList.add("hidden");
+
+  // show Level 3 page
+  level3Page.classList.remove("hidden");
+
+});
 const continueBtn = document.getElementById("continueLevel3");
 const responseText = document.getElementById("jokeResponse");
 
