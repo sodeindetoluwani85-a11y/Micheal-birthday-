@@ -1,8 +1,7 @@
-/* ===========================
-   LEVEL 2 - MEMORY LANE
-=========================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Quicksand:wght@400;600;700&display=swap');
+/* ===========================
+   MEMORY LANE
+=========================== */
 
 *{
 margin:0;
@@ -12,55 +11,13 @@ box-sizing:border-box;
 
 body{
 
-font-family:'Quicksand',sans-serif;
+font-family:'Patrick Hand',cursive;
 
-background:
-linear-gradient(180deg,#fff6fb,#ffe7f2,#fffdfd);
+background:#f8d6dd;
 
 overflow-x:hidden;
 
-min-height:100vh;
-
-padding:35px;
-
-}
-
-/* Floating Background */
-
-.hearts{
-
-position:fixed;
-
-inset:0;
-
-pointer-events:none;
-
-background-image:
-radial-gradient(#ffc4da 2px,transparent 2px);
-
-background-size:45px 45px;
-
-opacity:.22;
-
-animation:moveHearts 18s linear infinite;
-
-z-index:-10;
-
-}
-
-@keyframes moveHearts{
-
-from{
-
-transform:translateY(0);
-
-}
-
-to{
-
-transform:translateY(-70px);
-
-}
+color:#5b3b3b;
 
 }
 
@@ -72,9 +29,13 @@ Loading Screen
 
 position:fixed;
 
-inset:0;
+top:0;
+left:0;
 
-background:#fff3f8;
+width:100%;
+height:100%;
+
+background:#4d2f3a;
 
 display:flex;
 
@@ -84,67 +45,47 @@ justify-content:center;
 
 align-items:center;
 
-z-index:9999;
+z-index:999;
+
+color:white;
 
 }
 
-#loadingScreen h1{
+.loadingBar{
 
-font-family:'Patrick Hand',cursive;
-
-font-size:65px;
-
-color:#ff5d96;
-
-}
-
-#loadingScreen h2{
-
-font-size:38px;
-
-margin-top:10px;
-
-}
-
-#loadingScreen p{
-
-margin-top:20px;
-
-font-size:20px;
-
-color:#666;
-
-}
-
-.loader{
-
-width:300px;
+width:260px;
 
 height:18px;
 
-background:#ffdceb;
+background:white;
 
-border-radius:50px;
+border-radius:30px;
 
-margin-top:30px;
+margin-top:20px;
 
 overflow:hidden;
 
 }
 
-.progressBar{
-
-width:0%;
+.progress{
 
 height:100%;
 
-background:#ff5d96;
+width:0%;
 
-animation:loading 3s forwards;
+background:#ff79aa;
+
+animation:loading 3s linear forwards;
 
 }
 
 @keyframes loading{
+
+from{
+
+width:0%;
+
+}
 
 to{
 
@@ -154,582 +95,451 @@ width:100%;
 
 }
 
-/* Hide page until loading finishes */
+/* ===========================
+Main Page
+=========================== */
 
 #mainPage{
 
 display:none;
 
-}
+min-height:100vh;
 
-/* ===========================
-SCRAPBOOK
-=========================== */
-
-.scrapbook{
-
-max-width:1100px;
-
-margin:auto;
-
-background:white;
-
-border-radius:35px;
-
-padding:50px;
-
-box-shadow:0 18px 40px rgba(0,0,0,.12);
+padding:35px 20px 80px;
 
 position:relative;
 
-border:8px solid #fff;
+background:url("images/tolu.jpg");
+
+background-size:cover;
+
+background-position:center;
 
 }
 
-.scrapbook::before{
+/* ===========================
+Top Card
+=========================== */
 
-content:"";
+.topCard{
+
+width:90%;
+
+max-width:760px;
+
+margin:auto;
+
+background:#fff4ef;
+
+border-radius:20px;
+
+padding:20px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.15);
+
+text-align:center;
+
+position:relative;
+
+}
+
+.topCard h1{
+
+font-size:42px;
+
+color:#7b4c4c;
+
+}
+
+.topCard p{
+
+font-size:23px;
+
+margin-top:8px;
+
+}
+
+#backBtn{
 
 position:absolute;
 
-top:0;
+left:15px;
 
-left:0;
+top:15px;
 
-width:100%;
+border:none;
 
-height:20px;
+background:#f9d0d8;
 
-background:
+padding:8px 15px;
 
-repeating-radial-gradient(circle at 10px 10px,
+border-radius:20px;
 
-#ffd2e5 0 8px,
-
-transparent 8px 16px);
-
-border-radius:35px 35px 0 0;
+cursor:pointer;
 
 }
 
-.scrapbook h1{
+#musicBtn{
 
-font-family:'Patrick Hand',cursive;
+margin-top:18px;
 
-font-size:58px;
+background:#ff7cab;
 
-text-align:center;
+color:white;
 
-color:#ff5d96;
+border:none;
 
-}
+padding:12px 25px;
 
-.subtitle{
-
-text-align:center;
-
-margin:18px auto 35px;
+border-radius:40px;
 
 font-size:20px;
 
-max-width:650px;
+cursor:pointer;
 
-line-height:1.7;
+transition:.3s;
+
+}
+
+#musicBtn:hover{
+
+transform:scale(1.05);
+
+}
 
 /* ===========================
-   PROGRESS
+Corner Photos
 =========================== */
 
-.progress{
+.cornerPhoto{
 
-display:flex;
+position:absolute;
 
-justify-content:center;
+width:120px;
 
-gap:18px;
+border:8px solid white;
 
-margin-bottom:40px;
+box-shadow:0 8px 20px rgba(0,0,0,.2);
 
-}
-
-.circle{
-
-width:18px;
-
-height:18px;
-
-border-radius:50%;
-
-background:#ffd4e6;
-
-transition:.4s;
+border-radius:8px;
 
 }
 
-.circle.active{
+.leftPhoto{
 
-background:#ff5d96;
+left:30px;
 
-transform:scale(1.2);
+top:180px;
+
+transform:rotate(-8deg);
 
 }
 
+.rightPhoto{
+
+right:30px;
+
+top:180px;
+
+transform:rotate(8deg);
+
+}
 /* ===========================
 QUESTION CARD
 =========================== */
 
 .questionCard{
 
-background:#fff8fc;
-
-border-radius:30px;
-
-padding:35px;
-
-border:4px dashed #ffc6dc;
-
-box-shadow:0 10px 25px rgba(0,0,0,.08);
+width:92%;
 
 max-width:650px;
 
-margin:auto;
+margin:50px auto;
+
+background:#fff6f0;
+
+padding:30px;
+
+border-radius:22px;
+
+box-shadow:0 12px 25px rgba(0,0,0,.15);
+
+border:3px solid #f7d6d6;
 
 position:relative;
 
-animation:fadeUp .8s ease;
-
-}
-
-/* Decorative Tape */
-
-.questionCard::before{
-
-content:"";
-
-position:absolute;
-
-top:-18px;
-
-left:50%;
-
-transform:translateX(-50%) rotate(-4deg);
-
-width:140px;
-
-height:35px;
-
-background:#ffe29b;
-
-opacity:.85;
-
-border-radius:8px;
-
-}
-
-.questionCard h2{
-
-font-family:'Patrick Hand',cursive;
-
-font-size:40px;
-
 text-align:center;
 
-margin-bottom:30px;
-
-color:#444;
-
 }
 
-/* ===========================
-ANSWERS
-=========================== */
+.questionNumber{
 
-#answers{
+display:inline-block;
 
-display:flex;
+background:#f7b6c8;
 
-flex-direction:column;
+padding:8px 22px;
 
-gap:18px;
-
-}
-
-.answer{
-
-background:white;
-
-border:3px solid #ffd7e7;
-
-border-radius:18px;
-
-padding:18px;
+border-radius:30px;
 
 font-size:20px;
-
-cursor:pointer;
-
-transition:.3s;
-
-font-family:'Quicksand',sans-serif;
-
-}
-
-.answer:hover{
-
-background:#ffeef6;
-
-transform:translateY(-2px);
-
-}
-
-.answer.correct{
-
-background:#dfffe6;
-
-border-color:#69c47c;
-
-}
-
-.answer.wrong{
-
-background:#ffe4ea;
-
-border-color:#ff739f;
-
-animation:shake .45s;
-
-}
-
-/* ===========================
-POPUP NOTE
-=========================== */
-
-#popup{
-
-margin-top:25px;
-
-text-align:center;
-
-min-height:70px;
-
-font-family:'Patrick Hand',cursive;
-
-font-size:26px;
-
-color:#ff4d87;
-
-}
-
-/* ===========================
-MEMORY CARD
-=========================== */
-
-#memoryCard{
-
-display:none;
-
-margin-top:40px;
-
-background:#fffdfd;
-
-border-radius:30px;
-
-padding:30px;
-
-box-shadow:0 15px 30px rgba(0,0,0,.10);
-
-display:grid;
-
-grid-template-columns:320px 1fr;
-
-gap:35px;
-
-align-items:center;
-
-position:relative;
-
-overflow:hidden;
-
-animation:fadeUp .8s ease;
-
-}
-/* ===========================
-   MEMORY PHOTO (POLAROID)
-=========================== */
-
-.photo{
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-}
-
-.photo img{
-
-width:280px;
-
-background:white;
-
-padding:12px 12px 45px;
-
-border-radius:8px;
-
-box-shadow:0 12px 25px rgba(0,0,0,.18);
-
-transform:rotate(-4deg);
-
-transition:.4s;
-
-}
-
-.photo img:hover{
-
-transform:rotate(0deg) scale(1.05);
-
-}
-
-/* ===========================
-SCRAPBOOK NOTE
-=========================== */
-
-.note{
-
-background:#fff9c9;
-
-padding:30px;
-
-border-radius:18px;
-
-box-shadow:0 10px 20px rgba(0,0,0,.12);
-
-position:relative;
-
-font-family:'Patrick Hand',cursive;
-
-transform:rotate(1deg);
-
-}
-
-.note::before{
-
-content:"📌";
-
-position:absolute;
-
-top:-18px;
-
-left:25px;
-
-font-size:28px;
-
-}
-
-.note h3{
-
-font-size:38px;
-
-color:#ff5d96;
-
-margin-bottom:18px;
-
-}
-
-.note p{
-
-font-size:24px;
-
-line-height:1.8;
-
-color:#444;
-
-}
-
-/* ===========================
-NEXT BUTTON
-=========================== */
-
-#nextMemory{
-
-margin-top:30px;
-
-padding:15px 35px;
-
-border:none;
-
-border-radius:50px;
-
-background:#ff5d96;
-
-color:white;
-
-font-size:18px;
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-#nextMemory:hover{
-
-transform:scale(1.05);
-
-background:#ff4688;
-
-}
-
-/* ===========================
-MUSIC PLAYER
-=========================== */
-
-.musicPlayer{
-
-position:fixed;
-
-right:20px;
-
-bottom:20px;
-
-background:white;
-
-padding:18px;
-
-border-radius:20px;
-
-box-shadow:0 10px 25px rgba(0,0,0,.15);
-
-text-align:center;
-
-z-index:100;
-
-}
-
-.musicPlayer button{
-
-background:#ff5d96;
-
-color:white;
-
-border:none;
-
-padding:12px 22px;
-
-border-radius:30px;
-
-cursor:pointer;
-
-font-size:16px;
-
-transition:.3s;
-
-}
-
-.musicPlayer button:hover{
-
-transform:scale(1.05);
-
-}
-
-.musicPlayer p{
-
-margin-top:10px;
-
-font-size:14px;
-
-color:#777;
-
-}
-
-/* ===========================
-FINISH SCREEN
-=========================== */
-
-#finishScreen{
-
-display:none;
-
-position:fixed;
-
-inset:0;
-
-background:rgba(255,247,251,.97);
-
-backdrop-filter:blur(8px);
-
-justify-content:center;
-
-align-items:center;
-
-z-index:9999;
-
-}
-
-.finishCard{
-
-background:white;
-
-padding:50px;
-
-border-radius:35px;
-
-max-width:700px;
-
-text-align:center;
-
-box-shadow:0 20px 40px rgba(0,0,0,.15);
-
-}
-
-.finishCard h1{
-
-font-family:'Patrick Hand',cursive;
-
-font-size:60px;
-
-color:#ff5d96;
 
 margin-bottom:20px;
 
 }
 
-.finishCard p{
+#questionText{
 
-font-size:24px;
+font-size:36px;
 
-line-height:1.8;
-
-margin-bottom:35px;
-
-color:#444;
+margin-bottom:25px;
 
 }
 
-#level3Button{
+.answer{
 
-background:#ff5d96;
+display:block;
 
-color:white;
+width:100%;
 
-border:none;
+padding:16px;
 
-padding:18px 40px;
+margin:15px 0;
 
-font-size:20px;
+border:2px solid #f4c6cf;
 
-border-radius:50px;
+border-radius:15px;
+
+background:white;
+
+font-size:24px;
 
 cursor:pointer;
 
 transition:.3s;
 
+font-family:'Patrick Hand',cursive;
+
 }
 
-#level3Button:hover{
+.answer:hover{
 
-transform:scale(1.08);
+background:#ffdce6;
+
+transform:scale(1.02);
+
+}
+
+.answer.selected{
+
+background:#ffc7d7;
+
+border-color:#ff6fa3;
+
+}
+
+#submitBtn{
+
+margin-top:20px;
+
+background:#ff5f9d;
+
+color:white;
+
+padding:15px 40px;
+
+border:none;
+
+border-radius:40px;
+
+font-size:24px;
+
+cursor:pointer;
+
+font-family:'Patrick Hand',cursive;
+
+transition:.3s;
+
+}
+
+#submitBtn:hover{
+
+transform:scale(1.05);
+
+}
+
+#wrongNote{
+
+display:none;
+
+margin-top:20px;
+
+background:#ffe4ea;
+
+padding:18px;
+
+border-radius:18px;
+
+font-size:22px;
+
+color:#c84c73;
+
+animation:pop .4s;
+
+}
+
+@keyframes pop{
+
+from{
+
+transform:scale(.8);
+
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
+/* ===========================
+MEMORY REVEAL
+=========================== */
+#memoryReveal{
+
+display:none;
+
+position:absolute;
+
+top:50%;
+
+right:-420px;
+
+transform:translateY(-50%);
+
+width:380px;
+
+transition:.6s ease;
+
+align-items:center;
+
+gap:18px;
+
+}
+
+#memoryReveal.show{
+
+display:flex;
+
+animation:slideIn .7s forwards;
+
+}
+
+@keyframes slideIn{
+
+from{
+
+opacity:0;
+
+transform:translate(120px,-50%);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translate(0,-50%);
+
+}
+
+}
+
+
+#memoryPhoto{
+
+width:130px;
+
+height:170px;
+
+object-fit:cover;
+
+background:white;
+
+padding:8px;
+
+border-radius:6px;
+
+box-shadow:0 10px 20px rgba(0,0,0,.18);
+
+transform:rotate(-6deg);
+
+}
+.memoryNote{
+
+background:#fff2f7;
+
+padding:18px;
+
+border-radius:18px;
+
+width:220px;
+
+border:2px dashed #ffc1d8;
+
+font-family:'Patrick Hand',cursive;
+
+box-shadow:0 8px 18px rgba(0,0,0,.12);
+
+}
+
+.memoryNote h3{
+
+font-size:26px;
+
+color:#ff5f9d;
+
+margin-bottom:10px;
+
+}
+
+.memoryNote p{
+
+font-size:20px;
+
+line-height:1.5;
+
+}
+
+
+
+
+
+#nextBtn{
+
+margin-top:20px;
+
+background:#ff5f9d;
+
+color:white;
+
+border:none;
+
+padding:12px 30px;
+
+border-radius:30px;
+
+font-size:22px;
+
+cursor:pointer;
+
+font-family:'Patrick Hand',cursive;
 
 }
 
@@ -737,13 +547,13 @@ transform:scale(1.08);
 ANIMATIONS
 =========================== */
 
-@keyframes fadeUp{
+@keyframes fadeIn{
 
 from{
 
 opacity:0;
 
-transform:translateY(40px);
+transform:translateY(20px);
 
 }
 
@@ -760,75 +570,73 @@ transform:translateY(0);
 @keyframes shake{
 
 0%{transform:translateX(0);}
-
-20%{transform:translateX(-8px);}
-
-40%{transform:translateX(8px);}
-
-60%{transform:translateX(-8px);}
-
-80%{transform:translateX(8px);}
-
+25%{transform:translateX(-8px);}
+50%{transform:translateX(8px);}
+75%{transform:translateX(-8px);}
 100%{transform:translateX(0);}
 
 }
 
+.wiggle{
+
+animation:shake .45s;
+
+}
+
 /* ===========================
-RESPONSIVE
+FINISH SCREEN
 =========================== */
 
-@media(max-width:900px){
+#finishScreen{
 
-.scrapbook{
+display:none;
+
+min-height:100vh;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+text-align:center;
 
 padding:30px;
 
 }
 
-#memoryCard{
+#finishScreen h1{
 
-grid-template-columns:1fr;
+font-size:48px;
 
-text-align:center;
-
-}
-
-.photo img{
-
-width:220px;
+margin-bottom:20px;
 
 }
 
-.note{
+#finishScreen p{
 
-margin-top:20px;
+font-size:28px;
 
-}
-
-.questionCard h2{
-
-font-size:32px;
+margin-bottom:30px;
 
 }
 
-.answer{
+#level3Btn{
 
-font-size:18px;
+background:#ff5f9d;
 
-}
+color:white;
 
-.musicPlayer{
+border:none;
 
-position:relative;
+padding:18px 45px;
 
-right:auto;
+border-radius:40px;
 
-bottom:auto;
+font-size:24px;
 
-margin:30px auto;
+cursor:pointer;
 
-width:fit-content;
-
-}
+font-family:'Patrick Hand',cursive;
 
 }
