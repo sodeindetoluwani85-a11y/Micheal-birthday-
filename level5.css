@@ -1,1 +1,362 @@
+/* ==========================
+GOOGLE FONT
+========================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:'Poppins',sans-serif;
+
+min-height:100vh;
+
+background:
+linear-gradient(rgba(255,248,250,.88),rgba(255,248,250,.88)),
+url("images/paper-bg.jpg");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+overflow-x:hidden;
+
+}
+
+/* ==========================
+HIDDEN
+========================== */
+
+.hidden{
+
+display:none;
+
+}
+
+/* ==========================
+PAPER CARD
+========================== */
+
+.paper{
+
+width:min(850px,92%);
+
+background:#fffdfb;
+
+padding:50px;
+
+border-radius:24px;
+
+box-shadow:0 20px 45px rgba(0,0,0,.15);
+
+text-align:center;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+/* flowers */
+
+.paper::before{
+
+content:"🌸";
+
+position:absolute;
+
+top:20px;
+
+left:25px;
+
+font-size:42px;
+
+}
+
+.paper::after{
+
+content:"🌸";
+
+position:absolute;
+
+bottom:20px;
+
+right:25px;
+
+font-size:42px;
+
+}
+
+/* ==========================
+INTRO
+========================== */
+
+#introPage h1{
+
+font-size:55px;
+
+margin-bottom:15px;
+
+}
+
+#introPage h2{
+
+font-family:'Patrick Hand',cursive;
+
+font-size:42px;
+
+color:#d85c91;
+
+margin-bottom:25px;
+
+}
+
+#introPage p{
+
+font-size:18px;
+
+line-height:1.9;
+
+color:#555;
+
+margin-bottom:40px;
+
+}
+
+/* ==========================
+BUTTON
+========================== */
+
+button{
+
+background:#ef7ca6;
+
+border:none;
+
+color:white;
+
+padding:15px 40px;
+
+border-radius:40px;
+
+font-size:18px;
+
+cursor:pointer;
+
+transition:.35s;
+
+box-shadow:0 8px 20px rgba(239,124,166,.3);
+
+}
+
+button:hover{
+
+transform:translateY(-4px) scale(1.05);
+
+background:#e45b91;
+
+}
+
+/* ==========================
+LETTER PAGE
+========================== */
+
+#lettersPage{
+
+width:100%;
+
+padding:60px 25px;
+
+text-align:center;
+
+}
+
+.title{
+
+font-family:'Patrick Hand',cursive;
+
+font-size:58px;
+
+color:#d85c91;
+
+margin-bottom:12px;
+
+}
+
+.subtitle{
+
+color:#666;
+
+margin-bottom:45px;
+
+font-size:18px;
+
+}
+
+/* ==========================
+LETTERS
+========================== */
+
+.letters{
+
+display:flex;
+
+justify-content:center;
+
+gap:45px;
+
+flex-wrap:wrap;
+
+}
+
+/* ==========================
+LOCKED LETTER
+========================== */
+
+.lockedLetter{
+
+width:220px;
+
+height:250px;
+
+background:#fffaf8;
+
+border-radius:20px;
+
+padding:20px;
+
+box-shadow:0 12px 28px rgba(0,0,0,.12);
+
+cursor:pointer;
+
+transition:.35s;
+
+position:relative;
+
+}
+
+.lockedLetter:hover{
+
+transform:translateY(-8px);
+
+}
+
+.lock{
+
+font-size:36px;
+
+margin-bottom:20px;
+
+animation:wiggle 2s infinite;
+
+}
+
+.mail{
+
+font-size:90px;
+
+margin-bottom:18px;
+
+}
+
+.lockedLetter h3{
+
+font-family:'Patrick Hand',cursive;
+
+font-size:30px;
+
+color:#d85c91;
+
+}
+
+/* decorations */
+
+.lockedLetter::before{
+
+content:"🌸";
+
+position:absolute;
+
+top:12px;
+
+left:14px;
+
+font-size:22px;
+
+}
+
+.lockedLetter::after{
+
+content:"✨";
+
+position:absolute;
+
+bottom:15px;
+
+right:18px;
+
+font-size:22px;
+
+}
+
+/* ==========================
+ANIMATIONS
+========================== */
+
+@keyframes wiggle{
+
+0%{transform:rotate(0deg);}
+25%{transform:rotate(5deg);}
+50%{transform:rotate(0deg);}
+75%{transform:rotate(-5deg);}
+100%{transform:rotate(0deg);}
+
+}
+
+/* ==========================
+RESPONSIVE
+========================== */
+
+@media(max-width:700px){
+
+.paper{
+
+padding:35px 22px;
+
+}
+
+#introPage h2{
+
+font-size:34px;
+
+}
+
+.title{
+
+font-size:42px;
+
+}
+
+.lockedLetter{
+
+width:180px;
+
+height:220px;
+
+}
+
+.mail{
+
+font-size:75px;
+
+}
+
+}
