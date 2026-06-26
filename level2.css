@@ -1,1 +1,462 @@
+/* =========================
+   GOOGLE FONT
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Poppins:wght@300;400;500;600&display=swap');
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+body{
+font-family:'Poppins',sans-serif;
+background:#f4e6db;
+overflow-x:hidden;
+color:#4b332d;
+}
+/* Hide inactive pages */
+.hidden{
+display:none;
+}
+/* =========================
+LOADING SCREEN
+========================= */
+#loadingScreen{
+position:fixed;
+inset:0;
+background:
+linear-gradient(rgba(50,25,25,.55),rgba(50,25,25,.55)),
+url("images/scrapbook-bg.jpg");
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+.loadingCard{
+width:90%;
+max-width:430px;
+background:rgba(35,20,20,.75);
+padding:45px;
+border-radius:22px;
+text-align:center;
+color:white;
+box-shadow:0 15px 40px rgba(0,0,0,.35);
+}
+.loadingCard h1{
+font-size:24px;
+letter-spacing:2px;
+margin-bottom:8px;
+color:#ffc7d8;
+}
+.loadingCard h2{
+font-family:'Patrick Hand',cursive;
+font-size:52px;
+margin-bottom:18px;
+color:white;
+}
+.loadingCard p{
+font-size:15px;
+opacity:.9;
+margin-bottom:22px;
+}
+.loadingBar{
+height:16px;
+background:#ffffff30;
+border-radius:40px;
+overflow:hidden;
+margin-bottom:10px;
+}
+#loadingProgress{
+width:0%;
+height:100%;
+background:#ff7aa8;
+border-radius:40px;
+transition:.3s;
+}
+#loadingPercent{
+font-size:14px;
+}
+/* =========================
+COMMON PAPER PAGE
+========================= */
+.paper{
+width:min(950px,92%);
+margin:35px auto;
+background:#f8efe7;
+border-radius:18px;
+padding:35px;
+position:relative;
+box-shadow:0 10px 30px rgba(0,0,0,.18);
+border:2px solid #ead9cb;
+min-height:85vh;
+}
+/* Decorative hearts */
+.paper::before{
+content:"♡";
+position:absolute;
+right:30px;
+top:25px;
+font-size:24px;
+color:#ef7ca6;
+}
+.paper::after{
+content:"♥";
+position:absolute;
+left:35px;
+bottom:25px;
+font-size:18px;
+color:#ef7ca6;
+}
+/* =========================
+HEADINGS
+========================= */
+.paper h1{
+text-align:center;
+font-family:'Patrick Hand',cursive;
+font-size:52px;
+margin-bottom:8px;
+}
+.paper p{
+text-align:center;
+margin-bottom:30px;
+color:#6f5951;
+}
+/* =========================
+BACK BUTTON
+========================= */
+#backHome,
+#backQuestion{
+position:absolute;
+left:20px;
+top:20px;
+background:#f7b4c8;
+border:none;
+padding:8px 18px;
+border-radius:20px;
+cursor:pointer;
+font-weight:600;
+color:#5b3c3c;
+transition:.25s;
+}
+#backHome:hover,
+#backQuestion:hover{
+transform:scale(1.05);
+}
+/* =========================
+TIMELINE
+========================= */
+.timeline{
+width:75%;
+margin:30px auto;
+display:flex;
+flex-direction:column;
+gap:18px;
+position:relative;
+padding-left:35px;
+}
+.timeline::before{
+content:"";
+position:absolute;
+left:10px;
+top:0;
+bottom:0;
+width:4px;
+background:#ef7ca6;
+border-radius:20px;
+}
+.memorySelect{
+position:relative;
+background:#fffaf7;
+border:2px solid #ead9cb;
+border-radius:12px;
+padding:15px 18px;
+text-align:left;
+font-size:17px;
+cursor:pointer;
+transition:.25s;
+box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+.memorySelect:hover{
+transform:translateX(8px);
+background:#fff1f6;
+border-color:#ef7ca6;
+}
+.memorySelect::before{
+content:"";
+position:absolute;
+left:-37px;
+top:50%;
+transform:translateY(-50%);
+width:18px;
+height:18px;
+background:#ef7ca6;
+border:3px solid white;
+border-radius:50%;
+}
+/* =========================
+QUESTION CARD
+========================= */
+#questionPage .paper{
+display:flex;
+justify-content:center;
+align-items:center;
+}
+#questionPage .paper::before{
+content:"";
+position:absolute;
+top:90px;
+left:50%;
+transform:translateX(-50%) rotate(-2deg);
+width:78%;
+height:340px;
+background:#f8e8da;
+border-radius:12px;
+box-shadow:0 6px 15px rgba(0,0,0,.12);
+z-index:0;
+}
+#questionTitle{
+position:relative;
+z-index:2;
+margin-bottom:25px;
+font-size:34px;
+}
+#optionContainer{
+position:relative;
+z-index:2;
+width:100%;
+max-width:420px;
+display:flex;
+flex-direction:column;
+gap:15px;
+margin:auto;
+}
+.option{
+padding:15px;
+background:white;
+border:2px solid #efc8d5;
+border-radius:10px;
+cursor:pointer;
+font-size:17px;
+transition:.25s;
+}
+.option:hover{
+background:#fff0f6;
+transform:scale(1.02);
+}
+.option.selected{
+background:#f9bfd2;
+border-color:#ef7ca6;
+color:#6a3047;
+font-weight:600;
+}
+/* =========================
+SUBMIT BUTTON
+========================= */
+#submitAnswer{
+display:block;
+margin:28px auto 0;
+background:#ef7ca6;
+color:white;
+border:none;
+padding:14px 38px;
+border-radius:30px;
+font-size:17px;
+cursor:pointer;
+transition:.25s;
+position:relative;
+z-index:2;
+}
+#submitAnswer:hover{
+transform:scale(1.05);
+background:#e85b92;
+}
+#questionPopup{
+margin-top:20px;
+text-align:center;
+font-family:'Patrick Hand',cursive;
+font-size:28px;
+min-height:35px;
+color:#d94c83;
+position:relative;
+z-index:2;
+}
+/* =========================
+DECORATIVE POLAROIDS
+========================= */
+.paper .polaroid{
+position:absolute;
+width:95px;
+background:white;
+padding:7px;
+box-shadow:0 6px 14px rgba(0,0,0,.18);
+border-radius:4px;
+}
+.paper .polaroid img{
+width:100%;
+display:block;
+border-radius:2px;
+}
+.photoTop{
+right:35px;
+top:110px;
+transform:rotate(10deg);
+}
+.photoMiddle{
+right:30px;
+top:245px;
+transform:rotate(-8deg);
+}
+.photoBottom{
+right:25px;
+bottom:90px;
+transform:rotate(8deg);
+}
+/* =========================
+MEMORY REVEAL PAGE
+========================= */
+#memoryReveal .paper{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+}
+#memoryReveal h1{
+color:#d85c91;
+margin-bottom:30px;
+}
+#memoryImage{
+width:180px;
+height:220px;
+object-fit:cover;
+background:white;
+padding:8px;
+border-radius:4px;
+box-shadow:0 8px 20px rgba(0,0,0,.18);
+transform:rotate(-5deg);
+margin-bottom:25px;
+display:none;
+}
+#memoryMessage{
+max-width:420px;
+font-family:'Patrick Hand',cursive;
+font-size:28px;
+line-height:1.5;
+text-align:center;
+display:none;
+margin-bottom:35px;
+}
+#nextMemory{
+background:#ef7ca6;
+color:white;
+border:none;
+padding:15px 42px;
+border-radius:40px;
+font-size:17px;
+cursor:pointer;
+transition:.3s;
+}
+#nextMemory:hover{
+background:#e15d91;
+transform:scale(1.05);
+}
+/* =========================
+FINISH PAGE
+========================= */
+#finishPage .paper{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+#finishPage h1{
+font-size:52px;
+margin-bottom:15px;
+}
+#finishPage p{
+font-size:20px;
+margin-bottom:40px;
+max-width:550px;
+}
+#level3Button{
+background:#ef7ca6;
+color:white;
+border:none;
+padding:18px 50px;
+border-radius:40px;
+font-size:20px;
+cursor:pointer;
+transition:.3s;
+}
+#level3Button:hover{
+background:#e45d93;
+transform:scale(1.05);
+}
+/* =========================
+SMALL DECORATIONS
+========================= */
+.flower{
+position:absolute;
+font-size:28px;
+opacity:.75;
+animation:floatFlower 5s ease-in-out infinite;
+}
+.flower.one{
+left:20px;
+bottom:20px;
+}
+.flower.two{
+right:25px;
+top:30px;
+animation-delay:2s;
+}
+@keyframes floatFlower{
+0%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-8px);
+}
+100%{
+transform:translateY(0);
+}
+}
+/* =========================
+RESPONSIVE
+========================= */
+@media(max-width:768px){
+.paper{
+padding:25px 18px;
+width:95%;
+}
+.paper h1{
+font-size:38px;
+}
+.timeline{
+width:100%;
+padding-left:28px;
+}
+.memorySelect{
+font-size:15px;
+padding:14px;
+}
+#questionPage .paper::before{
+width:90%;
+height:320px;
+}
+#memoryImage{
+width:150px;
+height:190px;
+}
+#memoryMessage{
+font-size:24px;
+padding:0 12px;
+}
+.photoTop,
+.photoMiddle,
+.photoBottom{
+display:none;
+}
+}
 
