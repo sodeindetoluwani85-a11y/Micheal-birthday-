@@ -250,13 +250,13 @@ const continueBtn = document.getElementById("continueLevel3");
 
 continueBtn.addEventListener("click", () => {
 
-  // hide joke page (Level 2 end)
-  jokePage.classList.add("hidden");
+  if (!jokePage || !level3Page) return;
 
-  // show Level 3 page
+  jokePage.classList.add("hidden");
   level3Page.classList.remove("hidden");
 
 });
+
 const continueBtn = document.getElementById("continueLevel3");
 const responseText = document.getElementById("jokeResponse");
 
