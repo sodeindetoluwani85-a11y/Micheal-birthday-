@@ -1,1 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Level 2 • Memory Lane</title>
+
+<link rel="stylesheet" href="level2.css">
+
+</head>
+
+<body>
+
+<!-- Floating Hearts -->
+
+<div class="hearts"></div>
+
+<!-- Loading Screen -->
+
+<div id="loadingScreen">
+
+<h1>❤️ Level Two</h1>
+
+<h2>Memory Lane</h2>
+
+<p>Loading Relationship Archives...</p>
+
+<div class="loader">
+
+<div class="progressBar"></div>
+
+</div>
+
+</div>
+
+<!-- Main Page -->
+
+<div id="mainPage">
+
+<div class="scrapbook">
+
+<h1>📸 Memory Lane</h1>
+
+<p class="subtitle">
+
+Every correct answer unlocks one of our favourite memories together.
+
+❤️
+
+</p>
+
+<!-- Progress -->
+
+<div class="progress">
+
+<div class="circle active"></div>
+
+<div class="circle"></div>
+
+<div class="circle"></div>
+
+<div class="circle"></div>
+
+</div>
+
+<!-- Question Card -->
+
+<div class="questionCard">
+
+<h2 id="question">
+
+First place we met?
+
+</h2>
+
+<div id="answers">
+
+<button class="answer">
+
+Busa
+
+</button>
+
+<button class="answer">
+
+CAF
+
+</button>
+
+<button class="answer">
+
+Emerald
+
+</button>
+
+</div>
+
+<div id="popup"></div>
+
+</div>
+
+<!-- Memory Reveal -->
+
+<div id="memoryCard">
+
+<div class="photo">
+
+<img id="memoryImage"
+
+src="images/IMG_4384.jpeg"
+
+alt="Memory">
+
+</div>
+
+<div class="note">
+
+<h3>
+
+✨ Memory Unlocked
+
+</h3>
+
+<p id="memoryText">
+
+I remember walking with Nonso and when we met you I was saying in my head,
+
+"hmm this boy is fine o." 🤣
+
+I just really liked how goofy you were.
+
+❤️
+
+</p>
+
+<button id="nextMemory">
+
+Next Memory →
+
+</button>
+
+</div>
+
+</div>
+  <!-- Finish Screen -->
+
+<div id="finishScreen">
+
+<div class="finishCard">
+
+<h1>🎉 Memory Lane Complete!</h1>
+
+<p>
+
+You unlocked every memory.
+
+Some memories become pictures.
+
+Some become stories.
+
+And some become forever. ❤️
+
+</p>
+
+<button id="level3Button">
+
+Proceed to Level 3 ❤️
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Background Music -->
+
+<audio id="bgMusic" loop>
+
+<source src="music/Laufey-lover-Girl(voxhiphop).mp3" type="audio/mpeg">
+
+</audio>
+
+<div class="musicPlayer">
+
+<button id="playMusic">
+
+🎵 Play Lover Girl
+
+</button>
+
+<p>
+
+(Recommended before starting 😊)
+
+</p>
+
+</div>
+
+<script src="level2.js"></script>
+
+</body>
+
+</html>
