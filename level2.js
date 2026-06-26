@@ -1,8 +1,8 @@
-// ================================
-// LEVEL 2 - MEMORY LANE
-// ================================
+// ===============================
+// MEMORY LANE - LEVEL 2
+// ===============================
 
-// Questions and Memories
+// Questions
 
 const memories = [
 
@@ -16,7 +16,7 @@ correct:1,
 
 image:"images/IMG_4384.jpeg",
 
-text:"I remember walking with Nonso and when we met you I was saying in my head 'hmm this boy is fine o' 🤣. I just really liked how goofy you were. ❤️"
+message:"I remember walking with Nonso and when we met you I was saying in my head 'Hmm this boy is fine o'🤣. I just really liked how goofy you were. ❤️"
 
 },
 
@@ -30,7 +30,7 @@ correct:2,
 
 image:"images/0CFF270A-A66A-4C73-A2E0-4F30A3233499.jpeg",
 
-text:"I had the best date with you that day🥹. I really had so much fun❤️"
+message:"I had the best date with you that day🥹. I really had so much fun❤️"
 
 },
 
@@ -44,7 +44,7 @@ correct:1,
 
 image:"images/IMG_3653.jpeg",
 
-text:"At first I wasn't really sure if you meant all the 'I love you's' you were saying, but now I know you meant them❤️"
+message:"At first I wasn't really sure if you meant all the 'I love you's' you kept saying, but now I know you meant them❤️"
 
 },
 
@@ -58,13 +58,11 @@ correct:1,
 
 image:"images/3664A4B4-AB7C-42B1-BD70-09B1C04D6641.jpeg",
 
-text:"We both know Indomie is better🙄❤️"
+message:"We both know Indomie is better🙄❤️"
 
 }
 
 ];
-
-let current = 0;
 
 // Elements
 
@@ -72,27 +70,31 @@ const loadingScreen=document.getElementById("loadingScreen");
 
 const mainPage=document.getElementById("mainPage");
 
-const question=document.getElementById("question");
+const questionText=document.getElementById("questionText");
 
 const answers=document.getElementById("answers");
 
-const popup=document.getElementById("popup");
+const submitBtn=document.getElementById("submitBtn");
 
-const memoryCard=document.getElementById("memoryCard");
+const wrongNote=document.getElementById("wrongNote");
 
-const memoryImage=document.getElementById("memoryImage");
+const memoryReveal=document.getElementById("memoryReveal");
+
+const memoryPhoto=document.getElementById("memoryPhoto");
 
 const memoryText=document.getElementById("memoryText");
 
-const nextMemory=document.getElementById("nextMemory");
+const nextBtn=document.getElementById("nextBtn");
 
-const circles=document.querySelectorAll(".circle");
-
-const finishScreen=document.getElementById("finishScreen");
+const currentQuestion=document.getElementById("currentQuestion");
 
 const music=document.getElementById("bgMusic");
 
-const playMusic=document.getElementById("playMusic");
+const musicBtn=document.getElementById("musicBtn");
+
+let questionIndex=0;
+
+let selectedAnswer=-1;
 
 // Loading Screen
 
@@ -112,37 +114,41 @@ loadQuestion();
 
 // Music Button
 
-playMusic.addEventListener("click",()=>{
+musicBtn.onclick=()=>{
 
 if(music.paused){
 
 music.play();
 
-playMusic.innerHTML="⏸ Pause Lover Girl";
+musicBtn.innerHTML="⏸ Pause Music";
 
 }else{
 
 music.pause();
 
-playMusic.innerHTML="🎵 Play Lover Girl";
+musicBtn.innerHTML="🎵 Lover Girl";
 
 }
 
-});
+};
 
 // Load Question
 
 function loadQuestion(){
 
-memoryCard.classList.remove("show");
+const q=memories[questionIndex];
 
-popup.innerHTML="";
+currentQuestion.innerHTML=questionIndex+1;
 
-const q=memories[current];
-
-question.innerHTML=q.question;
+questionText.innerHTML=q.question;
 
 answers.innerHTML="";
+
+selectedAnswer=-1;
+
+wrongNote.style.display="none";
+
+memoryReveal.classList.remove("show");
 
 q.answers.forEach((answer,index)=>{
 
@@ -152,131 +158,123 @@ btn.className="answer";
 
 btn.innerHTML=answer;
 
-btn.onclick=()=>checkAnswer(index,btn);
+btn.onclick=()=>{
+
+document.querySelectorAll(".answer").forEach(b=>b.classList.remove("selected"));
+
+btn.classList.add("selected");
+
+selectedAnswer=index;
+
+};
 
 answers.appendChild(btn);
 
 });
 
-updateProgress();
-
 }
-// ================================
-// PART 2 - ANSWERS & MEMORY REVEAL
-// ================================
+// =====================================
+// CHECK ANSWER
+// =====================================
 
-function checkAnswer(index, button){
+submitBtn.onclick = () => {
 
-const correct = memories[current].correct;
+    if (selectedAnswer === -1) {
 
-if(index === correct){
+        alert("Choose an answer first ❤️");
 
-button.classList.add("correct");
+        return;
 
-popup.innerHTML="<div class='popupSuccess'>💖 Memory unlocked!</div>";
+    }
 
-setTimeout(()=>{
+    const correct = memories[questionIndex].correct;
 
-showMemory();
+    if (selectedAnswer === correct) {
 
-},800);
+        wrongNote.style.display = "none";
 
-}else{
+        // Show memory
 
-button.classList.add("wrong");
+        memoryPhoto.src = memories[questionIndex].image;
 
-popup.innerHTML="<div class='popupWrong'>💌 Hmm... are you sure about that?<br>Try again. 😭❤️</div>";
+        memoryText.innerHTML = memories[questionIndex].message;
 
-setTimeout(()=>{
+        memoryReveal.classList.add("show");
 
-button.classList.remove("wrong");
+        // Disable answering again
+        document.querySelectorAll(".answer").forEach(btn => {
 
-},500);
+            btn.disabled = true;
 
-}
+        });
 
-}
+        submitBtn.style.display = "none";
 
-// ================================
-// SHOW MEMORY
-// ================================
+    }
 
-function showMemory(){
+    else {
 
-const m = memories[current];
+        wrongNote.style.display = "block";
 
-memoryImage.src = m.image;
+        const selectedBtn =
+        document.querySelectorAll(".answer")[selectedAnswer];
 
-memoryText.innerHTML = m.text;
+        selectedBtn.classList.add("wiggle");
 
-memoryCard.classList.add("show");
+        setTimeout(() => {
 
-}
+            selectedBtn.classList.remove("wiggle");
 
-// ================================
+        },500);
+
+    }
+
+};
+
+// =====================================
 // NEXT MEMORY
-// ================================
+// =====================================
 
-nextMemory.addEventListener("click",()=>{
+nextBtn.onclick = () => {
 
-current++;
+    questionIndex++;
 
-if(current < memories.length){
+    if(questionIndex < memories.length){
 
-loadQuestion();
+        submitBtn.style.display = "inline-block";
 
-}else{
+        loadQuestion();
 
-finishQuiz();
+    }
 
-}
+    else{
 
-});
+        mainPage.style.display="none";
 
-// ================================
-// PROGRESS
-// ================================
+        finishScreen.style.display="flex";
 
-function updateProgress(){
+    }
 
-circles.forEach((circle,index)=>{
+};
 
-if(index <= current){
-
-circle.classList.add("active");
-
-}else{
-
-circle.classList.remove("active");
-
-}
-
-});
-
-}
-
-// ================================
-// FINISH QUIZ
-// ================================
-
-function finishQuiz(){
-
-document.querySelector(".questionCard").style.display="none";
-
-memoryCard.style.display="none";
-
-finishScreen.style.display="flex";
-
-}
-
-// ================================
+// =====================================
 // LEVEL 3 BUTTON
-// ================================
+// =====================================
 
-const level3Button=document.getElementById("level3Button");
+const level3Btn = document.getElementById("level3Btn");
 
-level3Button.addEventListener("click",()=>{
+level3Btn.onclick = () => {
 
-window.location.href="level3.html";
+    window.location.href = "level3.html";
 
-});
+};
+
+// =====================================
+// BACK BUTTON
+// =====================================
+
+document.getElementById("backBtn").onclick = () => {
+
+    window.location.href = "level1.html";
+
+};
