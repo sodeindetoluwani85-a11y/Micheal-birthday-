@@ -1,315 +1,315 @@
-/* ===========================
-   LEVEL 1 SCRAPBOOK STYLE
-=========================== */
-@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Quicksand:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Poppins:wght@400;500;600&display=swap');
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 }
+
 body{
-font-family:'Quicksand',sans-serif;
-background:
-linear-gradient(180deg,#fff5f8,#ffe9f2,#fffafc);
+
+font-family:'Poppins',sans-serif;
+background:linear-gradient(180deg,#ffdbe8,#fff2f7);
 min-height:100vh;
 overflow-x:hidden;
-padding:40px;
-position:relative;
+
 }
-/* Floating Hearts */
-.hearts{
+
+.backgroundHearts{
+
 position:fixed;
 inset:0;
 pointer-events:none;
+opacity:.18;
+
 background-image:
-radial-gradient(#ffc3d5 2px, transparent 2px);
-background-size:42px 42px;
-opacity:.28;
-animation:floatHearts 18s linear infinite;
-z-index:-5;
+radial-gradient(#ff8db7 2px,transparent 2px);
+
+background-size:45px 45px;
+
+z-index:-1;
+
 }
-@keyframes floatHearts{
-from{
-transform:translateY(0);
-}
-to{
-transform:translateY(-60px);
-}
-}
-/* Scrapbook */
+
 .scrapbook{
-max-width:950px;
-margin:auto;
-background:#fffefc;
-border-radius:35px;
-padding:60px 50px;
-position:relative;
-box-shadow:
-0 20px 50px rgba(0,0,0,.12);
-border:8px solid #fff;
-}
-/* Lace */
-.scrapbook::before{
-content:"";
-position:absolute;
-left:0;
-top:0;
-width:100%;
-height:22px;
-background:
-repeating-radial-gradient(circle at 10px 10px,
-#ffd3e4 0 8px,
-transparent 8px 16px);
-border-radius:35px 35px 0 0;
-}
-.scrapbook::after{
-content:"";
-position:absolute;
-left:0;
-bottom:0;
-width:100%;
-height:22px;
-background:
-repeating-radial-gradient(circle at 10px 10px,
-#ffd3e4 0 8px,
-transparent 8px 16px);
-border-radius:0 0 35px 35px;
-}
-/* =====================
-   POLAROID PHOTOS
-===================== */
-.photo{
-position:absolute;
-width:120px;
+
+max-width:800px;
+
+margin:50px auto;
+
 background:white;
-padding:8px;
-box-shadow:0 12px 25px rgba(0,0,0,.18);
-border-radius:6px;
-transition:.3s;
-}
-.photo:hover{
-transform:scale(1.05) rotate(0deg);
-}
-.photo1{
-left:-28px;
-top:30px;
-transform:rotate(-8deg);
-}
-.photo2{
-right:-28px;
-top:90px;
-transform:rotate(8deg);
-}
-/* Tape */
-.tape{
-position:absolute;
-width:60px;
-height:22px;
-background:rgba(255,235,170,.6);
-}
-.tape1{
-left:22px;
-top:16px;
-transform:rotate(-20deg);
-}
-.tape2{
-right:22px;
-top:72px;
-transform:rotate(18deg);
-}
-/* Sticky Notes */
-.sticky{
-position:absolute;
-padding:18px;
-font-family:'Patrick Hand',cursive;
-font-size:22px;
-box-shadow:0 8px 18px rgba(0,0,0,.15);
-border-radius:12px;
-width:180px;
-line-height:1.3;
-}
-.choose{
-background:#fff4a8;
-left:-55px;
-top:210px;
-transform:rotate(-6deg);
-}
-.luck{
-background:#ffd9ec;
-right:-60px;
-top:310px;
-transform:rotate(7deg);
-}
-/* Title */
-h1{
-font-family:'Patrick Hand',cursive;
-font-size:60px;
-color:#ff5f95;
-text-align:center;
-margin-top:20px;
-}
-h2{
-font-family:'Patrick Hand',cursive;
-font-size:34px;
-color:#555;
-text-align:center;
-margin-bottom:40px;
-}
-/* Decorative Emojis */
-.scrapbook .flower{
-position:absolute;
-bottom:30px;
-left:20px;
-font-size:42px;
-}
-.scrapbook .envelope{
-position:absolute;
-bottom:40px;
-right:25px;
-font-size:36px;
-}
-/* ===========================
-   MUSIC CARD
-=========================== */
-.musicCard{
-background:#fff8fc;
-border:3px dashed #ffb7cf;
-border-radius:25px;
-padding:25px;
-text-align:center;
-margin:35px auto;
-max-width:650px;
-box-shadow:0 8px 20px rgba(0,0,0,.08);
-}
-.musicCard h3{
-color:#ff5f95;
-font-size:30px;
-font-family:'Patrick Hand',cursive;
-margin-bottom:12px;
-}
-.musicCard p{
-font-size:18px;
-color:#555;
-margin-bottom:20px;
-line-height:1.6;
-}
-#playMusic{
-background:#ff5f95;
-color:white;
-border:none;
-padding:15px 35px;
-font-size:18px;
-border-radius:50px;
-cursor:pointer;
-transition:.3s;
-}
-#playMusic:hover{
-transform:scale(1.05);
-background:#ff4a86;
-}
-/* ===========================
-   PROGRESS
-=========================== */
-.progress{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:18px;
-margin:35px 0;
-}
-.heart{
-width:22px;
-height:22px;
-background:#ffd2e2;
-border-radius:50%;
-transition:.4s;
-}
-.heart.active{
-background:#ff5f95;
-transform:scale(1.2);
-}
-/* ===========================
-   QUESTION CARD
-=========================== */
-.card{
-background:white;
+
 border-radius:30px;
-padding:35px;
-box-shadow:0 15px 30px rgba(0,0,0,.08);
-border:4px solid #ffe0eb;
-margin-top:25px;
+
+padding:40px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.15);
+
+position:relative;
+
 }
-.card h3{
-font-family:'Patrick Hand',cursive;
-font-size:38px;
+
+h1{
+
 text-align:center;
-color:#444;
-margin-bottom:25px;
-}
-/* ===========================
-   ANSWERS
-=========================== */
-#answers{
-display:flex;
-flex-direction:column;
-gap:18px;
-}
-.answer{
-background:#fff4f9;
-border:2px solid #ffc4da;
-padding:18px;
-font-size:22px;
-border-radius:18px;
-cursor:pointer;
-transition:.3s;
-font-family:'Quicksand',sans-serif;
-}
-.answer:hover{
-background:#ffdceb;
-transform:translateY(-2px);
-}
-/* ===========================
-   POPUP NOTE
-=========================== */
-#popup{
-margin-top:25px;
-min-height:70px;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
+
 font-family:'Patrick Hand',cursive;
-font-size:24px;
-color:#ff4a86;
+
+font-size:55px;
+
+color:#ff5f98;
+
 }
-/* ===========================
-   BUTTONS
-=========================== */
-.buttons{
-display:flex;
-justify-content:space-between;
-margin-top:30px;
+
+h2{
+
+text-align:center;
+
+margin:10px 0 30px;
+
+font-weight:500;
+
+color:#555;
+
 }
-.buttons button{
-background:#ff5f95;
-color:white;
+
+.cornerPhoto{
+
+position:absolute;
+
+width:95px;
+
+border:6px solid white;
+
+border-radius:8px;
+
+box-shadow:0 8px 18px rgba(0,0,0,.18);
+
+}
+
+.leftPhoto{
+
+top:20px;
+
+left:-20px;
+
+transform:rotate(-8deg);
+
+}
+
+.rightPhoto{
+
+top:20px;
+
+right:-20px;
+
+transform:rotate(8deg);
+
+}
+
+.stickyNote{
+
+position:absolute;
+
+background:#fff3b8;
+
+padding:10px 16px;
+
+border-radius:12px;
+
+font-family:'Patrick Hand',cursive;
+
+font-size:20px;
+
+box-shadow:0 5px 10px rgba(0,0,0,.15);
+
+}
+
+.choose{
+
+left:-25px;
+
+top:180px;
+
+transform:rotate(-5deg);
+
+}
+
+.luck{
+
+right:-35px;
+
+top:230px;
+
+transform:rotate(6deg);
+
+}
+
+.musicCard{
+
+background:#fff7fb;
+
+border:2px dashed #ffc7dd;
+
+border-radius:20px;
+
+padding:20px;
+
+text-align:center;
+
+margin-bottom:30px;
+
+}
+
+.musicCard button{
+
+margin-top:15px;
+
+padding:12px 24px;
+
 border:none;
-padding:15px 35px;
-font-size:18px;
-border-radius:50px;
+
+border-radius:30px;
+
+background:#ff5f98;
+
+color:white;
+
+font-size:17px;
+
 cursor:pointer;
-transition:.3s;
+
 }
-.buttons button:hover{
-transform:scale(1.05);
+
+.progress{
+
+display:flex;
+
+justify-content:center;
+
+gap:12px;
+
+margin:25px 0;
+
 }
-.buttons button:disabled{
-background:#d9d9d9;
-cursor:not-allowed;
+
+.heart{
+
+width:18px;
+
+height:18px;
+
+border-radius:50%;
+
+background:#ffd2e4;
+
 }
-/* ===========================
-   FINISH SCREEN
-=========================== */
+
+.heart.active{
+
+background:#ff5f98;
+
+}
+
+.questionCard{
+
+background:#fffdfd;
+
+border:3px dashed #ffd0df;
+
+border-radius:20px;
+
+padding:30px;
+
+}
+
+#question{
+
+font-family:'Patrick Hand',cursive;
+
+font-size:34px;
+
+text-align:center;
+
+margin-bottom:25px;
+
+}
+
+#answers{
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.answer{
+
+padding:15px;
+
+border-radius:15px;
+
+border:2px solid #ffd0df;
+
+background:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+.answer:hover{
+
+background:#fff0f6;
+
+transform:translateY(-2px);
+
+}
+
+#popup{
+
+margin:20px 0;
+
+text-align:center;
+
+font-family:'Patrick Hand',cursive;
+
+font-size:24px;
+
+min-height:40px;
+
+}
+
+.navButtons{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-top:20px;
+
+}
+
+.navButtons button{
+
+padding:12px 22px;
+
+border:none;
+
+border-radius:30px;
+
+background:#ff5f98;
+
+color:white;
+
+cursor:pointer;
+
+}
 
 #finishScreen{
 
@@ -321,244 +321,42 @@ inset:0;
 
 background:rgba(255,245,250,.96);
 
-backdrop-filter:blur(8px);
-
 justify-content:center;
 
 align-items:center;
 
-flex-direction:column;
+}
+
+.finishCard{
+
+background:white;
+
+padding:45px;
+
+border-radius:25px;
 
 text-align:center;
 
-padding:40px;
-
-z-index:9999;
-
-animation:fadeIn .8s ease;
-
-}
-
-#finishScreen h1{
-
-font-size:65px;
-
-color:#ff5f95;
-
-margin-bottom:20px;
-
-font-family:'Patrick Hand',cursive;
-
-}
-
-#finishScreen h2{
-
-font-size:38px;
-
-margin-bottom:20px;
-
-}
-
-#finishScreen p{
-
-font-size:24px;
-
-max-width:550px;
-
-line-height:1.7;
-
-margin-bottom:40px;
+box-shadow:0 15px 35px rgba(0,0,0,.15);
 
 }
 
 #level2{
 
-background:#ff5f95;
+margin-top:20px;
 
-color:white;
-
-padding:18px 45px;
-
-font-size:22px;
+padding:15px 30px;
 
 border:none;
 
-border-radius:60px;
+border-radius:30px;
+
+background:#ff5f98;
+
+color:white;
 
 cursor:pointer;
 
-transition:.3s;
-
-}
-
-#level2:hover{
-
-transform:scale(1.08);
-
-}
-
-/* ===========================
-   ANIMATIONS
-=========================== */
-
-@keyframes shake{
-
-0%{transform:translateX(0);}
-
-20%{transform:translateX(-8px);}
-
-40%{transform:translateX(8px);}
-
-60%{transform:translateX(-8px);}
-
-80%{transform:translateX(8px);}
-
-100%{transform:translateX(0);}
-
-}
-
-.shake{
-
-animation:shake .45s ease;
-
-}
-
-@keyframes fadeIn{
-
-from{
-
-opacity:0;
-
-transform:scale(.95);
-
-}
-
-to{
-
-opacity:1;
-
-transform:scale(1);
-
-}
-
-}
-
-.popupSuccess{
-
-background:#e8ffe9;
-
-color:#228b22;
-
-padding:15px 25px;
-
-border-radius:20px;
-
-display:inline-block;
-
-}
-
-.popupWrong{
-
-background:#ffe6ef;
-
-color:#ff4f88;
-
-padding:15px 25px;
-
-border-radius:20px;
-
-display:inline-block;
-
-}
-
-/* ===========================
-   RESPONSIVE
-=========================== */
-
-@media(max-width:768px){
-
-body{
-
-padding:18px;
-
-}
-
-.scrapbook{
-
-padding:25px;
-
-}
-
-.photo{
-
-width:85px;
-
-}
-
-.photo1{
-
-left:-8px;
-
-top:12px;
-
-}
-
-.photo2{
-
-right:-8px;
-
-top:70px;
-
-}
-
-.sticky{
-
-position:static;
-
-width:100%;
-
-margin:15px auto;
-
-transform:none;
-
-}
-
-h1{
-
-font-size:42px;
-
-}
-
-h2{
-
-font-size:28px;
-
-}
-
-.card h3{
-
-font-size:30px;
-
-}
-
-.answer{
-
 font-size:18px;
-
-}
-
-.buttons{
-
-flex-direction:column;
-
-gap:15px;
-
-}
-
-.buttons button{
-
-width:100%;
-
-}
 
 }
