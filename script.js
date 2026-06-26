@@ -122,3 +122,110 @@ function loadQuestion() {
 }
 
 loadQuestion();
+// ======================================
+// CHECK ANSWER
+// ======================================
+
+function checkAnswer(button, index){
+
+    if(selectedAnswer !== index) return;
+
+    const correct = questions[currentQuestion].correct;
+
+    if(index === correct){
+
+        button.style.background = "#d8ffd8";
+        button.style.border = "2px solid #5ec46e";
+
+        popup.innerHTML = `
+        <div class="successNote">
+            💖 Yay! You actually pay attention.
+        </div>
+        `;
+
+        nextBtn.disabled = false;
+
+    }
+
+    else{
+
+        button.classList.add("shake");
+
+        popup.innerHTML = `
+        <div class="wrongNote">
+            💌 Hmm... are you sure about that?<br>
+            Try again. 😭❤️
+        </div>
+        `;
+
+        setTimeout(()=>{
+
+            button.classList.remove("shake");
+
+        },500);
+
+    }
+
+}
+
+// ======================================
+// NEXT BUTTON
+// ======================================
+
+nextBtn.onclick = ()=>{
+
+    currentQuestion++;
+
+    if(currentQuestion < questions.length){
+
+        loadQuestion();
+
+    }
+
+    else{
+
+        finishQuiz();
+
+    }
+
+};
+
+// ======================================
+// BACK BUTTON
+// ======================================
+
+backBtn.onclick = ()=>{
+
+    if(currentQuestion > 0){
+
+        currentQuestion--;
+
+        loadQuestion();
+
+    }
+
+};
+
+// ======================================
+// HEART PROGRESS
+// ======================================
+
+function updateHearts(){
+
+    hearts.forEach((heart,index)=>{
+
+        if(index <= currentQuestion){
+
+            heart.classList.add("active");
+
+        }
+
+        else{
+
+            heart.classList.remove("active");
+
+        }
+
+    });
+
+}
