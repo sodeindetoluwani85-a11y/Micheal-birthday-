@@ -495,3 +495,34 @@ body {
   color: #5b3c3c;
   line-height: 1.6;
 }
+.jokeButtons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.jokeOption {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 20px;
+  background: #f7b4c8;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.jokeOption:hover {
+  transform: scale(1.05);
+  background: #ef7ca6;
+  color: white;
+}
+
+#jokeResponse {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 26px;
+  text-align: center;
+  margin-top: 25px;
+  color: #d94c83;
+  min-height: 30px;
+}
