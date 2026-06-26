@@ -526,3 +526,11 @@ body {
   color: #d94c83;
   min-height: 30px;
 }
+#jokeResponse {
+  display: none;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 26px;
+  text-align: center;
+  margin-top: 25px;
+  color: #d94c83;
+}
