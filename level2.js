@@ -247,9 +247,15 @@ document.getElementById("backQuestion").onclick = () => {
 const continueBtn = document.getElementById("continueLevel3");
 const responseText = document.getElementById("jokeResponse");
 
+// ensure hidden at start
+responseText.style.display = "none";
+
 document.querySelectorAll(".jokeOption").forEach(btn => {
   btn.addEventListener("click", () => {
     const answer = btn.dataset.answer;
+
+    // show response ONLY after click
+    responseText.style.display = "block";
 
     if (answer === "yes") {
       responseText.textContent = "Correct 😌";
@@ -266,4 +272,5 @@ document.querySelectorAll(".jokeOption").forEach(btn => {
 continueBtn.onclick = () => {
   window.location.href = "level3.html";
 };
+      
 });
