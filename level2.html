@@ -4,129 +4,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level 2 • Memory Lane</title>
+
     <link rel="stylesheet" href="level2.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
 <!-- ================= LOADING SCREEN ================= -->
+
 <section id="loadingScreen">
+
     <div class="loadingCard">
+
         <h1>LEVEL TWO</h1>
+
         <h2>Memory Lane</h2>
+
         <p>Loading relationship archives...</p>
+
         <div class="loadingBar">
             <div id="loadingProgress"></div>
         </div>
+
         <span id="loadingPercent">0%</span>
+
     </div>
+
 </section>
+
 <!-- ================= MEMORY HOME ================= -->
+
 <section id="memoryHome" class="hidden">
+
     <div class="paper">
+
         <button id="backHome">←</button>
-        <h1>Memory Lane</h1>
+
+        <h1>Memory Lane ❤️</h1>
+
         <p>
             Every memory tells a story.
-            Let's see how much you remember. ❤️
+            Let's see how much you remember.
         </p>
+
         <div class="timeline">
+
             <button class="memorySelect" data-memory="0">
                 01 • First Place We Met
             </button>
+
             <button class="memorySelect" data-memory="1">
                 02 • First Date
             </button>
+
             <button class="memorySelect" data-memory="2">
                 03 • Who Confessed First
             </button>
+
             <button class="memorySelect" data-memory="3">
                 04 • Our Greatest Food Argument
             </button>
+
         </div>
+
     </div>
+
 </section>
+
 <!-- ================= QUESTION PAGE ================= -->
+
 <section id="questionPage" class="hidden">
+
     <div class="paper">
+
         <button id="backQuestion">←</button>
-        <h1 id="questionTitle">
-            Question
-        </h1>
-        <div id="optionContainer">
-        </div>
-        <div id="questionPopup">
-        </div>
+
+        <h1 id="questionTitle"></h1>
+
+        <div id="optionContainer"></div>
+
         <button id="submitAnswer">
             Submit Answer ❤️
         </button>
+
     </div>
+
 </section>
+
 <!-- ================= MEMORY REVEAL ================= -->
+
 <section id="memoryReveal" class="hidden">
+
     <div class="paper">
+
         <h1>Memory Unlocked ❤️</h1>
+
         <img
             id="memoryImage"
             src=""
-            alt="Memory Photo">
-        <p id="memoryMessage">
-        </p>
+            alt="Memory">
+
+        <p id="memoryMessage"></p>
+
         <button id="nextMemory">
             Next Memory →
         </button>
+
     </div>
+
 </section>
-<!-- ================= FINISH ================= -->
-<section id="finishPage" class="hidden">
+
+<!-- ================= TENNESSEE JOKE ================= -->
+
+<section id="jokePage" class="hidden">
+
     <div class="paper">
-        <h1>Memory Lane Complete ❤️</h1>
-        <p>
-            You remembered every important moment.
-            I'm impressed. 🥹
+
+        <h1>Before you continue…</h1>
+
+        <p class="jokeText">
+            Are you from Tennessee? 😉
         </p>
-        <button id="level3Button">
-            Proceed to Level 3 →
+
+        <div class="jokeButtons">
+
+            <button class="jokeOption" data-answer="yes">
+                Yes
+            </button>
+
+            <button class="jokeOption" data-answer="no">
+                No
+            </button>
+
+        </div>
+
+        <p id="jokeResponse"></p>
+
+        <button
+            id="continueLevel3"
+            style="display:none;">
+            Okay fine… continue →
         </button>
+
     </div>
+
 </section>
-   <section id="jokePage" class="hidden">
-  <div class="paper">
-    <h1>Before you continue…</h1>
 
-    <p class="jokeText">
-      Are you from Tennessee? 😉<br><br>
-      Because you’re the only TEN I SEE 🤭
-    </p>
-
-    <div class="jokeButtons">
-      <button class="jokeOption" data-answer="yes">Yes</button>
-      <button class="jokeOption" data-answer="no">No</button>
-    </div>
-
-    <p id="jokeResponse"></p>
-
-    <button id="continueLevel3" style="display:none;">
-      Okay fine… continue →
-    </button>
-  </div>
-</section> 
-   <section id="level3Page" class="hidden">
-  <div class="paper">
-
-    <h1>Reasons Why I Love You ❤️</h1>
-
-    <p class="subtitle">
-      Click the button… I might never stop
-    </p>
-
-    <button id="reasonBtn">
-      Click for a reason ❤️
-    </button>
-
-    <p id="reasonText"></p>
-
-  </div>
-</section> 
 <script src="level2.js"></script>
+
 </body>
 </html>
