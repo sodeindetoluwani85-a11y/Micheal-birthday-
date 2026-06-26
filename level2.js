@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+/* =========================
+MEMORIES DATA
+========================= */
 const memories = [
   {
     question: "Where did we first meet?",
@@ -35,7 +38,9 @@ const memories = [
   }
 ];
 
-// ================= ELEMENTS =================
+/* =========================
+ELEMENTS
+========================= */
 const loadingScreen = document.getElementById("loadingScreen");
 const memoryHome = document.getElementById("memoryHome");
 const questionPage = document.getElementById("questionPage");
@@ -46,21 +51,26 @@ const questionTitle = document.getElementById("questionTitle");
 const optionContainer = document.getElementById("optionContainer");
 const memoryImage = document.getElementById("memoryImage");
 const memoryMessage = document.getElementById("memoryMessage");
-const nextMemoryBtn = document.getElementById("nextMemory");
+const nextBtn = document.getElementById("nextMemory");
 
-// ================= STATE =================
+/* =========================
+STATE
+========================= */
 let currentIndex = 0;
 
-// ================= LOADING SCREEN =================
-window.onload = () => {
-  let progress = 0;
-  const bar = document.getElementById("loadingProgress");
-  const percent = document.getElementById("loadingPercent");
+/* =========================
+LOADING SCREEN
+========================= */
+let progress = 0;
+const bar = document.getElementById("loadingProgress");
+const percent = document.getElementById("loadingPercent");
 
+function startLoading() {
   const interval = setInterval(() => {
     progress += 2;
-    bar.style.width = progress + "%";
-    percent.textContent = progress + "%";
+
+    if (bar) bar.style.width = progress + "%";
+    if (percent) percent.textContent = progress + "%";
 
     if (progress >= 100) {
       clearInterval(interval);
@@ -68,9 +78,13 @@ window.onload = () => {
       memoryHome.classList.remove("hidden");
     }
   }, 20);
-};
+}
 
-// ================= OPEN QUESTION =================
+startLoading();
+
+/* =========================
+OPEN QUESTION (HOME → QUESTION)
+========================= */
 document.querySelectorAll(".memorySelect").forEach(btn => {
   btn.addEventListener("click", () => {
     openQuestion(Number(btn.dataset.memory));
@@ -104,7 +118,9 @@ function openQuestion(index) {
   });
 }
 
-// ================= SUBMIT ANSWER =================
+/* =========================
+SUBMIT ANSWER
+========================= */
 document.getElementById("submitAnswer").addEventListener("click", () => {
   const selected = document.querySelector(".option.selected");
 
@@ -118,14 +134,16 @@ document.getElementById("submitAnswer").addEventListener("click", () => {
 
   if (answer === memory.correct) {
     showReveal(memory);
-    hearts();
+    spawnHearts();
   } else {
     selected.classList.add("wrong");
     setTimeout(() => selected.classList.remove("wrong"), 500);
   }
 });
 
-// ================= REVEAL SCREEN =================
+/* =========================
+REVEAL SCREEN
+========================= */
 function showReveal(memory) {
   questionPage.classList.add("hidden");
   memoryReveal.classList.remove("hidden");
@@ -137,12 +155,12 @@ function showReveal(memory) {
 
   typeText(memoryMessage, memory.message);
 
-  nextMemoryBtn.onclick = () => {
-    nextMemory();
-  };
+  nextBtn.onclick = nextMemory;
 }
 
-// ================= NEXT MEMORY =================
+/* =========================
+NEXT MEMORY
+========================= */
 function nextMemory() {
   memoryReveal.classList.add("hidden");
 
@@ -155,7 +173,9 @@ function nextMemory() {
   }
 }
 
-// ================= TYPEWRITER =================
+/* =========================
+TYPEWRITER EFFECT
+========================= */
 function typeText(el, text) {
   el.textContent = "";
   let i = 0;
@@ -168,8 +188,10 @@ function typeText(el, text) {
   }, 20);
 }
 
-// ================= HEART EFFECT =================
-function hearts() {
+/* =========================
+HEART EFFECT
+========================= */
+function spawnHearts() {
   for (let i = 0; i < 15; i++) {
     const heart = document.createElement("div");
     heart.textContent = "💖";
@@ -184,14 +206,18 @@ function hearts() {
   }
 }
 
-// ================= SHAKE =================
+/* =========================
+SHAKE EFFECT
+========================= */
 function shake(el) {
   el.style.transform = "translateX(-5px)";
-  setTimeout(() => el.style.transform = "translateX(5px)", 100);
-  setTimeout(() => el.style.transform = "translateX(0)", 200);
+  setTimeout(() => (el.style.transform = "translateX(5px)"), 100);
+  setTimeout(() => (el.style.transform = "translateX(0)"), 200);
 }
 
-// ================= BACK BUTTONS =================
+/* =========================
+BACK BUTTONS
+========================= */
 document.getElementById("backHome").onclick = () => {
   questionPage.classList.add("hidden");
   memoryHome.classList.remove("hidden");
