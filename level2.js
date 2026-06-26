@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", () => {
+
 const memories = [
   {
     question: "Where did we first meet?",
@@ -21,7 +23,7 @@ const memories = [
     correct: 0,
     image: "IMG_3653.jpeg",
     message:
-      "At first I wasn’t sure if you meant it… but now I know every word was real. ❤️"
+      "At first I wasn’t really sure if you meant all the “I love you”s you kept saying, but now I know you meant every one of them. ❤️"
   },
   {
     question: "What food do we always argue about?",
@@ -29,49 +31,44 @@ const memories = [
     correct: 1,
     image: "3664A4B4-AB7C-42B1-BD70-09B1C04D6641.jpeg",
     message:
-      "We both know Indomie wins. 🙄😂❤️"
+      "We both know Indomie is better. 🙄😂❤️"
   }
 ];
+
+// ================= ELEMENTS =================
+const loadingScreen = document.getElementById("loadingScreen");
+const memoryHome = document.getElementById("memoryHome");
+const questionPage = document.getElementById("questionPage");
+const memoryReveal = document.getElementById("memoryReveal");
+const finishPage = document.getElementById("finishPage");
+
+const questionTitle = document.getElementById("questionTitle");
+const optionContainer = document.getElementById("optionContainer");
+const memoryImage = document.getElementById("memoryImage");
+const memoryMessage = document.getElementById("memoryMessage");
+const nextMemoryBtn = document.getElementById("nextMemory");
 
 // ================= STATE =================
 let currentIndex = 0;
 
-// ================= SCREENS =================
-const screens = {
-  loading: document.getElementById("loadingScreen"),
-  home: document.getElementById("memoryHome"),
-  question: document.getElementById("questionPage"),
-  reveal: document.getElementById("memoryReveal"),
-  finish: document.getElementById("finishPage")
-};
-
-// ================= INIT LOADING =================
+// ================= LOADING SCREEN =================
 window.onload = () => {
   let progress = 0;
   const bar = document.getElementById("loadingProgress");
   const percent = document.getElementById("loadingPercent");
 
-  const load = setInterval(() => {
+  const interval = setInterval(() => {
     progress += 2;
     bar.style.width = progress + "%";
     percent.textContent = progress + "%";
 
     if (progress >= 100) {
-      clearInterval(load);
-      transition(screens.loading, screens.home);
+      clearInterval(interval);
+      loadingScreen.classList.add("hidden");
+      memoryHome.classList.remove("hidden");
     }
   }, 20);
 };
-
-// ================= TRANSITION SYSTEM =================
-function transition(from, to) {
-  from.style.opacity = 0;
-  setTimeout(() => {
-    from.classList.add("hidden");
-    to.classList.remove("hidden");
-    to.style.opacity = 1;
-  }, 300);
-}
 
 // ================= OPEN QUESTION =================
 document.querySelectorAll(".memorySelect").forEach(btn => {
@@ -83,14 +80,14 @@ document.querySelectorAll(".memorySelect").forEach(btn => {
 function openQuestion(index) {
   currentIndex = index;
 
-  transition(screens.home, screens.question);
+  memoryHome.classList.add("hidden");
+  questionPage.classList.remove("hidden");
 
   const memory = memories[index];
 
-  document.getElementById("questionTitle").textContent = memory.question;
+  questionTitle.textContent = memory.question;
 
-  const container = document.getElementById("optionContainer");
-  container.innerHTML = "";
+  optionContainer.innerHTML = "";
 
   memory.options.forEach((opt, i) => {
     const btn = document.createElement("button");
@@ -98,73 +95,88 @@ function openQuestion(index) {
     btn.textContent = opt;
     btn.dataset.index = i;
 
-    btn.onclick = () => {
+    btn.addEventListener("click", () => {
       document.querySelectorAll(".option").forEach(b => b.classList.remove("selected"));
       btn.classList.add("selected");
-    };
+    });
 
-    container.appendChild(btn);
+    optionContainer.appendChild(btn);
   });
 }
 
-// ================= SUBMIT =================
+// ================= SUBMIT ANSWER =================
 document.getElementById("submitAnswer").addEventListener("click", () => {
   const selected = document.querySelector(".option.selected");
 
-  if (!selected) return shake(document.getElementById("submitAnswer"));
+  if (!selected) {
+    shake(document.getElementById("submitAnswer"));
+    return;
+  }
 
-  const index = Number(selected.dataset.index);
+  const answer = Number(selected.dataset.index);
   const memory = memories[currentIndex];
 
-  if (index === memory.correct) {
-    correctAnswer(memory);
+  if (answer === memory.correct) {
+    showReveal(memory);
+    hearts();
   } else {
     selected.classList.add("wrong");
     setTimeout(() => selected.classList.remove("wrong"), 500);
   }
 });
 
-// ================= CORRECT ANSWER =================
-function correctAnswer(memory) {
-  spawnHearts();
+// ================= REVEAL SCREEN =================
+function showReveal(memory) {
+  questionPage.classList.add("hidden");
+  memoryReveal.classList.remove("hidden");
 
-  setTimeout(() => {
-    transition(screens.question, screens.reveal);
+  memoryImage.style.display = "block";
+  memoryMessage.style.display = "block";
 
-    const img = document.getElementById("memoryImage");
-    const msg = document.getElementById("memoryMessage");
+  memoryImage.src = memory.image;
 
-    img.style.display = "block";
-    msg.style.display = "block";
+  typeText(memoryMessage, memory.message);
 
-    img.src = memory.image;
-
-    typeWriter(msg, memory.message);
-
-    document.getElementById("nextMemory").onclick = nextMemory;
-  }, 600);
+  nextMemoryBtn.onclick = () => {
+    nextMemory();
+  };
 }
 
-// ================= NEXT =================
+// ================= NEXT MEMORY =================
 function nextMemory() {
+  memoryReveal.classList.add("hidden");
+
   const next = currentIndex + 1;
 
   if (next < memories.length) {
     openQuestion(next);
   } else {
-    transition(screens.reveal, screens.finish);
+    finishPage.classList.remove("hidden");
   }
 }
 
+// ================= TYPEWRITER =================
+function typeText(el, text) {
+  el.textContent = "";
+  let i = 0;
+
+  const typing = setInterval(() => {
+    el.textContent += text[i];
+    i++;
+
+    if (i >= text.length) clearInterval(typing);
+  }, 20);
+}
+
 // ================= HEART EFFECT =================
-function spawnHearts() {
-  for (let i = 0; i < 18; i++) {
+function hearts() {
+  for (let i = 0; i < 15; i++) {
     const heart = document.createElement("div");
     heart.textContent = "💖";
     heart.style.position = "fixed";
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.top = "80vh";
-    heart.style.fontSize = Math.random() * 18 + 12 + "px";
+    heart.style.fontSize = "18px";
     heart.style.animation = "floatUp 2s linear forwards";
     document.body.appendChild(heart);
 
@@ -172,35 +184,22 @@ function spawnHearts() {
   }
 }
 
-// ================= TYPEWRITER =================
-function typeWriter(el, text) {
-  el.textContent = "";
-  let i = 0;
-
-  const type = setInterval(() => {
-    el.textContent += text[i];
-    i++;
-
-    if (i >= text.length) clearInterval(type);
-  }, 25);
-}
-
 // ================= SHAKE =================
 function shake(el) {
   el.style.transform = "translateX(-5px)";
-  setTimeout(() => {
-    el.style.transform = "translateX(5px)";
-  }, 100);
-  setTimeout(() => {
-    el.style.transform = "translateX(0)";
-  }, 200);
+  setTimeout(() => el.style.transform = "translateX(5px)", 100);
+  setTimeout(() => el.style.transform = "translateX(0)", 200);
 }
 
-// ================= BACK =================
+// ================= BACK BUTTONS =================
 document.getElementById("backHome").onclick = () => {
-  transition(screens.question, screens.home);
+  questionPage.classList.add("hidden");
+  memoryHome.classList.remove("hidden");
 };
 
 document.getElementById("backQuestion").onclick = () => {
-  transition(screens.question, screens.home);
+  questionPage.classList.add("hidden");
+  memoryHome.classList.remove("hidden");
 };
+
+});
