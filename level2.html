@@ -4,78 +4,75 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Level 2 • Memory Lane</title>
 
 <link rel="stylesheet" href="level2.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<!-- Loading Screen -->
+<!-- ================= LOADING SCREEN ================= -->
 
-<div id="loadingScreen">
+<section id="loadingScreen">
 
-<h1>📖 Memory Lane</h1>
+<div class="loadingBox">
 
-<p>Loading your favourite memories...</p>
+<h1>Level Two</h1>
 
-<div class="loaderHearts">
-❤️ ❤️ ❤️
+<h2>Memory Lane</h2>
+
+<p>Loading relationship archives...</p>
+
+<div class="loadingBar">
+
+<div id="progressBar"></div>
+
 </div>
 
+<p id="percent">0%</p>
+
 </div>
 
-<!-- Main Page -->
+</section>
 
-<div id="memoryPage">
+<!-- ================= MENU PAGE ================= -->
 
-<h1>📖 Memory Lane</h1>
+<section id="menuPage" class="hidden">
 
-<p class="subtitle">
+<div class="paper">
 
-Every memory tells a story...
+<h1>Memory Lane ♡</h1>
 
-</p>
+<p>Let's take a trip down memory lane...</p>
 
-<div class="questionCard">
+<div class="timeline">
 
-<h2 id="question"></h2>
+<button class="memoryBtn" data-memory="0">
+1. First place we met?
+</button>
 
-<div id="options"></div>
+<button class="memoryBtn" data-memory="1">
+2. First date?
+</button>
 
-<div id="popup"></div>
+<button class="memoryBtn" data-memory="2">
+3. Who confessed first?
+</button>
 
-<button id="submitBtn">
-
-Submit Answer ❤️
-
+<button class="memoryBtn" data-memory="3">
+4. What food do we always argue about?
 </button>
 
 </div>
 
-<!-- Hidden Memory -->
-
-<div id="memoryReveal">
-
-<img id="memoryImage" src="" alt="memory">
-
-<p id="memoryText"></p>
-
-<button id="nextMemory">
-
-Next Memory →
-
-</button>
-
 </div>
 
-</div>
+</section>
 
 <script src="level2.js"></script>
 
