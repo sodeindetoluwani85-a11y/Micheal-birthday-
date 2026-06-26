@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             });
 
-            popup.classList.remove("hidden");
+         popup.classList.add("show");
 
         });
 
@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             setTimeout(()=>{
 
-                popup.classList.add("hidden");
+                popup.classList.remove("show");
 
                 letters[currentLetter].classList.add("opened");
 
