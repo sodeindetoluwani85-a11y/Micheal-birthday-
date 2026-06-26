@@ -186,7 +186,7 @@ function nextMemory() {
   if (currentIndex < memories.length) {
     openQuestion(currentIndex);
   } else {
-    show(finishPage);
+    document.getElementById("jokePage").classList.remove("hidden");
   }
 }
 
@@ -204,7 +204,6 @@ function typeText(el, text) {
     if (i >= text.length) clearInterval(typing);
   }, 20);
 }
-
 /* =========================
 HEARTS
 ========================= */
