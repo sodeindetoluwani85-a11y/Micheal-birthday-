@@ -187,12 +187,17 @@ function nextMemory() {
 /* =========================
 JOKE SYSTEM (TENNESSEE PART)
 ========================= */
+/* =========================
+JOKE SYSTEM (TENNESSEE PART)
+========================= */
 function initJoke() {
+
   const response = document.getElementById("jokeResponse");
   const continueBtn = document.getElementById("continueLevel3");
 
   if (!response || !continueBtn) return;
 
+  // Hide response and continue button when the joke starts
   response.style.display = "none";
   continueBtn.style.display = "none";
 
@@ -206,7 +211,8 @@ function initJoke() {
 
       if (answer === "yes") {
 
-        response.innerHTML = "Because you're the only <strong>TEN I SEE</strong> 🤭❤️";
+        response.innerHTML =
+          "Because you're the only <strong>TEN I SEE</strong> 🤭❤️";
 
         continueBtn.style.display = "inline-block";
 
@@ -222,8 +228,10 @@ function initJoke() {
 
   });
 
+  // Go to the new Level 3 page
   continueBtn.onclick = () => {
     window.location.href = "level3.html";
   };
+
 }
 });
