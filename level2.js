@@ -39,7 +39,7 @@ const memories = [
 ];
 
 /* =========================
-ELEMENTS
+SCREENS
 ========================= */
 const loadingScreen = document.getElementById("loadingScreen");
 const memoryHome = document.getElementById("memoryHome");
@@ -47,6 +47,9 @@ const questionPage = document.getElementById("questionPage");
 const memoryReveal = document.getElementById("memoryReveal");
 const finishPage = document.getElementById("finishPage");
 
+/* =========================
+QUESTION ELEMENTS
+========================= */
 const questionTitle = document.getElementById("questionTitle");
 const optionContainer = document.getElementById("optionContainer");
 const memoryImage = document.getElementById("memoryImage");
@@ -59,9 +62,21 @@ STATE
 let currentIndex = 0;
 
 /* =========================
-LOADING SCREEN
+FORCE SHOW/HIDE (NO CSS RELIANCE)
+========================= */
+function show(el) {
+  el.style.display = "block";
+}
+
+function hide(el) {
+  el.style.display = "none";
+}
+
+/* =========================
+LOADING SCREEN (ROBUST)
 ========================= */
 let progress = 0;
+
 const bar = document.getElementById("loadingProgress");
 const percent = document.getElementById("loadingPercent");
 
@@ -74,8 +89,11 @@ function startLoading() {
 
     if (progress >= 100) {
       clearInterval(interval);
-      loadingScreen.classList.add("hidden");
-      memoryHome.classList.remove("hidden");
+
+      console.log("Loading finished");
+
+      hide(loadingScreen);
+      show(memoryHome);
     }
   }, 20);
 }
@@ -83,7 +101,7 @@ function startLoading() {
 startLoading();
 
 /* =========================
-OPEN QUESTION (HOME → QUESTION)
+OPEN MEMORY QUESTION
 ========================= */
 document.querySelectorAll(".memorySelect").forEach(btn => {
   btn.addEventListener("click", () => {
@@ -94,13 +112,12 @@ document.querySelectorAll(".memorySelect").forEach(btn => {
 function openQuestion(index) {
   currentIndex = index;
 
-  memoryHome.classList.add("hidden");
-  questionPage.classList.remove("hidden");
+  hide(memoryHome);
+  show(questionPage);
 
   const memory = memories[index];
 
   questionTitle.textContent = memory.question;
-
   optionContainer.innerHTML = "";
 
   memory.options.forEach((opt, i) => {
@@ -145,14 +162,13 @@ document.getElementById("submitAnswer").addEventListener("click", () => {
 REVEAL SCREEN
 ========================= */
 function showReveal(memory) {
-  questionPage.classList.add("hidden");
-  memoryReveal.classList.remove("hidden");
+  hide(questionPage);
+  show(memoryReveal);
 
   memoryImage.style.display = "block";
   memoryMessage.style.display = "block";
 
   memoryImage.src = memory.image;
-
   typeText(memoryMessage, memory.message);
 
   nextBtn.onclick = nextMemory;
@@ -162,19 +178,19 @@ function showReveal(memory) {
 NEXT MEMORY
 ========================= */
 function nextMemory() {
-  memoryReveal.classList.add("hidden");
+  hide(memoryReveal);
 
-  const next = currentIndex + 1;
+  currentIndex++;
 
-  if (next < memories.length) {
-    openQuestion(next);
+  if (currentIndex < memories.length) {
+    openQuestion(currentIndex);
   } else {
-    finishPage.classList.remove("hidden");
+    show(finishPage);
   }
 }
 
 /* =========================
-TYPEWRITER EFFECT
+TYPEWRITER
 ========================= */
 function typeText(el, text) {
   el.textContent = "";
@@ -189,7 +205,7 @@ function typeText(el, text) {
 }
 
 /* =========================
-HEART EFFECT
+HEARTS
 ========================= */
 function spawnHearts() {
   for (let i = 0; i < 15; i++) {
@@ -200,6 +216,7 @@ function spawnHearts() {
     heart.style.top = "80vh";
     heart.style.fontSize = "18px";
     heart.style.animation = "floatUp 2s linear forwards";
+
     document.body.appendChild(heart);
 
     setTimeout(() => heart.remove(), 2000);
@@ -207,7 +224,7 @@ function spawnHearts() {
 }
 
 /* =========================
-SHAKE EFFECT
+SHAKE
 ========================= */
 function shake(el) {
   el.style.transform = "translateX(-5px)";
@@ -219,13 +236,13 @@ function shake(el) {
 BACK BUTTONS
 ========================= */
 document.getElementById("backHome").onclick = () => {
-  questionPage.classList.add("hidden");
-  memoryHome.classList.remove("hidden");
+  hide(questionPage);
+  show(memoryHome);
 };
 
 document.getElementById("backQuestion").onclick = () => {
-  questionPage.classList.add("hidden");
-  memoryHome.classList.remove("hidden");
+  hide(questionPage);
+  show(memoryHome);
 };
 
 });
