@@ -8,11 +8,8 @@ const memoryHome = document.getElementById("memoryHome");
 const questionPage = document.getElementById("questionPage");
 const memoryReveal = document.getElementById("memoryReveal");
 const finishPage = document.getElementById("finishPage");
-
 const jokePage = document.getElementById("jokePage");
 const level3Page = document.getElementById("level3Page");
-const continueBtn = document.getElementById("continueLevel3");
-const responseText = document.getElementById("jokeResponse");
 
 /* =========================
 STATE
@@ -21,7 +18,7 @@ let currentIndex = 0;
 let progress = 0;
 
 /* =========================
-MEMORIES
+MEMORIES DATA
 ========================= */
 const memories = [
   {
@@ -46,7 +43,7 @@ const memories = [
     correct: 0,
     image: "images/IMG_3653.jpeg",
     message:
-      "At first I wasn’t really sure if you meant all the “I love you”s you kept saying, but now I know you meant every one of them. ❤️"
+      "At first I wasn’t sure if you meant it… but now I know you did. ❤️"
   },
   {
     question: "What food do we always argue about?",
@@ -54,7 +51,7 @@ const memories = [
     correct: 1,
     image: "images/3664A4B4-AB7C-42B1-BD70-09B1C04D6641.jpeg",
     message:
-      "We both know Indomie is better. 🙄😂❤️"
+      "We both know Indomie wins 🙄😂❤️"
   }
 ];
 
@@ -70,7 +67,7 @@ function hide(el) {
 }
 
 /* =========================
-LOADING
+LOADING SCREEN (FIXED)
 ========================= */
 const bar = document.getElementById("loadingProgress");
 const percent = document.getElementById("loadingPercent");
@@ -84,7 +81,6 @@ function startLoading() {
 
     if (progress >= 100) {
       clearInterval(interval);
-
       hide(loadingScreen);
       show(memoryHome);
     }
@@ -94,7 +90,7 @@ function startLoading() {
 startLoading();
 
 /* =========================
-MEMORY SELECT
+MEMORY SELECTION
 ========================= */
 document.querySelectorAll(".memorySelect").forEach(btn => {
   btn.addEventListener("click", () => {
@@ -109,7 +105,6 @@ function openQuestion(index) {
   show(questionPage);
 
   const memory = memories[index];
-
   const questionTitle = document.getElementById("questionTitle");
   const optionContainer = document.getElementById("optionContainer");
 
@@ -118,14 +113,14 @@ function openQuestion(index) {
 
   memory.options.forEach((opt, i) => {
     const btn = document.createElement("button");
-    btn.classList.add("option");
+    btn.className = "option";
     btn.textContent = opt;
     btn.dataset.index = i;
 
-    btn.addEventListener("click", () => {
+    btn.onclick = () => {
       document.querySelectorAll(".option").forEach(b => b.classList.remove("selected"));
       btn.classList.add("selected");
-    });
+    };
 
     optionContainer.appendChild(btn);
   });
@@ -134,38 +129,41 @@ function openQuestion(index) {
 /* =========================
 SUBMIT ANSWER
 ========================= */
-document.getElementById("submitAnswer").addEventListener("click", () => {
-  const selected = document.querySelector(".option.selected");
+const submitBtn = document.getElementById("submitAnswer");
 
-  if (!selected) return;
+if (submitBtn) {
+  submitBtn.onclick = () => {
+    const selected = document.querySelector(".option.selected");
+    if (!selected) return;
 
-  const answer = Number(selected.dataset.index);
-  const memory = memories[currentIndex];
+    const answer = Number(selected.dataset.index);
+    const memory = memories[currentIndex];
 
-  if (answer === memory.correct) {
-    showReveal(memory);
-  } else {
-    selected.classList.add("wrong");
-    setTimeout(() => selected.classList.remove("wrong"), 500);
-  }
-});
+    if (answer === memory.correct) {
+      showReveal(memory);
+    } else {
+      selected.classList.add("wrong");
+      setTimeout(() => selected.classList.remove("wrong"), 500);
+    }
+  };
+}
 
 /* =========================
-REVEAL
+REVEAL SCREEN
 ========================= */
 function showReveal(memory) {
   hide(questionPage);
   show(memoryReveal);
 
-  const memoryImage = document.getElementById("memoryImage");
-  const memoryMessage = document.getElementById("memoryMessage");
+  const img = document.getElementById("memoryImage");
+  const msg = document.getElementById("memoryMessage");
   const nextBtn = document.getElementById("nextMemory");
 
-  memoryImage.style.display = "block";
-  memoryMessage.style.display = "block";
+  img.src = memory.image;
+  msg.textContent = memory.message;
 
-  memoryImage.src = memory.image;
-  memoryMessage.textContent = memory.message;
+  img.style.display = "block";
+  msg.style.display = "block";
 
   nextBtn.onclick = nextMemory;
 }
@@ -182,39 +180,42 @@ function nextMemory() {
     openQuestion(currentIndex);
   } else {
     show(jokePage);
+    initJoke();
   }
 }
 
 /* =========================
-LEVEL 3 CONNECT
+JOKE SYSTEM (TENNESSEE PART)
 ========================= */
-if (continueBtn) {
-  continueBtn.addEventListener("click", () => {
+function initJoke() {
+  const response = document.getElementById("jokeResponse");
+  const continueBtn = document.getElementById("continueLevel3");
+
+  if (!response || !continueBtn) return;
+
+  response.style.display = "none";
+  continueBtn.style.display = "none";
+
+  document.querySelectorAll(".jokeOption").forEach(btn => {
+    btn.onclick = () => {
+      const answer = btn.dataset.answer;
+
+      response.style.display = "block";
+
+      if (answer === "yes") {
+        response.textContent = "Correct 😌";
+        continueBtn.style.display = "block";
+      } else {
+        response.textContent = "think again🙄";
+        continueBtn.style.display = "none";
+      }
+    };
+  });
+
+  continueBtn.onclick = () => {
     hide(jokePage);
     show(level3Page);
-  });
+  };
 }
-
-/* =========================
-JOKE SYSTEM (SAFE)
-========================= */
-if (responseText) {
-  responseText.style.display = "none";
-}
-
-document.querySelectorAll(".jokeOption").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const answer = btn.dataset.answer;
-
-    if (!responseText) return;
-
-    responseText.style.display = "block";
-
-    responseText.textContent =
-      answer === "yes"
-        ? "Correct 😌"
-        : "think again🙄";
-  });
-});
 
 });
