@@ -110,6 +110,7 @@ function loadQuestion() {
             button.classList.add("selected");
 
             selectedAnswer = index;
+            checkAnswer(button, index);
 
         };
 
