@@ -4,184 +4,119 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Level 1 • Michael's Birthday</title>
+<title>Level 1 • Relationship Quiz ❤️</title>
 
 <link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<!-- Floating Hearts -->
-<div class="hearts"></div>
-
-<!-- Scrapbook -->
+<div class="backgroundHearts"></div>
 
 <div class="scrapbook">
 
-<!-- Polaroids -->
+    <!-- Corner Photos -->
 
-<img src="images/IMG_3599.jpeg" class="photo photo1">
+    <img src="images/IMG_3599.jpeg" class="cornerPhoto leftPhoto" alt="photo">
 
-<img src="images/IMG_4160.jpeg" class="photo photo2">
+    <img src="images/IMG_4160.jpeg" class="cornerPhoto rightPhoto" alt="photo">
 
-<!-- Tape -->
+    <!-- Decorative Notes -->
 
-<div class="tape tape1"></div>
+    <div class="stickyNote choose">
+        Choose carefully 😌
+    </div>
 
-<div class="tape tape2"></div>
+    <div class="stickyNote luck">
+        Good luck love, you'll need it ❤️
+    </div>
 
-<!-- Sticky Notes -->
+    <h1>🎮 Level One</h1>
 
-<div class="sticky choose">
+    <h2>How Well Do You Know Your Girlfriend?</h2>
 
-Choose carefully 😌
+    <!-- Music -->
 
-</div>
+    <div class="musicCard">
 
-<div class="sticky luck">
+        <h3>🎵 Official Soundtrack</h3>
 
-Good-luck love ❤️
+        <p>
+            You're advised to play the song before answering the questions.
+        </p>
 
-You'll need it.
+        <audio id="bgMusic">
+            <source src="music/Laufey-lover-Girl(voxhiphop).mp3" type="audio/mpeg">
+        </audio>
 
-</div>
+        <button id="playMusic">
+            ▶ Play Lover Girl
+        </button>
 
-<!-- Title -->
+    </div>
 
-<h1>
+    <!-- Progress -->
 
-🎮 LEVEL ONE
+    <div class="progress">
 
-</h1>
+        <div class="heart active"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
 
-<h2>
+    </div>
 
-How Well Do You Know Your Girlfriend?
+    <!-- Question Card -->
 
-</h2>
+    <div class="questionCard">
 
-<!-- Music Card -->
+        <h3 id="question"></h3>
 
-<div class="musicCard">
+        <div id="answers"></div>
 
-<h3>
+        <div id="popup"></div>
 
-🎵 Official Level One Soundtrack
+        <div class="navButtons">
 
-</h3>
+            <button id="back">
+                ⬅ Back
+            </button>
 
-<p>
+            <button id="next" disabled>
+                Next ➜
+            </button>
 
-You're advised to play the soundtrack before answering.
+        </div>
 
-It makes the experience better. 🤍
-
-</p>
-
-<audio id="bgMusic">
-
-<source src="music/Laufey-lover-Girl(voxhiphop).mp3" type="audio/mpeg">
-
-</audio>
-
-<button id="playMusic">
-
-▶ Play Lover Girl
-
-</button>
-
-</div>
-
-<!-- Progress -->
-
-<div class="progress">
-
-<div class="heart active"></div>
-
-<div class="heart"></div>
-
-<div class="heart"></div>
+    </div>
 
 </div>
 
-<!-- Question Card -->
-
-<div class="card">
-
-<h3 id="question">
-
-Question loads here
-
-</h3>
-
-<div id="answers">
-
-</div>
-
-<!-- Sticky popup -->
-
-<div id="popup">
-
-</div>
-
-<div class="buttons">
-
-<button id="back">
-
-⬅ Back
-
-</button>
-
-<button id="next" disabled>
-
-Next ➜
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- Congratulations Screen -->
+<!-- Finish Screen -->
 
 <div id="finishScreen">
 
-<h1>
+    <div class="finishCard">
 
-🎉 Congratulations!!
+        <h1>🎉 Congratulations!</h1>
 
-</h1>
+        <p>
+            You've made it to Level 2 ❤️
+        </p>
 
-<h2>
+        <button id="level2">
+            Proceed to Level 2 →
+        </button>
 
-You made it to Level 2 ❤️
-
-</h2>
-
-<p>
-
-Not bad...
-
-Maybe you really do know me after all. 🤍
-
-</p>
-
-<button id="level2">
-
-Proceed to Level 2 🎮
-
-</button>
+    </div>
 
 </div>
 
-<scr<script src="script.js?v=2"></script>
+<script src="script.js"></script>
 
 </body>
-
 </html>
