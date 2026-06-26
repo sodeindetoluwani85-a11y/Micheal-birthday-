@@ -8,7 +8,7 @@ const memories = [
     question: "Where did we first meet?",
     options: ["Busa", "CAF", "Emerald"],
     correct: 1,
-    image: "IMG_4384.jpeg",
+    image: "images/IMG_4384.jpeg",
     message:
       "I remember walking with Nonso and when we met you I was saying in my head, “Hmm this boy is fine o.” 🤣 I just really liked how goofy you were. ❤️"
   },
@@ -16,7 +16,7 @@ const memories = [
     question: "What was our first date?",
     options: ["Ice cream date", "Dinner date", "Movie date"],
     correct: 2,
-    image: "0CFF270A-A66A-4C73-A2E0-4F30A3233499.jpeg",
+    image: "images/0CFF270A-A66A-4C73-A2E0-4F30A3233499.jpeg",
     message:
       "I had the best date with you that day. 🥹 I really had so much fun. ❤️"
   },
@@ -24,7 +24,7 @@ const memories = [
     question: "Who confessed first?",
     options: ["You", "Me"],
     correct: 0,
-    image: "IMG_3653.jpeg",
+    image: "images/IMG_3653.jpeg",
     message:
       "At first I wasn’t really sure if you meant all the “I love you”s you kept saying, but now I know you meant every one of them. ❤️"
   },
@@ -32,10 +32,11 @@ const memories = [
     question: "What food do we always argue about?",
     options: ["Rice and beans", "Indomie", "Bread and stew"],
     correct: 1,
-    image: "3664A4B4-AB7C-42B1-BD70-09B1C04D6641.jpeg",
+    image: "images/3664A4B4-AB7C-42B1-BD70-09B1C04D6641.jpeg",
     message:
       "We both know Indomie is better. 🙄😂❤️"
   }
+
 ];
 
 /* =========================
