@@ -486,4 +486,12 @@ body {
   0% { transform: translateY(0); opacity: 1; }
   100% { transform: translateY(-120vh); opacity: 0; }
 }
-
+.jokeText {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 26px;
+  text-align: center;
+  margin: 30px auto;
+  max-width: 500px;
+  color: #5b3c3c;
+  line-height: 1.6;
+}
