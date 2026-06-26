@@ -168,3 +168,142 @@ bottom:40px;
 right:25px;
 font-size:36px;
 }
+/* ===========================
+   MUSIC CARD
+=========================== */
+.musicCard{
+background:#fff8fc;
+border:3px dashed #ffb7cf;
+border-radius:25px;
+padding:25px;
+text-align:center;
+margin:35px auto;
+max-width:650px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+.musicCard h3{
+color:#ff5f95;
+font-size:30px;
+font-family:'Patrick Hand',cursive;
+margin-bottom:12px;
+}
+.musicCard p{
+font-size:18px;
+color:#555;
+margin-bottom:20px;
+line-height:1.6;
+}
+#playMusic{
+background:#ff5f95;
+color:white;
+border:none;
+padding:15px 35px;
+font-size:18px;
+border-radius:50px;
+cursor:pointer;
+transition:.3s;
+}
+#playMusic:hover{
+transform:scale(1.05);
+background:#ff4a86;
+}
+/* ===========================
+   PROGRESS
+=========================== */
+.progress{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:18px;
+margin:35px 0;
+}
+.heart{
+width:22px;
+height:22px;
+background:#ffd2e2;
+border-radius:50%;
+transition:.4s;
+}
+.heart.active{
+background:#ff5f95;
+transform:scale(1.2);
+}
+/* ===========================
+   QUESTION CARD
+=========================== */
+.card{
+background:white;
+border-radius:30px;
+padding:35px;
+box-shadow:0 15px 30px rgba(0,0,0,.08);
+border:4px solid #ffe0eb;
+margin-top:25px;
+}
+.card h3{
+font-family:'Patrick Hand',cursive;
+font-size:38px;
+text-align:center;
+color:#444;
+margin-bottom:25px;
+}
+/* ===========================
+   ANSWERS
+=========================== */
+#answers{
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+.answer{
+background:#fff4f9;
+border:2px solid #ffc4da;
+padding:18px;
+font-size:22px;
+border-radius:18px;
+cursor:pointer;
+transition:.3s;
+font-family:'Quicksand',sans-serif;
+}
+.answer:hover{
+background:#ffdceb;
+transform:translateY(-2px);
+}
+/* ===========================
+   POPUP NOTE
+=========================== */
+#popup{
+margin-top:25px;
+min-height:70px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+font-family:'Patrick Hand',cursive;
+font-size:24px;
+color:#ff4a86;
+}
+/* ===========================
+   BUTTONS
+=========================== */
+.buttons{
+display:flex;
+justify-content:space-between;
+margin-top:30px;
+}
+.buttons button{
+background:#ff5f95;
+color:white;
+border:none;
+padding:15px 35px;
+font-size:18px;
+border-radius:50px;
+cursor:pointer;
+transition:.3s;
+}
+.buttons button:hover{
+transform:scale(1.05);
+}
+.buttons button:disabled{
+background:#d9d9d9;
+cursor:not-allowed;
+}
