@@ -458,5 +458,32 @@ padding:0 12px;
 .photoBottom{
 display:none;
 }
+body {
+  transition: opacity 0.4s ease;
+}
+
+.option {
+  transition: 0.3s;
+}
+
+.option.selected {
+  transform: scale(1.05);
+}
+
+.option.wrong {
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+/* HEART ANIMATION */
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-120vh); opacity: 0; }
 }
 
