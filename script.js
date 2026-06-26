@@ -229,3 +229,63 @@ function updateHearts(){
     });
 
 }
+// ======================================
+// FINISH QUIZ
+// ======================================
+
+function finishQuiz(){
+
+    finishScreen.style.display = "flex";
+
+}
+
+// ======================================
+// LEVEL 2 BUTTON
+// ======================================
+
+level2Btn.onclick = ()=>{
+
+    window.location.href = "level2.html";
+
+};
+
+// ======================================
+// FLOATING HEARTS
+// ======================================
+
+setInterval(()=>{
+
+    const heart = document.createElement("div");
+
+    heart.innerHTML = "💖";
+
+    heart.style.position = "fixed";
+
+    heart.style.left = Math.random()*100 + "vw";
+
+    heart.style.bottom = "-30px";
+
+    heart.style.fontSize = (18 + Math.random()*12) + "px";
+
+    heart.style.pointerEvents = "none";
+
+    heart.style.transition = "4s linear";
+
+    heart.style.zIndex = "999";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+
+        heart.style.transform = "translateY(-120vh)";
+        heart.style.opacity = "0";
+
+    },50);
+
+    setTimeout(()=>{
+
+        heart.remove();
+
+    },4000);
+
+},1500);
