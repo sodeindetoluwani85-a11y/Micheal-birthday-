@@ -435,3 +435,44 @@ transform:scale(1);
 }
 
 }
+/* Floating Hearts */
+
+body{
+
+position:relative;
+
+overflow-x:hidden;
+
+}
+
+.floatingHeart{
+
+position:fixed;
+
+pointer-events:none;
+
+z-index:999;
+
+animation:floatUp 4s linear forwards;
+
+}
+
+@keyframes floatUp{
+
+from{
+
+transform:translateY(0);
+
+opacity:1;
+
+}
+
+to{
+
+transform:translateY(-120vh);
+
+opacity:0;
+
+}
+
+}
