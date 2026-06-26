@@ -194,3 +194,10 @@ document.addEventListener("keydown", (e) => {
 // ================================
 // END OF SCRIPT
 // ================================
+const level2Btn = document.getElementById("level2");
+
+if (level2Btn) {
+    level2Btn.addEventListener("click", () => {
+        window.location.href = "level2.html";
+    });
+}
