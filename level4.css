@@ -1,1 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Poppins:wght@300;400;600&display=swap');
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(180deg,#fff7fb,#ffe8f2);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:30px;
+overflow:hidden;
+}
+
+.hidden{
+display:none;
+}
+
+/* ================= INTRO PAGE ================= */
+
+.page{
+width:100%;
+max-width:700px;
+text-align:center;
+}
+
+.paper{
+background:white;
+padding:45px;
+border-radius:25px;
+box-shadow:0 15px 35px rgba(0,0,0,.12);
+}
+
+.paper h1{
+font-size:70px;
+margin-bottom:15px;
+}
+
+.paper h2{
+font-family:'Patrick Hand',cursive;
+font-size:46px;
+color:#d95b93;
+margin-bottom:20px;
+}
+
+.paper p{
+font-size:18px;
+line-height:1.8;
+color:#5f4b4b;
+margin-bottom:35px;
+}
+
+button{
+background:#ef7ca6;
+color:white;
+border:none;
+padding:15px 38px;
+border-radius:40px;
+font-size:17px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+background:#e45c91;
+}
+
+/* ================= CERTIFICATE PAGE ================= */
+
+#certificatePage{
+width:100%;
+text-align:center;
+}
+
+#certificate{
+
+background:#fffdf7;
+
+width:min(700px,95%);
+
+margin:0 auto;
+
+padding:55px 45px;
+
+border:12px solid #d8b04f;
+
+border-radius:18px;
+
+box-shadow:0 20px 40px rgba(0,0,0,.18);
+
+/* Starts above the screen */
+
+transform:translateY(-900px);
+
+opacity:0;
+
+}
+
+#certificate.show{
+
+animation:rollDown 1.6s ease forwards;
+
+}
+
+@keyframes rollDown{
+
+0%{
+transform:translateY(-900px);
+opacity:0;
+}
+
+70%{
+transform:translateY(40px);
+opacity:1;
+}
+
+100%{
+transform:translateY(0);
+opacity:1;
+}
+
+}
+
+#certificate h1{
+font-size:34px;
+color:#9b6d00;
+margin-bottom:20px;
+}
+
+#certificate h2{
+font-family:'Patrick Hand',cursive;
+font-size:44px;
+color:#d95b93;
+margin:15px 0;
+}
+
+#certificate h3{
+font-size:42px;
+margin-bottom:15px;
+}
+
+#certificate p{
+font-size:18px;
+line-height:1.8;
+color:#444;
+}
+
+.bottomText{
+font-family:'Patrick Hand',cursive;
+font-size:34px;
+margin-top:35px;
+color:#d95b93;
+}
+
+#nextLevel{
+margin-top:25px;
+}
+
+@media(max-width:700px){
+
+.paper{
+padding:30px;
+}
+
+.paper h2{
+font-size:34px;
+}
+
+#certificate{
+padding:35px 22px;
+}
+
+#certificate h1{
+font-size:26px;
+}
+
+#certificate h2{
+font-size:34px;
+}
+
+.bottomText{
+font-size:26px;
+}
+
+}
