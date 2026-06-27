@@ -15,9 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const submitBtn = document.getElementById("submitAnswer");
 
     const letters = document.querySelectorAll(".lockedLetter");
-const letterOnePage = document.getElementById("letterOnePage");
-const letterOneText = document.getElementById("letterOneText");
-const nextLetter = document.getElementById("nextLetter");
+
+    const letterOnePage = document.getElementById("letterOnePage");
+    const letterOneText = document.getElementById("letterOneText");
+    const nextLetter = document.getElementById("nextLetter");
+
     /* ==========================
        INTRO
     ========================== */
@@ -106,10 +108,8 @@ const nextLetter = document.getElementById("nextLetter");
             if (letter.classList.contains("opened")) return;
 
             currentLetter = index;
-
-            responseMessage.textContent = "";
-
             selectedAnswer = null;
+            responseMessage.textContent = "";
 
             questionText.textContent = questions[index].question;
 
@@ -120,19 +120,17 @@ const nextLetter = document.getElementById("nextLetter");
                 const btn = document.createElement("button");
 
                 btn.className = "optionBtn";
-
                 btn.textContent = option;
 
                 btn.onclick = () => {
 
-                    document.querySelectorAll(".optionBtn").forEach(b => {
+                    document.querySelectorAll(".optionBtn").forEach(button => {
 
-                        b.classList.remove("selected");
+                        button.classList.remove("selected");
 
                     });
 
                     btn.classList.add("selected");
-
                     selectedAnswer = i;
 
                 };
@@ -148,7 +146,7 @@ const nextLetter = document.getElementById("nextLetter");
     });
 
     /* ==========================
-       SUBMIT
+       SUBMIT ANSWER
     ========================== */
 
     submitBtn.addEventListener("click", () => {
@@ -156,7 +154,6 @@ const nextLetter = document.getElementById("nextLetter");
         if (selectedAnswer === null) {
 
             responseMessage.textContent = "Choose an answer first🥹";
-
             return;
 
         }
@@ -167,33 +164,55 @@ const nextLetter = document.getElementById("nextLetter");
 
             setTimeout(() => {
 
-    popup.classList.remove("show");
+                popup.classList.remove("show");
 
-    letters[currentLetter].classList.add("opened");
+                letters[currentLetter].classList.add("opened");
 
-    letters[currentLetter].querySelector(".lock").textContent = "🔓";
+                letters[currentLetter].querySelector(".lock").textContent = "🔓";
 
-    if(currentLetter === 0){
+                if (currentLetter === 0) {
 
-        lettersPage.classList.add("hidden");
+                    lettersPage.classList.add("hidden");
 
-        letterOnePage.classList.remove("hidden");
+                    letterOnePage.classList.remove("hidden");
 
-        letterOneText.textContent = `Hi baby, happy birthday my love❤️
+                    letterOneText.innerHTML = `
 
-I know you don't really fancy your birthdays but I wanted to make this year special❤️.
+<h2 class="letterTitle">Happy Birthday, Baby ❤️</h2>
 
-I was going to just write a letter and post pictures of us on the QR code but then I realized I could do this instead because it'll be more meaningful🥹❤️
+<p>
+Hi baby, happy birthday my love❤️
+</p>
 
+<p>
+I know you don't really fancy your birthdays, but I wanted to make this year special. ❤️
+I was going to just write a letter and post pictures of us on the QR code, but then I realized I could do this instead because it'll be more meaningful. 🥹❤️
+</p>
+
+<p>
 I just want you to know that I love you so much, and you mean so much to me.
+</p>
 
-You've helped me in so many ways that you don't even know about, and then sometimes I randomly start thinking about how good you are to me and then I realize how lucky I am to have someone like you as my boyfriend❤️
+<p>
+You've helped me in so many ways that you don't even know about. Sometimes I randomly start thinking about how good you are to me, and then I realize how lucky I am to have someone like you as my boyfriend. ❤️
+</p>
 
-I'm so grateful for you and I hope the joy in you never dies🥹❤️`;
+<p>
+I'm so grateful for you, and I hope the joy in you never dies. 🥹❤️
+</p>
 
-    }
+<div class="heartDivider">❤️ ❤️ ❤️</div>
 
-},1200);
+<p class="signature">
+Love always,<br>
+Your favorite girlfriend 🤭❤️
+</p>
+
+`;
+
+                }
+
+            }, 1200);
 
         }
 
@@ -205,11 +224,16 @@ I'm so grateful for you and I hope the joy in you never dies🥹❤️`;
 
     });
 
-});
-nextLetter.addEventListener("click", () => {
+    /* ==========================
+       CONTINUE BUTTON
+    ========================== */
 
-    letterOnePage.classList.add("hidden");
+    nextLetter.addEventListener("click", () => {
 
-    lettersPage.classList.remove("hidden");
+        letterOnePage.classList.add("hidden");
+
+        lettersPage.classList.remove("hidden");
+
+    });
 
 });
