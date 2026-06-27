@@ -552,12 +552,18 @@ transform:scale(1);
 LETTER ONE PAGE
 ========================== */
 
-#letterOnePage{
+/* ==========================
+LETTER PAGES
+========================== */
+
+.letterPage{
 
 min-height:100vh;
 
 display:flex;
+
 justify-content:center;
+
 align-items:center;
 
 padding:50px 20px;
@@ -565,7 +571,6 @@ padding:50px 20px;
 background:linear-gradient(180deg,#fff8fb,#ffeef6);
 
 }
-
 .scrapbook{
 
 position:relative;
