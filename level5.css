@@ -36,9 +36,7 @@ HIDDEN
 ========================== */
 
 .hidden{
-
-display:none;
-
+    display:none !important;
 }
 
 /* ==========================
@@ -777,5 +775,161 @@ transform:translateY(0);
 transform:translateY(-8px);
 
 }
+/* ==========================
+SCRAPBOOK
+========================== */
 
+.scrapbook{
+
+position:relative;
+
+background:#fffdf8;
+
+padding:55px;
+
+border-radius:25px;
+
+width:min(900px,92%);
+
+box-shadow:0 18px 40px rgba(0,0,0,.15);
+
+}
+
+.letterPaper{
+
+background:#fffaf4;
+
+padding:40px;
+
+border-radius:18px;
+
+border:2px dashed #f2b8c6;
+
+margin:35px 0;
+
+}
+
+.tape{
+
+position:absolute;
+
+width:90px;
+
+height:28px;
+
+background:rgba(255,235,120,.75);
+
+transform:rotate(-8deg);
+
+}
+
+.tapeLeft{
+
+top:-12px;
+
+left:40px;
+
+}
+
+.tapeRight{
+
+top:-12px;
+
+right:40px;
+
+transform:rotate(8deg);
+
+}
+
+.flower{
+
+position:absolute;
+
+font-size:34px;
+
+}
+
+.flower1{
+
+top:20px;
+
+right:30px;
+
+}
+
+.flower2{
+
+bottom:20px;
+
+left:30px;
+
+}
+
+.flower3{
+
+bottom:30px;
+
+right:70px;
+
+}
+
+.letterTitle{
+
+font-family:'Patrick Hand',cursive;
+
+font-size:46px;
+
+color:#d85c91;
+
+text-align:center;
+
+margin-bottom:30px;
+
+}
+
+#letterOneText{
+
+font-family:'Patrick Hand',cursive;
+
+font-size:29px;
+
+line-height:1.8;
+
+color:#5f4444;
+
+}
+
+#letterOneText p{
+
+margin-bottom:22px;
+
+}
+
+.heartDivider{
+
+text-align:center;
+
+font-size:26px;
+
+letter-spacing:10px;
+
+margin:30px 0;
+
+color:#ef7ca6;
+
+}
+
+.signature{
+
+text-align:right;
+
+font-size:34px;
+
+margin-top:40px;
+
+color:#d85c91;
+
+font-family:'Patrick Hand',cursive;
+
+}
 }
