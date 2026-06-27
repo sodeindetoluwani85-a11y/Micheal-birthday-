@@ -10,7 +10,7 @@
 
 <link rel="stylesheet" href="level5.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 </head>
 
@@ -20,118 +20,105 @@
 
 <section id="introPage">
 
-<div class="paper">
+    <div class="paper">
 
-<h1>🔒 Confidential</h1>
+        <h1>🔒 Confidential</h1>
 
-<h2>Because you've made it this far...</h2>
+        <h2>Before you continue...</h2>
 
-<p>
+        <p>
 
-There's one last challenge before you can read my secret letters.
+            Three letters are waiting for you.
 
-<br><br>
+            <br><br>
 
-Three letters are waiting for you.
+            They're all locked.
 
-<br><br>
+            <br><br>
 
-Unfortunately...
+            You'll have to prove you actually remember the important dates before I'll let you read them. 🤭❤️
 
-<br>
+            <br><br>
 
-They're locked. 🤭
+            Good luck...
 
-<br><br>
+        </p>
 
-You'll have to answer a few questions correctly before I trust you enough to read them.
+        <button id="startBtn">
 
-<br><br>
+            Start Unlocking →
 
-Good luck...
+        </button>
 
-<br>
-
-I believe in you. ❤️
-
-</p>
-
-<button id="startChallenge">
-
-Start Unlocking →
-
-</button>
-
-</div>
+    </div>
 
 </section>
 
-<!-- ================= LETTER PAGE ================= -->
+<!-- ================= LETTERS ================= -->
 
-<section id="letterOnePage" class="letterPage hidden">
+<section id="lettersPage">
 
-<h1 class="title">
+    <h1>💌 Secret Letters 💌</h1>
 
-💌 Secret Letters 💌
+    <p>
 
-</h1>
+        Three letters.
 
-<p class="subtitle">
+        <br>
 
-Unlock each letter to discover what's inside.
+        Three memories.
 
-</p>
+    </p>
 
-<div class="letters">
+    <div class="letters">
 
-<div class="lockedLetter" data-letter="1">
+        <div class="letter">
 
-<div class="lock">🔒</div>
+            <div class="lock">🔒</div>
 
-<div class="mail">💌</div>
+            <div class="mail">💌</div>
 
-<h3>Letter One</h3>
+            <h3>Letter One</h3>
 
-</div>
+        </div>
 
-<div class="lockedLetter" data-letter="2">
+        <div class="letter">
 
-<div class="lock">🔒</div>
+            <div class="lock">🔒</div>
 
-<div class="mail">💌</div>
+            <div class="mail">💌</div>
 
-<h3>Letter Two</h3>
+            <h3>Letter Two</h3>
 
-</div>
+        </div>
 
-<div class="lockedLetter" data-letter="3">
+        <div class="letter">
 
-<div class="lock">🔒</div>
+            <div class="lock">🔒</div>
 
-<div class="mail">💌</div>
+            <div class="mail">💌</div>
 
-<h3>Letter Three</h3>
+            <h3>Letter Three</h3>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </section>
-  <!-- ================= QUESTION POPUP ================= -->
 
-<section id="questionPopup" class="hidden">
+<!-- ================= QUESTION POPUP ================= -->
 
-    <div class="questionCard">
+<section id="questionPopup">
 
-        <h2>🌸 Answer this first 🌸</h2>
+    <div class="popup">
+
+        <h2>Question</h2>
 
         <p id="questionText"></p>
 
-        <div id="optionsContainer"></div>
+        <div id="options"></div>
 
-        <p id="responseMessage"></p>
-
-        <button id="submitAnswer">
+        <button id="submitBtn">
 
             Submit ❤️
 
@@ -140,36 +127,22 @@ Unlock each letter to discover what's inside.
     </div>
 
 </section>
-  <!-- ================= LETTER ONE ================= -->
 
-<section id="letterOnePage" class="hidden">
+<!-- ================= LETTER ONE ================= -->
 
-    <div class="scrapbook">
+<section id="letterOnePage">
 
-        <div class="tape tapeLeft"></div>
-        <div class="tape tapeRight"></div>
+</section>
 
-        <div class="flower flower1">🌸</div>
-        <div class="flower flower2">🌷</div>
-        <div class="flower flower3">🌼</div>
+<!-- ================= LETTER TWO ================= -->
 
-        <h1>💌 Letter One</h1>
+<section id="letterTwoPage">
 
-        <div class="letterPaper">
+</section>
 
-            <p id="letterOneText">
+<!-- ================= LETTER THREE ================= -->
 
-            </p>
-
-        </div>
-
-        <button id="nextLetter">
-
-            Continue →
-
-        </button>
-
-    </div>
+<section id="letterThreePage">
 
 </section>
 
