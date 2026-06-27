@@ -43,58 +43,46 @@ document.addEventListener("DOMContentLoaded", () => {
                 "16th July"
             ],
 
-            answer:2
+            answer: 2,
+
+            correct: "🤣 I'm surprised you actually know this one.",
+
+            wrong: "EXCUSE ME?? IT'S YOUR BIRTHDAY!😭"
         },
 
         {
-            question:"When is our anniversary? ❤️",
+            question: "When is our anniversary? ❤️",
 
-            options:[
+            options: [
                 "18th December",
                 "16th February",
                 "31st March",
                 "30th March"
             ],
 
-            answer:2
+            answer: 2,
+
+            correct: "😂 Good. At least I don't have to remind you every year.",
+
+            wrong: "Should I be worried...?🙄"
         },
 
         {
-            question:"The first time I said 'I love you' ❤️",
+            question: "The first time I said 'I love you' ❤️",
 
-            options:[
+            options: [
                 "28th March",
                 "31st March",
                 "23rd March",
                 "20th March"
             ],
 
-            answer:2
+            answer: 2,
+
+            correct: "😒❤️ Okayyy... you passed. Barely.",
+
+            wrong: "😂 I'm pretending I didn't just see that answer. Try again."
         }
-
-    ];
-
-    /* ==========================
-       RESPONSES
-    ========================== */
-
-    const correctReplies=[
-
-        "🤣 I'm surprised you actually know this one.",
-
-        "Okayyy... you passed. Barely😒❤️",
-
-        "Good. At least I don't have to remind you every year.😂"
-
-    ];
-
-    const wrongReplies=[
-
-        "EXCUSE ME?? IT'S YOUR BIRTHDAY!😭",
-
-        "I'm pretending I didn't just see that answer. Try again.😂",
-
-        "Should I be worried...?🙄"
 
     ];
 
@@ -109,33 +97,33 @@ document.addEventListener("DOMContentLoaded", () => {
        LETTER CLICK
     ========================== */
 
-    letters.forEach((letter,index)=>{
+    letters.forEach((letter, index) => {
 
-        letter.addEventListener("click",()=>{
+        letter.addEventListener("click", () => {
 
-            if(letter.classList.contains("opened")) return;
+            if (letter.classList.contains("opened")) return;
 
-            currentLetter=index;
+            currentLetter = index;
 
-            responseMessage.textContent="";
+            responseMessage.textContent = "";
 
-            selectedAnswer=null;
+            selectedAnswer = null;
 
-            questionText.textContent=questions[index].question;
+            questionText.textContent = questions[index].question;
 
-            optionsContainer.innerHTML="";
+            optionsContainer.innerHTML = "";
 
-            questions[index].options.forEach((option,i)=>{
+            questions[index].options.forEach((option, i) => {
 
-                const btn=document.createElement("button");
+                const btn = document.createElement("button");
 
-                btn.className="optionBtn";
+                btn.className = "optionBtn";
 
-                btn.textContent=option;
+                btn.textContent = option;
 
-                btn.onclick=()=>{
+                btn.onclick = () => {
 
-                    document.querySelectorAll(".optionBtn").forEach(b=>{
+                    document.querySelectorAll(".optionBtn").forEach(b => {
 
                         b.classList.remove("selected");
 
@@ -143,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     btn.classList.add("selected");
 
-                    selectedAnswer=i;
+                    selectedAnswer = i;
 
                 };
 
@@ -151,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             });
 
-         popup.classList.add("show");
+            popup.classList.add("show");
 
         });
 
@@ -161,39 +149,35 @@ document.addEventListener("DOMContentLoaded", () => {
        SUBMIT
     ========================== */
 
-    submitBtn.addEventListener("click",()=>{
+    submitBtn.addEventListener("click", () => {
 
-        if(selectedAnswer===null){
+        if (selectedAnswer === null) {
 
-            responseMessage.textContent="Choose an answer first🥹";
+            responseMessage.textContent = "Choose an answer first🥹";
 
             return;
 
         }
 
-        if(selectedAnswer===questions[currentLetter].answer){
+        if (selectedAnswer === questions[currentLetter].answer) {
 
-            responseMessage.textContent=
+            responseMessage.textContent = questions[currentLetter].correct;
 
-            correctReplies[Math.floor(Math.random()*correctReplies.length)];
-
-            setTimeout(()=>{
+            setTimeout(() => {
 
                 popup.classList.remove("show");
 
                 letters[currentLetter].classList.add("opened");
 
-                letters[currentLetter].querySelector(".lock").textContent="🔓";
+                letters[currentLetter].querySelector(".lock").textContent = "🔓";
 
-            },1200);
+            }, 1200);
 
         }
 
-        else{
+        else {
 
-            responseMessage.textContent=
-
-            wrongReplies[Math.floor(Math.random()*wrongReplies.length)];
+            responseMessage.textContent = questions[currentLetter].wrong;
 
         }
 
