@@ -15,7 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const submitBtn = document.getElementById("submitAnswer");
 
     const letters = document.querySelectorAll(".lockedLetter");
-
+const letterOnePage = document.getElementById("letterOnePage");
+const letterOneText = document.getElementById("letterOneText");
+const nextLetter = document.getElementById("nextLetter");
     /* ==========================
        INTRO
     ========================== */
@@ -165,13 +167,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
             setTimeout(() => {
 
-                popup.classList.remove("show");
+    popup.classList.remove("show");
 
-                letters[currentLetter].classList.add("opened");
+    letters[currentLetter].classList.add("opened");
 
-                letters[currentLetter].querySelector(".lock").textContent = "🔓";
+    letters[currentLetter].querySelector(".lock").textContent = "🔓";
 
-            }, 1200);
+    if(currentLetter === 0){
+
+        lettersPage.classList.add("hidden");
+
+        letterOnePage.classList.remove("hidden");
+
+        letterOneText.textContent = `Hi baby, happy birthday my love❤️
+
+I know you don't really fancy your birthdays but I wanted to make this year special❤️.
+
+I was going to just write a letter and post pictures of us on the QR code but then I realized I could do this instead because it'll be more meaningful🥹❤️
+
+I just want you to know that I love you so much, and you mean so much to me.
+
+You've helped me in so many ways that you don't even know about, and then sometimes I randomly start thinking about how good you are to me and then I realize how lucky I am to have someone like you as my boyfriend❤️
+
+I'm so grateful for you and I hope the joy in you never dies🥹❤️`;
+
+    }
+
+},1200);
 
         }
 
@@ -182,5 +204,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
     });
+
+});
+nextLetter.addEventListener("click", () => {
+
+    letterOnePage.classList.add("hidden");
+
+    lettersPage.classList.remove("hidden");
 
 });
