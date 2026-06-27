@@ -548,3 +548,229 @@ transform:scale(1);
 }
 
 }
+/* ==========================
+LETTER ONE PAGE
+========================== */
+
+#letterOnePage{
+
+min-height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+padding:50px 20px;
+
+background:linear-gradient(180deg,#fff8fb,#ffeef6);
+
+}
+
+.scrapbook{
+
+position:relative;
+
+width:min(800px,95%);
+
+background:#fffdf8;
+
+padding:50px 35px;
+
+border-radius:25px;
+
+box-shadow:0 20px 45px rgba(0,0,0,.15);
+
+animation:slideUp .8s ease;
+
+overflow:hidden;
+
+}
+
+/* Paper */
+
+.letterPaper{
+
+background:#fffaf2;
+
+border:2px dashed #f1c7d8;
+
+padding:35px;
+
+border-radius:20px;
+
+margin-top:25px;
+
+}
+
+/* Heading */
+
+.scrapbook h1{
+
+font-family:'Patrick Hand',cursive;
+
+font-size:52px;
+
+color:#d85c91;
+
+margin-bottom:20px;
+
+text-align:center;
+
+}
+
+/* Letter */
+
+#letterOneText{
+
+font-family:'Patrick Hand',cursive;
+
+font-size:28px;
+
+line-height:1.8;
+
+color:#5f4444;
+
+white-space:pre-line;
+
+}
+
+/* Flowers */
+
+.flower{
+
+position:absolute;
+
+font-size:40px;
+
+animation:float 3s ease-in-out infinite;
+
+}
+
+.flower1{
+
+top:15px;
+left:20px;
+
+}
+
+.flower2{
+
+top:25px;
+right:25px;
+
+}
+
+.flower3{
+
+bottom:20px;
+right:35px;
+
+}
+
+/* Decorative tape */
+
+.tape{
+
+position:absolute;
+
+width:120px;
+
+height:28px;
+
+background:rgba(255,220,170,.7);
+
+transform:rotate(-10deg);
+
+}
+
+.tapeLeft{
+
+top:18px;
+
+left:40px;
+
+}
+
+.tapeRight{
+
+top:18px;
+
+right:40px;
+
+transform:rotate(12deg);
+
+}
+
+/* Continue button */
+
+#nextLetter{
+
+margin-top:35px;
+
+background:#ef7ca6;
+
+color:white;
+
+border:none;
+
+padding:15px 35px;
+
+font-size:18px;
+
+border-radius:40px;
+
+cursor:pointer;
+
+transition:.3s;
+
+display:block;
+
+margin-left:auto;
+
+margin-right:auto;
+
+}
+
+#nextLetter:hover{
+
+transform:scale(1.05);
+
+background:#e45b91;
+
+}
+
+/* Animations */
+
+@keyframes slideUp{
+
+from{
+
+opacity:0;
+transform:translateY(60px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes float{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+}
