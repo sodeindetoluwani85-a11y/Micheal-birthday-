@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    /* ==========================
+       ELEMENTS
+    ========================== */
+
     const introPage = document.getElementById("introPage");
     const lettersPage = document.getElementById("lettersPage");
 
@@ -8,15 +12,45 @@ document.addEventListener("DOMContentLoaded", () => {
     const popup = document.getElementById("questionPopup");
 
     const letters = document.querySelectorAll(".letter");
-    const questionText = document.getElementById("questionText");
-const options = document.getElementById("options");
-const responseMessage = document.getElementById("responseMessage");
-const submitBtn = document.getElementById("submitBtn");
 
-let selectedAnswer = null;
+    const questionText = document.getElementById("questionText");
+    const options = document.getElementById("options");
+    const responseMessage = document.getElementById("responseMessage");
+    const submitBtn = document.getElementById("submitBtn");
 
     /* ==========================
-       START BUTTON
+       QUESTIONS
+    ========================== */
+
+    const questions = [
+
+        {
+            question: "When is your birthday? 🤨<br>(Don't check your phone🙄)",
+
+            options: [
+
+                "12th July",
+                "13th July",
+                "14th July",
+                "16th July"
+
+            ],
+
+            answer: 2,
+
+            correct: "🤣 I'm surprised you actually know this one.",
+
+            wrong: "EXCUSE ME?? IT'S YOUR BIRTHDAY!😭"
+
+        }
+
+    ];
+
+    let currentQuestion = 0;
+    let selectedAnswer = null;
+
+    /* ==========================
+       START PAGE
     ========================== */
 
     lettersPage.style.display = "none";
@@ -30,12 +64,10 @@ let selectedAnswer = null;
     });
 
     /* ==========================
-       OPEN POPUP
+       OPEN FIRST LETTER
     ========================== */
 
-    letters.forEach((letter, index) => {
-
-    letter.addEventListener("click", () => {
+    letters[0].addEventListener("click", () => {
 
         popup.classList.remove("hidden");
 
@@ -43,19 +75,11 @@ let selectedAnswer = null;
 
         selectedAnswer = null;
 
-        questionText.innerHTML =
-        "When is your birthday? 🤨<br>(Don't check your phone🙄)";
+        questionText.innerHTML = questions[0].question;
 
         options.innerHTML = "";
 
-        const choices = [
-            "12th July",
-            "13th July",
-            "14th July",
-            "16th July"
-        ];
-
-        choices.forEach((choice, i) => {
+        questions[0].options.forEach((choice, index) => {
 
             const button = document.createElement("button");
 
@@ -63,7 +87,7 @@ let selectedAnswer = null;
 
             button.textContent = choice;
 
-            button.onclick = () => {
+            button.addEventListener("click", () => {
 
                 document.querySelectorAll(".option").forEach(btn => {
 
@@ -73,9 +97,9 @@ let selectedAnswer = null;
 
                 button.classList.add("selected");
 
-                selectedAnswer = i;
+                selectedAnswer = index;
 
-            };
+            });
 
             options.appendChild(button);
 
@@ -83,27 +107,34 @@ let selectedAnswer = null;
 
     });
 
+    /* ==========================
+       SUBMIT
+    ========================== */
 
-submitBtn.addEventListener("click", () => {
+    submitBtn.addEventListener("click", () => {
 
-    if (selectedAnswer === null) {
+        if (selectedAnswer === null) {
 
-        responseMessage.textContent = "Choose an answer first🥹";
-        return;
+            responseMessage.textContent = "Choose an answer first🥹";
 
-    }
+            return;
 
-    if (selectedAnswer === 2) {
+        }
 
-        responseMessage.textContent =
-        "🤣 I'm surprised you actually know this one.";
+        if (selectedAnswer === questions[currentQuestion].answer) {
 
-    } else {
+            responseMessage.textContent =
+            questions[currentQuestion].correct;
 
-        responseMessage.textContent =
-        "EXCUSE ME?? IT'S YOUR BIRTHDAY!😭";
+        }
 
-    }
+        else {
 
-});
+            responseMessage.textContent =
+            questions[currentQuestion].wrong;
+
+        }
+
+    });
+
 });
