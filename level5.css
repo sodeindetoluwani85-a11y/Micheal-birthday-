@@ -627,3 +627,47 @@ transform:scale(1);
     }
 
 }
+.letter{
+
+    position:relative;
+
+    overflow:visible;
+
+}
+
+.letterPaper{
+
+    position:absolute;
+
+    left:50%;
+
+    top:55px;
+
+    transform:translateX(-50%) translateY(30px);
+
+    width:85%;
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:18px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
+
+    opacity:0;
+
+    transition:.8s;
+
+    z-index:-1;
+
+}
+.letter.opened .letterPaper{
+
+    transform:translateX(-50%) translateY(-110px);
+
+    opacity:1;
+
+    z-index:2;
+
+}
