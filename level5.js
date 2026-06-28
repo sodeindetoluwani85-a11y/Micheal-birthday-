@@ -123,8 +123,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (selectedAnswer === questions[currentQuestion].answer) {
 
-            responseMessage.textContent =
-            questions[currentQuestion].correct;
+          responseMessage.textContent =
+questions[currentQuestion].correct;
+
+setTimeout(() => {
+
+    popup.classList.add("hidden");
+
+    letters[currentQuestion].classList.add("opened");
+
+}, 1000);  
 
         }
 
