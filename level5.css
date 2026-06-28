@@ -625,8 +625,37 @@ transform:scale(1);
         transform:translateY(0);
 
     }
+.letterPaper{
+
+    position:absolute;
+
+    left:50%;
+    top:55px;
+
+    width:85%;
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    transform:translateX(-50%) translateY(30px) scale(.5);
+
+    opacity:0;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+
+    transition:all .9s ease;
+
+    z-index:-1;
+
+    font-family:'Patrick Hand', cursive;
+
+    line-height:1.8;
 
 }
+
 .letter{
 
     position:relative;
@@ -635,43 +664,15 @@ transform:scale(1);
 
 }
 
-.letterPaper{
-
-    position:absolute;
-
-    left:50%;
-
-    top:55px;
-
-    transform:translateX(-50%) translateY(30px);
-
-    width:85%;
-
-    background:white;
-
-    border-radius:15px;
-
-    padding:18px;
-
-    box-shadow:0 12px 30px rgba(0,0,0,.15);
-
-    opacity:0;
-
-    transition:.8s;
-
-    z-index:-1;
-
-}
 .letter.opened .letterPaper{
 
-    transform:translateX(-50%) translateY(-110px);
+    transform:translateX(-50%) translateY(-150px) scale(1);
 
     opacity:1;
 
-    z-index:2;
+    z-index:10;
 
 }
-.mail{
 
     position:relative;
 
@@ -731,5 +732,28 @@ transform:scale(1);
 .letter.opened .flap{
 
     transform:rotateX(180deg);
+
+}
+.letter.opened .mail{
+
+    opacity:.25;
+
+    transition:.6s;
+
+}
+
+.letter.opened h3{
+
+    opacity:0;
+
+    transition:.6s;
+
+}
+
+.letter.opened .lock{
+
+    opacity:0;
+
+    transition:.6s;
 
 }
