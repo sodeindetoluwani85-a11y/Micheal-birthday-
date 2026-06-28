@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const introPage = document.getElementById("introPage");
     const lettersPage = document.getElementById("lettersPage");
 
-    const startBtn = document.getElementById("startBtn");
+    const startBtn = document.getElementById("startChallenge");
 
     const popup = document.getElementById("questionPopup");
 
@@ -84,4 +84,26 @@ let selectedAnswer = null;
     });
 
 
+submitBtn.addEventListener("click", () => {
+
+    if (selectedAnswer === null) {
+
+        responseMessage.textContent = "Choose an answer first🥹";
+        return;
+
+    }
+
+    if (selectedAnswer === 2) {
+
+        responseMessage.textContent =
+        "🤣 I'm surprised you actually know this one.";
+
+    } else {
+
+        responseMessage.textContent =
+        "EXCUSE ME?? IT'S YOUR BIRTHDAY!😭";
+
+    }
+
+});
 });
