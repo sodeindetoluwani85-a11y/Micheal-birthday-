@@ -135,8 +135,9 @@ setTimeout(() => {
 
     setTimeout(() => {
 
-        letters[currentQuestion].classList.add("opened");
-
+        letters[currentQuestion].classList.add("opened")
+            
+document.body.classList.add("letterOpen");
     }, 400);
 
 }, 1000);
