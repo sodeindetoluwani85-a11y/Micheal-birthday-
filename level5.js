@@ -8,6 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const popup = document.getElementById("questionPopup");
 
     const letters = document.querySelectorAll(".letter");
+    const questionText = document.getElementById("questionText");
+const options = document.getElementById("options");
+const responseMessage = document.getElementById("responseMessage");
+const submitBtn = document.getElementById("submitBtn");
+
+let selectedAnswer = null;
 
     /* ==========================
        START BUTTON
@@ -27,14 +33,55 @@ document.addEventListener("DOMContentLoaded", () => {
        OPEN POPUP
     ========================== */
 
-    letters.forEach(letter => {
+    letters.forEach((letter, index) => {
 
-        letter.addEventListener("click", () => {
+    letter.addEventListener("click", () => {
 
-            popup.classList.remove("hidden");
+        popup.classList.remove("hidden");
+
+        responseMessage.textContent = "";
+
+        selectedAnswer = null;
+
+        questionText.innerHTML =
+        "When is your birthday? 🤨<br>(Don't check your phone🙄)";
+
+        options.innerHTML = "";
+
+        const choices = [
+            "12th July",
+            "13th July",
+            "14th July",
+            "16th July"
+        ];
+
+        choices.forEach((choice, i) => {
+
+            const button = document.createElement("button");
+
+            button.className = "option";
+
+            button.textContent = choice;
+
+            button.onclick = () => {
+
+                document.querySelectorAll(".option").forEach(btn => {
+
+                    btn.classList.remove("selected");
+
+                });
+
+                button.classList.add("selected");
+
+                selectedAnswer = i;
+
+            };
+
+            options.appendChild(button);
 
         });
 
     });
+
 
 });
