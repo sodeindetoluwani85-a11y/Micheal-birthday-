@@ -132,8 +132,11 @@ setTimeout(() => {
 
     letters[currentQuestion].classList.add("opened");
 
-}, 1000);  
+    letters[currentQuestion]
+        .querySelector(".lock")
+        .textContent = "🔓";
 
+},1000);
         }
 
         else {
