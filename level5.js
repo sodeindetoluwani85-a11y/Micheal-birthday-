@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-
+alert("JavaScript loaded!");
     const introPage = document.getElementById("introPage");
     const lettersPage = document.getElementById("lettersPage");
 
