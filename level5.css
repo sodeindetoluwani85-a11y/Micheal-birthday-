@@ -588,3 +588,42 @@ transform:scale(1);
 }
 
 }
+.letter{
+
+    transition:0.4s;
+
+}
+
+.letter.opened{
+
+    transform:scale(1.06);
+
+}
+
+.letter.opened .mail{
+
+    animation:bounce .8s;
+
+}
+
+@keyframes bounce{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
