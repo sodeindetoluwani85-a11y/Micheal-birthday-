@@ -125,18 +125,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
           responseMessage.textContent =
 questions[currentQuestion].correct;
-
 setTimeout(() => {
 
     popup.classList.add("hidden");
-
-    letters[currentQuestion].classList.add("opened");
 
     letters[currentQuestion]
         .querySelector(".lock")
         .textContent = "🔓";
 
-},1000);
+    setTimeout(() => {
+
+        letters[currentQuestion].classList.add("opened");
+
+    }, 400);
+
+}, 1000);
+
         }
 
         else {
