@@ -3,7 +3,7 @@ alert("JavaScript loaded!");
     const introPage = document.getElementById("introPage");
     const lettersPage = document.getElementById("lettersPage");
 
-    const startBtn = document.getElementById("startChallenge");
+    const startBtn = document.getElementById("startBtn");
 
     const popup = document.getElementById("questionPopup");
 
