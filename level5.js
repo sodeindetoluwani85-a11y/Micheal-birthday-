@@ -46,7 +46,26 @@ const letterThreePage = document.getElementById("letterThreePage");
             wrong: "EXCUSE ME?? IT'S YOUR BIRTHDAY!😭"
 
         }
+,
+{
+    question: "When is our anniversary? ❤️",
 
+    options: [
+
+        "December 18",
+        "February 16",
+        "30th of March",
+        "31st of March"
+
+    ],
+
+    answer: 3,
+
+    correct: "good atleast I don’t have to remind you every year😂❤️",
+
+    wrong: "should I be worried?🤨"
+
+}
     ];
 
     let currentQuestion = 0;
@@ -70,29 +89,33 @@ const letterThreePage = document.getElementById("letterThreePage");
        OPEN FIRST LETTER
     ========================== */
 
-    letters[0].addEventListener("click", () => {
+    letters.forEach((letter,index)=>{
+
+    letter.addEventListener("click",()=>{
+
+        currentQuestion=index;
 
         popup.classList.remove("hidden");
 
-        responseMessage.textContent = "";
+        responseMessage.textContent="";
 
-        selectedAnswer = null;
+        selectedAnswer=null;
 
-        questionText.innerHTML = questions[0].question;
+        questionText.innerHTML=questions[index].question;
 
-        options.innerHTML = "";
+        options.innerHTML="";
 
-        questions[0].options.forEach((choice, index) => {
+        questions[index].options.forEach((choice,i)=>{
 
-            const button = document.createElement("button");
+            const button=document.createElement("button");
 
-            button.className = "option";
+            button.className="option";
 
-            button.textContent = choice;
+            button.textContent=choice;
 
-            button.addEventListener("click", () => {
+            button.addEventListener("click",()=>{
 
-                document.querySelectorAll(".option").forEach(btn => {
+                document.querySelectorAll(".option").forEach(btn=>{
 
                     btn.classList.remove("selected");
 
@@ -100,7 +123,7 @@ const letterThreePage = document.getElementById("letterThreePage");
 
                 button.classList.add("selected");
 
-                selectedAnswer = index;
+                selectedAnswer=i;
 
             });
 
@@ -110,6 +133,7 @@ const letterThreePage = document.getElementById("letterThreePage");
 
     });
 
+});
     /* ==========================
        SUBMIT
     ========================== */
