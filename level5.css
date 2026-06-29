@@ -710,3 +710,41 @@ transform:scale(1);
     animation:none;
 
 }
+#letterOnePage,
+#letterTwoPage,
+#letterThreePage{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+
+}
+
+#letterOnePage .paper,
+#letterTwoPage .paper,
+#letterThreePage .paper{
+
+    max-width:850px;
+    text-align:left;
+    line-height:2;
+
+}
+
+#letterOnePage h1,
+#letterTwoPage h1,
+#letterThreePage h1{
+
+    text-align:center;
+    margin-bottom:30px;
+
+}
+
+#letterOnePage p,
+#letterTwoPage p,
+#letterThreePage p{
+
+    white-space:pre-line;
+    font-size:19px;
+
+}
