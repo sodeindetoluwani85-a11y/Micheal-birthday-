@@ -17,6 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const options = document.getElementById("options");
     const responseMessage = document.getElementById("responseMessage");
     const submitBtn = document.getElementById("submitBtn");
+    const letterOnePage = document.getElementById("letterOnePage");
+const letterTwoPage = document.getElementById("letterTwoPage");
+const letterThreePage = document.getElementById("letterThreePage");
 
     /* ==========================
        QUESTIONS
@@ -133,15 +136,29 @@ setTimeout(() => {
         .querySelector(".lock")
         .textContent = "🔓";
 
-    setTimeout(() => {
+    letters[currentQuestion].classList.add("opened");
 
-        letters[currentQuestion].classList.add("opened")
-            
-document.body.classList.add("letterOpen");
-    }, 400);
+    lettersPage.style.display = "none";
 
-}, 1000);
+    if(currentQuestion === 0){
 
+        letterOnePage.classList.remove("hidden");
+
+    }
+
+    else if(currentQuestion === 1){
+
+        letterTwoPage.classList.remove("hidden");
+
+    }
+
+    else if(currentQuestion === 2){
+
+        letterThreePage.classList.remove("hidden");
+
+    }
+
+},1000);
         }
 
         else {
