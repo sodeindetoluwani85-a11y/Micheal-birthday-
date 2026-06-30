@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const letterOnePage = document.getElementById("letterOnePage");
 const letterTwoPage = document.getElementById("letterTwoPage");
 const letterThreePage = document.getElementById("letterThreePage");
+   const backFromLetterOne = document.getElementById("backFromLetterOne"); 
 
     /* ==========================
        QUESTIONS
@@ -193,5 +194,12 @@ setTimeout(() => {
         }
 
     });
+
+});
+backFromLetterOne.addEventListener("click", () => {
+
+    letterOnePage.classList.add("hidden");
+
+    lettersPage.style.display = "flex";
 
 });
