@@ -322,7 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             continueButton.classList.remove("hidden");
 
-            spinButton.disabled=false;
+            spinButton.style.display = "none";
 
         },4000);
 
