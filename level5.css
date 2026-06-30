@@ -760,45 +760,6 @@ margin:30px auto;
 
 }
 
-#wheel{
-
-width:320px;
-
-height:320px;
-
-border-radius:50%;
-
-border:10px solid #ef7ca6;
-
-background:conic-gradient(
-
-#ffd6e7 0deg 60deg,
-
-#ffeef5 60deg 120deg,
-
-#ffc2d8 120deg 180deg,
-
-#ffeef5 180deg 240deg,
-
-#ffd6e7 240deg 300deg,
-
-#ffc2d8 300deg 360deg
-
-);
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-transition:transform 4s ease-out;
-
-box-shadow:0 10px 25px rgba(0,0,0,.2);
-  position:relative;
-overflow:hidden;
-
-}
 
 .pointer{
 
@@ -818,78 +779,87 @@ z-index:100;
 
 }
 
-.wheelText{
+#wheel{
+
+    width:320px;
+
+    height:320px;
+
+    border-radius:50%;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border:10px solid #ef7ca6;
+
+    background:conic-gradient(
+        #ffd6e7 0deg 60deg,
+        #ffeef5 60deg 120deg,
+        #ffc2d8 120deg 180deg,
+        #ffeef5 180deg 240deg,
+        #ffd6e7 240deg 300deg,
+        #ffc2d8 300deg 360deg
+    );
+
+    transition:transform 4s ease-out;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+}
+
+.slice{
 
     position:absolute;
 
-    width:110px;
+    width:50%;
+
+    height:50%;
+
+    left:50%;
+
+    top:50%;
+
+    transform-origin:0 0;
+
+}
+
+.slice span{
+
+    position:absolute;
+
+    width:90px;
 
     text-align:center;
 
-    font-size:14px;
+    font-size:13px;
 
     font-weight:bold;
 
     color:#d63384;
 
-    line-height:1.25;
+    line-height:1.2;
+
+    left:65px;
+
+    top:18px;
 
 }
 
-/* Top */
-.t1{
+/* Rotate each slice */
 
-    top:45px;
+.slice1{transform:rotate(0deg);}
+.slice2{transform:rotate(60deg);}
+.slice3{transform:rotate(120deg);}
+.slice4{transform:rotate(180deg);}
+.slice5{transform:rotate(240deg);}
+.slice6{transform:rotate(300deg);}
 
-    left:50%;
+/* Keep text upright */
 
-    transform:translateX(-50%);
-
-}
-
-/* Top Right */
-.t2{
-
-    top:105px;
-
-    right:35px;
-
-}
-
-/* Bottom Right */
-.t3{
-
-    bottom:105px;
-
-    right:35px;
-
-}
-
-/* Bottom */
-.t4{
-
-    bottom:35px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-}
-
-/* Bottom Left */
-.t5{
-
-    bottom:105px;
-
-    left:35px;
-
-}
-
-/* Top Left */
-.t6{
-
-    top:105px;
-
-    left:35px;
-
-}
+.slice1 span{transform:rotate(0deg);}
+.slice2 span{transform:rotate(-60deg);}
+.slice3 span{transform:rotate(-120deg);}
+.slice4 span{transform:rotate(-180deg);}
+.slice5 span{transform:rotate(-240deg);}
+.slice6 span{transform:rotate(-300deg);}
