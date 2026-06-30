@@ -202,4 +202,8 @@ backFromLetterOne.addEventListener("click", () => {
 
     lettersPage.style.display = "flex";
 
+    letters[0].style.pointerEvents = "none";
+
+    letters[0].style.opacity = "0.7";
+
 });
