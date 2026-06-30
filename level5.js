@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const letterTwoPage = document.getElementById("letterTwoPage");
 const letterThreePage = document.getElementById("letterThreePage");
    const backFromLetterOne = document.getElementById("backFromLetterOne"); 
+    const backFromLetterTwo = document.getElementById("backFromLetterTwo");
 
     /* ==========================
        QUESTIONS
@@ -205,5 +206,16 @@ backFromLetterOne.addEventListener("click", () => {
     letters[0].style.pointerEvents = "none";
 
     letters[0].style.opacity = "0.7";
+
+});
+backFromLetterTwo.addEventListener("click", () => {
+
+    letterTwoPage.classList.add("hidden");
+
+    lettersPage.style.display = "flex";
+
+    letters[1].style.pointerEvents = "none";
+
+    letters[1].style.opacity = "0.7";
 
 });
