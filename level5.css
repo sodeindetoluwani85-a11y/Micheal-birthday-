@@ -748,3 +748,78 @@ transform:scale(1);
     font-size:19px;
 
 }
+.wheelContainer{
+
+position:relative;
+
+width:320px;
+
+height:320px;
+
+margin:30px auto;
+
+}
+
+#wheel{
+
+width:320px;
+
+height:320px;
+
+border-radius:50%;
+
+border:10px solid #ef7ca6;
+
+background:conic-gradient(
+
+#ffd6e7 0deg 60deg,
+
+#ffeef5 60deg 120deg,
+
+#ffc2d8 120deg 180deg,
+
+#ffeef5 180deg 240deg,
+
+#ffd6e7 240deg 300deg,
+
+#ffc2d8 300deg 360deg
+
+);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+transition:transform 4s ease-out;
+
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+}
+
+.pointer{
+
+position:absolute;
+
+top:-18px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+font-size:38px;
+
+color:#ef7ca6;
+
+z-index:100;
+
+}
+
+.slice{
+
+position:absolute;
+
+font-size:35px;
+
+}
