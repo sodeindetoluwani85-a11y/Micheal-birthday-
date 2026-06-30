@@ -245,7 +245,7 @@ finishButton.addEventListener("click", () => {
 
     letterThreePage.classList.add("hidden");
 
-    finalPage.classList.remove("hidden");
+    wheelPage.classList.remove("hidden");
 
 });
 const prizes = [
