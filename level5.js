@@ -22,6 +22,8 @@ const letterTwoPage = document.getElementById("letterTwoPage");
 const letterThreePage = document.getElementById("letterThreePage");
    const backFromLetterOne = document.getElementById("backFromLetterOne"); 
     const backFromLetterTwo = document.getElementById("backFromLetterTwo");
+    const finalPage = document.getElementById("finalPage");
+const finishButton = document.getElementById("finishButton");
 
     /* ==========================
        QUESTIONS
@@ -217,5 +219,12 @@ backFromLetterTwo.addEventListener("click", () => {
     letters[1].style.pointerEvents = "none";
 
     letters[1].style.opacity = "0.7";
+
+});
+finishButton.addEventListener("click", () => {
+
+    letterThreePage.classList.add("hidden");
+
+    finalPage.classList.remove("hidden");
 
 });
