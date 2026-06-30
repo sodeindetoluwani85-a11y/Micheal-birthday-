@@ -818,14 +818,21 @@ z-index:100;
 
 }
 
-.emoji{
+.wheelText{
 
-position:absolute;
+    position:absolute;
 
-font-size:34px;
+    font-size:15px;
+
+    font-weight:bold;
+
+    color:#d63384;
+
+    width:90px;
+
+    text-align:center;
 
 }
-
 .e1{
 
 top:20px;
