@@ -795,6 +795,8 @@ align-items:center;
 transition:transform 4s ease-out;
 
 box-shadow:0 10px 25px rgba(0,0,0,.2);
+  position:relative;
+overflow:hidden;
 
 }
 
@@ -816,10 +818,62 @@ z-index:100;
 
 }
 
-.slice{
+.emoji{
 
 position:absolute;
 
-font-size:35px;
+font-size:34px;
+
+}
+
+.e1{
+
+top:20px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+}
+
+.e2{
+
+top:78px;
+
+right:40px;
+
+}
+
+.e3{
+
+bottom:78px;
+
+right:40px;
+
+}
+
+.e4{
+
+bottom:20px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+}
+
+.e5{
+
+bottom:78px;
+
+left:40px;
+
+}
+
+.e6{
+
+top:78px;
+
+left:40px;
 
 }
