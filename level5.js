@@ -71,6 +71,27 @@ const finishButton = document.getElementById("finishButton");
 
 }
     ];
+    
+    question: "The first time I said “I love you”❤️",
+
+    options: [
+
+        "28th of March",
+        "31st of March",
+        "20th of March",
+        "23rd of March"
+
+    ],
+
+    answer: 3,
+
+    correct: "okay you passed barely😂❤️",
+
+    wrong: "I’m pretending I didn’t just see that answer😭 try again"
+
+}
+
+];
 
     let currentQuestion = 0;
     let selectedAnswer = null;
