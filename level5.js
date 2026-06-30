@@ -28,71 +28,64 @@ const finishButton = document.getElementById("finishButton");
     /* ==========================
        QUESTIONS
     ========================== */
+const questions = [
 
-    const questions = [
+    {
+        question: "When is your birthday? 🤨<br>(Don't check your phone🙄)",
 
-        {
-            question: "When is your birthday? 🤨<br>(Don't check your phone🙄)",
+        options: [
+            "12th July",
+            "13th July",
+            "14th July",
+            "16th July"
+        ],
 
-            options: [
+        answer: 2,
 
-                "12th July",
-                "13th July",
-                "14th July",
-                "16th July"
+        correct: "🤣 I'm surprised you actually know this one.",
 
-            ],
+        wrong: "EXCUSE ME?? IT'S YOUR BIRTHDAY!😭"
 
-            answer: 2,
+    },
 
-            correct: "🤣 I'm surprised you actually know this one.",
+    {
+        question: "When is our anniversary? ❤️",
 
-            wrong: "EXCUSE ME?? IT'S YOUR BIRTHDAY!😭"
+        options: [
+            "December 18",
+            "February 16",
+            "30th of March",
+            "31st of March"
+        ],
 
-        }
-,
-{
-    question: "When is our anniversary? ❤️",
+        answer: 3,
 
-    options: [
+        correct: "good atleast I don’t have to remind you every year😂❤️",
 
-        "December 18",
-        "February 16",
-        "30th of March",
-        "31st of March"
+        wrong: "should I be worried?🤨"
 
-    ],
+    },
 
-    answer: 3,
+    {
+        question: "The first time I said “I love you”❤️",
 
-    correct: "good atleast I don’t have to remind you every year😂❤️",
+        options: [
+            "28th of March",
+            "31st of March",
+            "20th of March",
+            "23rd of March"
+        ],
 
-    wrong: "should I be worried?🤨"
+        answer: 3,
 
-}
-    ];
-    
-    question: "The first time I said “I love you”❤️",
+        correct: "okay you passed barely😂❤️",
 
-    options: [
+        wrong: "I’m pretending I didn’t just see that answer😭 try again"
 
-        "28th of March",
-        "31st of March",
-        "20th of March",
-        "23rd of March"
-
-    ],
-
-    answer: 3,
-
-    correct: "okay you passed barely😂❤️",
-
-    wrong: "I’m pretending I didn’t just see that answer😭 try again"
-
-}
+    }
 
 ];
-
+    
     let currentQuestion = 0;
     let selectedAnswer = null;
 
