@@ -24,6 +24,12 @@ const letterThreePage = document.getElementById("letterThreePage");
     const backFromLetterTwo = document.getElementById("backFromLetterTwo");
     const finalPage = document.getElementById("finalPage");
 const finishButton = document.getElementById("finishButton");
+    const wheel = document.getElementById("wheel");
+const spinButton = document.getElementById("spinButton");
+const coupon = document.getElementById("coupon");
+const couponTitle = document.getElementById("couponTitle");
+const continueButton = document.getElementById("continueButton");
+const wheelPage = document.getElementById("wheelPage");
 
     /* ==========================
        QUESTIONS
@@ -240,5 +246,58 @@ finishButton.addEventListener("click", () => {
     letterThreePage.classList.add("hidden");
 
     finalPage.classList.remove("hidden");
+
+});
+const prizes = [
+
+    "🤗 Free Hug Coupon",
+
+    "💋 Free Kiss Coupon",
+
+    "🍿 Movie Night Coupon",
+
+    "🙈 One Free Apology From Me",
+
+    "😌 One Free Apology From You",
+
+    "🤣 Punishment"
+
+];
+
+let currentRotation = 0;
+
+spinButton.addEventListener("click", () => {
+
+    spinButton.disabled = true;
+
+    coupon.classList.add("hidden");
+
+    continueButton.classList.add("hidden");
+
+    const randomIndex = Math.floor(Math.random() * prizes.length);
+
+    const sliceAngle = 360 / prizes.length;
+
+    const extraSpins = 5;
+
+    const rotation =
+        (extraSpins * 360) +
+        (360 - (randomIndex * sliceAngle) - (sliceAngle / 2));
+
+    currentRotation += rotation;
+
+    wheel.style.transform = `rotate(${currentRotation}deg)`;
+
+    setTimeout(() => {
+
+        couponTitle.textContent = prizes[randomIndex];
+
+        coupon.classList.remove("hidden");
+
+        continueButton.classList.remove("hidden");
+
+        spinButton.disabled = false;
+
+    }, 4000);
 
 });
