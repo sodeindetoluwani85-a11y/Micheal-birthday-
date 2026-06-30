@@ -17,287 +17,327 @@ document.addEventListener("DOMContentLoaded", () => {
     const options = document.getElementById("options");
     const responseMessage = document.getElementById("responseMessage");
     const submitBtn = document.getElementById("submitBtn");
+
     const letterOnePage = document.getElementById("letterOnePage");
-const letterTwoPage = document.getElementById("letterTwoPage");
-const letterThreePage = document.getElementById("letterThreePage");
-   const backFromLetterOne = document.getElementById("backFromLetterOne"); 
+    const letterTwoPage = document.getElementById("letterTwoPage");
+    const letterThreePage = document.getElementById("letterThreePage");
+
+    const backFromLetterOne = document.getElementById("backFromLetterOne");
     const backFromLetterTwo = document.getElementById("backFromLetterTwo");
-    const finalPage = document.getElementById("finalPage");
-const finishButton = document.getElementById("finishButton");
+
+    const finishButton = document.getElementById("finishButton");
+
+    const wheelPage = document.getElementById("wheelPage");
     const wheel = document.getElementById("wheel");
-const spinButton = document.getElementById("spinButton");
-const coupon = document.getElementById("coupon");
-const couponTitle = document.getElementById("couponTitle");
-const continueButton = document.getElementById("continueButton");
-const wheelPage = document.getElementById("wheelPage");
+    const spinButton = document.getElementById("spinButton");
+
+    const coupon = document.getElementById("coupon");
+    const couponTitle = document.getElementById("couponTitle");
+    const continueButton = document.getElementById("continueButton");
+
+    const finalPage = document.getElementById("finalPage");
 
     /* ==========================
        QUESTIONS
     ========================== */
-const questions = [
 
-    {
-        question: "When is your birthday? 🤨<br>(Don't check your phone🙄)",
+    const questions = [
 
-        options: [
-            "12th July",
-            "13th July",
-            "14th July",
-            "16th July"
-        ],
+        {
 
-        answer: 2,
+            question:"When is your birthday? 🤨<br>(Don't check your phone🙄)",
 
-        correct: "🤣 I'm surprised you actually know this one.",
+            options:[
+                "12th July",
+                "13th July",
+                "14th July",
+                "16th July"
+            ],
 
-        wrong: "EXCUSE ME?? IT'S YOUR BIRTHDAY!😭"
+            answer:2,
 
-    },
+            correct:"🤣 I'm surprised you actually know this one.",
 
-    {
-        question: "When is our anniversary? ❤️",
+            wrong:"EXCUSE ME?? IT'S YOUR BIRTHDAY!😭"
 
-        options: [
-            "December 18",
-            "February 16",
-            "30th of March",
-            "31st of March"
-        ],
+        },
 
-        answer: 3,
+        {
 
-        correct: "good atleast I don’t have to remind you every year😂❤️",
+            question:"When is our anniversary? ❤️",
 
-        wrong: "should I be worried?🤨"
+            options:[
+                "December 18",
+                "February 16",
+                "30th of March",
+                "31st of March"
+            ],
 
-    },
+            answer:3,
 
-    {
-        question: "The first time I said “I love you”❤️",
+            correct:"good atleast I don’t have to remind you every year😂❤️",
 
-        options: [
-            "28th of March",
-            "31st of March",
-            "20th of March",
-            "23rd of March"
-        ],
+            wrong:"should I be worried?🤨"
 
-        answer: 3,
+        },
 
-        correct: "okay you passed barely😂❤️",
+        {
 
-        wrong: "I’m pretending I didn’t just see that answer😭 try again"
+            question:"The first time I said “I love you”❤️",
 
-    }
+            options:[
+                "28th of March",
+                "31st of March",
+                "20th of March",
+                "23rd of March"
+            ],
 
-];
-    
+            answer:3,
+
+            correct:"okay you passed barely😂❤️",
+
+            wrong:"I’m pretending I didn’t just see that answer😭 try again"
+
+        }
+
+    ];
+
     let currentQuestion = 0;
     let selectedAnswer = null;
 
     /* ==========================
-       START PAGE
+       INTRO
     ========================== */
 
     lettersPage.style.display = "none";
 
-    startBtn.addEventListener("click", () => {
+    startBtn.addEventListener("click",()=>{
 
-        introPage.style.display = "none";
+        introPage.style.display="none";
 
-        lettersPage.style.display = "flex";
+        lettersPage.style.display="flex";
 
     });
 
     /* ==========================
-       OPEN FIRST LETTER
+       OPEN QUESTIONS
     ========================== */
 
     letters.forEach((letter,index)=>{
 
-    letter.addEventListener("click",()=>{
+        letter.addEventListener("click",()=>{
 
-        currentQuestion=index;
+            currentQuestion=index;
 
-        popup.classList.remove("hidden");
+            selectedAnswer=null;
 
-        responseMessage.textContent="";
+            popup.classList.remove("hidden");
 
-        selectedAnswer=null;
+            responseMessage.textContent="";
 
-        questionText.innerHTML=questions[index].question;
+            questionText.innerHTML=questions[index].question;
 
-        options.innerHTML="";
+            options.innerHTML="";
 
-        questions[index].options.forEach((choice,i)=>{
+            questions[index].options.forEach((choice,i)=>{
 
-            const button=document.createElement("button");
+                const button=document.createElement("button");
 
-            button.className="option";
+                button.className="option";
 
-            button.textContent=choice;
+                button.textContent=choice;
 
-            button.addEventListener("click",()=>{
+                button.addEventListener("click",()=>{
 
-                document.querySelectorAll(".option").forEach(btn=>{
+                    document.querySelectorAll(".option").forEach(btn=>{
 
-                    btn.classList.remove("selected");
+                        btn.classList.remove("selected");
+
+                    });
+
+                    button.classList.add("selected");
+
+                    selectedAnswer=i;
 
                 });
 
-                button.classList.add("selected");
-
-                selectedAnswer=i;
+                options.appendChild(button);
 
             });
 
-            options.appendChild(button);
-
         });
 
-    });
-
-});
-    /* ==========================
-       SUBMIT
+            /* ==========================
+       SUBMIT ANSWERS
     ========================== */
 
-    submitBtn.addEventListener("click", () => {
+    submitBtn.addEventListener("click",()=>{
 
-        if (selectedAnswer === null) {
+        if(selectedAnswer===null){
 
-            responseMessage.textContent = "Choose an answer first🥹";
+            responseMessage.textContent="Choose an answer first🥹";
 
             return;
 
         }
 
-        if (selectedAnswer === questions[currentQuestion].answer) {
+        if(selectedAnswer===questions[currentQuestion].answer){
 
-          responseMessage.textContent =
-questions[currentQuestion].correct;
-setTimeout(() => {
+            responseMessage.textContent=
+            questions[currentQuestion].correct;
 
-    popup.classList.add("hidden");
+            setTimeout(()=>{
 
-    letters[currentQuestion]
-        .querySelector(".lock")
-        .textContent = "🔓";
+                popup.classList.add("hidden");
 
-    letters[currentQuestion].classList.add("opened");
+                letters[currentQuestion]
+                .querySelector(".lock")
+                .textContent="🔓";
 
-    lettersPage.style.display = "none";
+                letters[currentQuestion]
+                .classList.add("opened");
 
-    if(currentQuestion === 0){
+                lettersPage.style.display="none";
 
-        letterOnePage.classList.remove("hidden");
+                if(currentQuestion===0){
 
-    }
+                    letterOnePage.classList.remove("hidden");
 
-    else if(currentQuestion === 1){
+                }
 
-        letterTwoPage.classList.remove("hidden");
+                else if(currentQuestion===1){
 
-    }
+                    letterTwoPage.classList.remove("hidden");
 
-    else if(currentQuestion === 2){
+                }
 
-        letterThreePage.classList.remove("hidden");
+                else{
 
-    }
+                    letterThreePage.classList.remove("hidden");
 
-},1000);
+                }
+
+            },1000);
+
         }
 
-        else {
+        else{
 
-            responseMessage.textContent =
+            responseMessage.textContent=
             questions[currentQuestion].wrong;
 
         }
 
     });
 
-});
-backFromLetterOne.addEventListener("click", () => {
+    /* ==========================
+       BACK BUTTONS
+    ========================== */
 
-    letterOnePage.classList.add("hidden");
+    backFromLetterOne.addEventListener("click",()=>{
 
-    lettersPage.style.display = "flex";
+        letterOnePage.classList.add("hidden");
 
-    letters[0].style.pointerEvents = "none";
+        lettersPage.style.display="flex";
 
-    letters[0].style.opacity = "0.7";
+        letters[0].style.pointerEvents="none";
 
-});
-backFromLetterTwo.addEventListener("click", () => {
+        letters[0].style.opacity="0.7";
 
-    letterTwoPage.classList.add("hidden");
+    });
 
-    lettersPage.style.display = "flex";
+    backFromLetterTwo.addEventListener("click",()=>{
 
-    letters[1].style.pointerEvents = "none";
+        letterTwoPage.classList.add("hidden");
 
-    letters[1].style.opacity = "0.7";
+        lettersPage.style.display="flex";
 
-});
-finishButton.addEventListener("click", () => {
+        letters[1].style.pointerEvents="none";
 
-    letterThreePage.classList.add("hidden");
+        letters[1].style.opacity="0.7";
 
-    wheelPage.classList.remove("hidden");
+    });
 
-});
-const prizes = [
+    /* ==========================
+       LETTER THREE
+    ========================== */
 
-    "🤗 Free Hug Coupon",
+    finishButton.addEventListener("click",()=>{
 
-    "💋 Free Kiss Coupon",
+        letterThreePage.classList.add("hidden");
 
-    "🍿 Movie Night Coupon",
+        wheelPage.classList.remove("hidden");
 
-    "🙈 One Free Apology From Me",
+    });
+    });
+        /* ==========================
+       SPIN THE WHEEL
+    ========================== */
 
-    "😌 One Free Apology From You",
+    const prizes=[
 
-    "🤣 Punishment"
+        "🤗 Free Hug Coupon",
 
-];
+        "💋 Free Kiss Coupon",
 
-let currentRotation = 0;
+        "🍿 Movie Night Coupon",
 
-spinButton.addEventListener("click", () => {
+        "🙈 One Free Apology From Me",
 
-    spinButton.disabled = true;
+        "😌 One Free Apology From You",
 
-    coupon.classList.add("hidden");
+        "🤣 Punishment"
 
-    continueButton.classList.add("hidden");
+    ];
 
-    const randomIndex = Math.floor(Math.random() * prizes.length);
+    let currentRotation=0;
 
-    const sliceAngle = 360 / prizes.length;
+    spinButton.addEventListener("click",()=>{
 
-    const extraSpins = 5;
+        spinButton.disabled=true;
 
-    const rotation =
-        (extraSpins * 360) +
-        (360 - (randomIndex * sliceAngle) - (sliceAngle / 2));
+        coupon.classList.add("hidden");
 
-    currentRotation += rotation;
+        continueButton.classList.add("hidden");
 
-    wheel.style.transform = `rotate(${currentRotation}deg)`;
+        const randomIndex=Math.floor(Math.random()*prizes.length);
 
-    setTimeout(() => {
+        const sliceAngle=360/prizes.length;
 
-        couponTitle.textContent = prizes[randomIndex];
+        const extraSpins=6;
 
-        coupon.classList.remove("hidden");
+        const rotation=
+        (extraSpins*360)+
+        (360-(randomIndex*sliceAngle)-(sliceAngle/2));
 
-        continueButton.classList.remove("hidden");
+        currentRotation+=rotation;
 
-        spinButton.disabled = false;
+        wheel.style.transform=`rotate(${currentRotation}deg)`;
 
-    }, 4000);
+        setTimeout(()=>{
+
+            couponTitle.textContent=prizes[randomIndex];
+
+            coupon.classList.remove("hidden");
+
+            continueButton.classList.remove("hidden");
+
+            spinButton.disabled=false;
+
+        },4000);
+
+    });
+
+    /* ==========================
+       FINAL PAGE
+    ========================== */
+
+    continueButton.addEventListener("click",()=>{
+
+        wheelPage.classList.add("hidden");
+
+        finalPage.classList.remove("hidden");
+
+    });
 
 });
