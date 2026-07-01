@@ -274,21 +274,21 @@ document.addEventListener("DOMContentLoaded", () => {
        SPIN THE WHEEL
     ========================== */
 
-    const prizes=[
+    const prizes = [
 
-        "🤗 Free Hug Coupon",
+    "🤗 Free Hug",
 
-        "💋 Free Kiss Coupon",
+    "💋 Free Kiss",
 
-        "🍿 Movie Night Coupon",
+    "🍿 Movie Night",
 
-        "🙈 One Free Apology From Me",
+    "🥺 Free Apology From Me",
 
-        "😌 One Free Apology From You",
+    "😊 Free Apology From You",
 
-        "🤣 Punishment"
+    "😈 Punishment"
 
-    ];
+];
 
     let currentRotation=0;
 
@@ -316,8 +316,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(()=>{
 
-            couponTitle.textContent=prizes[randomIndex];
-
+            couponTitle.textContent =
+    `You've won a ${prizes[randomIndex]} Coupon ❤️`;
             coupon.classList.remove("hidden");
 
             continueButton.classList.remove("hidden");
