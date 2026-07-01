@@ -750,16 +750,19 @@ transform:scale(1);
 }
 .wheelContainer{
 
-position:relative;
+    display:flex;
 
-width:320px;
+    flex-direction:column;
 
-height:320px;
+    align-items:center;
 
-margin:30px auto;
+    justify-content:center;
+
+    gap:25px;
+
+    width:100%;
 
 }
-
 
 .pointer{
 
@@ -806,6 +809,7 @@ z-index:100;
 
     box-shadow:0 10px 25px rgba(0,0,0,.2);
 
+margin:0 auto;
 }
 
 .slice{
