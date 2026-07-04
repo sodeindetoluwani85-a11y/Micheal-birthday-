@@ -845,9 +845,9 @@ transform:scale(1);
 
 .finalMessage{
 
-    width:70%;
+    width:65%;
 
-    margin:40px auto;
+    margin:170px auto 170px;
 
     text-align:center;
 
@@ -857,10 +857,7 @@ transform:scale(1);
 
     color:#6d4c57;
 
-    font-weight:500;
-
 }
-
 .polaroid{
 
     position:absolute;
