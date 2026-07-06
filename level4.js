@@ -15,15 +15,15 @@ introPage.classList.add("hidden");
 
 certificatePage.classList.remove("hidden");
 
-setTimeout(()=>{
+requestAnimationFrame(() => {
 
-certificate.classList.add("show");
+    certificate.classList.add("show");
 
-launchConfetti();
+    launchConfetti();
 
-addSparkles();
+    addSparkles();
 
-},200);
+});
 
 });
 
