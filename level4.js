@@ -13,22 +13,15 @@ const confettiContainer = document.getElementById("confettiContainer");
 
 revealAward.addEventListener("click", () => {
 
+    alert("Reveal button works!");
+
     introPage.classList.add("hidden");
 
     certificatePage.classList.remove("hidden");
 
-    requestAnimationFrame(() => {
-
-        certificate.classList.add("show");
-
-        launchConfetti();
-
-        addSparkles();
-
-    });
+    certificate.classList.add("show");
 
 });
-
 /* ---------- Continue ---------- */
 
 nextLevel.addEventListener("click", () => {
