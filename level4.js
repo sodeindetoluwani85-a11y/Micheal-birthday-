@@ -10,19 +10,24 @@ const nextLevel = document.getElementById("nextLevel");
 const confettiContainer = document.getElementById("confettiContainer");
 
 /* ---------- Reveal Certificate ---------- */
-
 revealAward.addEventListener("click", () => {
-
-    alert("Reveal button works!");
 
     introPage.classList.add("hidden");
 
     certificatePage.classList.remove("hidden");
 
-    certificate.classList.add("show");
+    requestAnimationFrame(() => {
+
+        certificate.classList.add("show");
+
+        launchConfetti();
+
+        addSparkles();
+
+    });
 
 });
-/* ---------- Continue ---------- */
+------ Continue ---------- */
 
 nextLevel.addEventListener("click", () => {
 
