@@ -13,8 +13,8 @@ const confettiContainer = document.getElementById("confettiContainer");
 revealAward.addEventListener("click", () => {
 
     introPage.classList.add("hidden");
-
-    certificatePage.classList.remove("hidden");
+certificatePage.style.display = "flex";
+    
 
     requestAnimationFrame(() => {
 
