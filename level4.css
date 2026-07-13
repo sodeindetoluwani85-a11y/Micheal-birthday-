@@ -79,13 +79,18 @@ button:hover{
 /* ================= CERTIFICATE PAGE ================= */
 
 #certificatePage{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
-    padding:50px 20px;
-}
 
+    display:none;
+
+    min-height:100vh;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    padding:50px 20px;
+
+}
 #certificate{
 
     background:#fffdf8;
